@@ -3,11 +3,49 @@
 
 <head>
     <title>My GitHub Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .button-container {
+            margin: 20px 0;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #1E90FF;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #1C86EE;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Root</h1>
-    <button onclick="location.href='website_A.html'">Website A</button>
+    <div class="button-container">
+        <a href="website_A.html" class="link-button">Website A</a>
+        <a href="website_b.html" class="link-button">Website B</a>
+        <a href="website_c.html" class="link-button">Website C</a>
+    </div>
 </body>
 
 </html>

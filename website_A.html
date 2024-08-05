@@ -3,15 +3,113 @@
 
 <head>
     <title>Website A</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #1E90FF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .link-section {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .link-section p {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #1E90FF;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #1C86EE;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Website A</h1>
-    <p>Website A是用來熟悉何謂＂錨文字與目標網頁相關性測試＂</p>
-    <a href="https://www.google.com" target="_blank">Google</a><br>
-    <a href="https://mail.ntu.edu.tw/owa/calendar/231111d435d54d41908fa9c59d0812a3@ntu.edu.tw/4576890d12e040bab4ab864c413aa2be12994112486015644960/calendar.html"
-        target="_blank">NTU 113學年度行事曆</a><br>
-    <a href="https://www.showtimes.com.tw/ticketing" target="_blank">NTU 113學年度行事曆</a><br>
+    <h2>Website A是用來熟悉何謂＂鏈結文字與目標網頁相關性測試＂</h2>
+    <p>我們想讓各位在Website A理解何謂<span class="highlight">相關</span>。</p>
+    <div class="link-section">
+        <p>以下是一些例子：</p>
+        <p>首先，這個錨文字為 Google 的鏈結：
+            <a href="https://www.google.com" target="_blank">Google</a><br>
+            我們可能會設想它可以鏈結到 Google 相關的網頁<br>
+            而它確實也是鏈結到 Google沒錯<br>
+            因此我們會傾向認為此錨文字與目標網頁的相關性是
+            <span class="highlight">高</span>的。
+        </p>
+    </div>
+
+    <div class="link-section">
+        <p>下面這個鏈結，我們會傾向相關性是
+            <span class="highlight">高</span>的:
+        </p>
+        <a href="https://mail.ntu.edu.tw/owa/calendar/231111d435d54d41908fa9c59d0812a3@ntu.edu.tw/4576890d12e040bab4ab864c413aa2be12994112486015644960/calendar.html"
+            target="_blank">NTU 113學年度行事曆</a>
+        <p>鏈結錨文字：NTU 113學年度行事曆</p>
+        <p>目標網頁：NTU 113學年度行事曆</p>
+        <p>兩者相關度：高</p>
+    </div>
+
+    <div class="link-section">
+        <p>反之，這個例子我們則會傾向判斷相關性為<span class="highlight">低</span>:</p>
+        <a href="https://www.showtimes.com.tw/ticketing" target="_blank">
+            <img src="src/image.jpg" alt="鏈結也可能是張圖片" style="max-width: 100%; height: auto;">
+        </a>
+        <p>鏈結圖片文字：NTU 113學年度行事曆 </p>
+        <p>目標網頁：電影院購票網頁</p>
+        <p>兩者相關度：低</p>
+        <br>
+        <p>小提醒：鏈結本身也可能是張圖片</p>
+    </div>
+    <div style="text-align: center;">
+        <a href="index.html" class="link-button">了解了，準備開始測驗</a>
+    </div>
+
 </body>
 
 </html>
