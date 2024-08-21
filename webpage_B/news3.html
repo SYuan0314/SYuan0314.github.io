@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>近期設計趨勢</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #007BFF;
+            margin-top: 30px;
+        }
+
+        .trend {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .trend:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #555;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-size: 90%;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 導航欄 -->
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" target="_blank"><img src="img/logo.png" alt="logo" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html" target="_blank">Home</a></li>
+                        <li><a href="about.html" target="_blank">關於我們</a></li>
+                        <li><a href="courses.html" target="_blank">課程介紹</a></li>
+                        <li><a href="pricing.html" target="_blank">課程訂閱</a></li>
+                        <li><a href="portfolio.html" target="_blank">歷屆學員專案展示</a></li>
+                        <li><a href="contact.html" target="_blank">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>近期設計趨勢</h1>
+        <div class="trend">
+            <h2>1. 暗黑模式</h2>
+            <p>暗黑模式現已被廣泛接受為現代 UI／UX 設計中的一種標準實踐，特別是在低光環境下或針對夜間模式設置時的用戶體驗優化。其核心在於利用基於用戶偏好的系統級查詢機制，即
+                <code>@media (prefers-color-scheme: dark)</code>，以實現動態且上下文敏感的 UI 主題切換。這要求設計者在考量色彩對比度時，必須依據 WCAG
+                2.1 的可達性標準來調整前景與背景之間的亮度比值，確保在高達 7:1 的對比度條件下維持文字內容的可讀性。此外，深灰色 (#121212) 的使用而非純黑色 (#000000)
+                不僅減輕了視覺疲勞，還優化了 OLED 顯示器的能效特性，從而提升了整體的電池壽命。在品牌一致性的維護中，色彩方案的選擇亦應符合 CI（Corporate
+                Identity） 的設計語言，避免因過度依賴深色模式而導致品牌視覺辨識度的喪失。因此，設計者需慎重考量暗黑模式下色彩的微妙調整，平衡可讀性、品牌一致性與用戶體驗之間的關係。
+            </p>
+        </div>
+
+        <div class="trend">
+            <h2>2. 微互動</h2>
+            <p>微互動（Microinteractions）作為現代 UI/UX 設計中的關鍵元素，通過高度精細的動態效果來強化用戶與界面的交互體驗。這些微小的動態反應通常依賴於 CSS 動畫或 JavaScript
+                事件監聽器的實現。具體而言，設計師常通過
+                <code>@keyframes</code> 來定義關鍵幀動畫，這涉及到時間軸的插值運算和樣條曲線的平滑過渡，以實現如淡入淡出、縮放等效果。此外，JavaScript 中的
+                <code>addEventListener</code> 被用來監聽用戶的交互事件，並觸發相應的動態反應，如按鈕的縮放和回彈效果。這些動畫反應通常會配合
+                <code>transform: scale(0.95)</code> 和 <code>transition</code>
+                屬性來模擬物理按壓效果，其背後運用了基於彈性運動方程的動態仿真技術，以提供更加真實的反饋感。值得注意的是，這些微互動不僅需要在性能優化上進行考量，還需確保其不影響主流程的運行，這涉及到瀏覽器的渲染優化與動畫幀率的調整。因此，微互動的設計不僅僅是視覺層面的增強，更是對用戶行為心理學的深度應用，以在潛移默化中引導用戶完成操作並提高整體使用體驗。
+            </p>
+        </div>
+
+        <div class="trend">
+            <h2>3. 3D 元素與擴增實境（AR）技術分析</h2>
+
+            <p>伴隨著 WebGL 和 WebXR API 的進一步成熟，3D 元素與擴增實境（AR）技術已然成為當代數位互動設計的核心支柱之一。</p>
+
+            <h3>WebGL 的功能：</h3>
+            <ul>
+                <li>透過基於 OpenGL ES 的圖形渲染管線，實現了在瀏覽器環境中進行硬體加速的高效三維渲染。</li>
+                <li>其底層架構涉及到幾何著色器、片段著色器以及多重採樣抗鋸齒（MSAA）的整合。</li>
+                <li>確保了高複雜度模型在運行時的流暢性與真實感。</li>
+            </ul>
+
+            <h3>WebXR API 的擴展：</h3>
+            <ul>
+                <li>將 WebGL 的能力延展至虛擬實境（VR）及擴增實境（AR）領域。</li>
+                <li>通過支援立體視覺（Stereoscopic Vision）、頭部追蹤（Head Tracking）與空間映射（Spatial Mapping），實現了沉浸式體驗的跨設備一致性。</li>
+            </ul>
+
+            <h3>3D 模型的構建與管理：</h3>
+            <ul>
+                <li>設計師可以運用 Three.js 等高級 JavaScript 庫進行 3D 模型的構建與管理。</li>
+                <li>該庫基於 WebGL 提供了對場景圖結構、光源計算、物理引擎（如 Cannon.js 或 Ammo.js）以及動態紋理映射的抽象封裝，大幅簡化了複雜場景的開發流程。</li>
+            </ul>
+
+            <h3>AR 內容的無縫集成：</h3>
+            <ul>
+                <li>開發者可借助 AR.js 或 A-Frame 等框架，這些框架對 WebXR 的低層次操作進行了封裝。</li>
+                <li>通過結合 HTML 標記語言與 DOM 操作，實現了與瀏覽器的高效協同處理，使得開發者能夠更專注於互動邏輯的設計。</li>
+            </ul>
+
+            <h3>技術協同運作的優勢：</h3>
+            <ul>
+                <li>賦予了用戶在虛擬與現實之間自由切換的能力。</li>
+                <li>通過手勢識別（Gesture Recognition）、即時光線追蹤（Ray Tracing）、環境遮蔽（Ambient Occlusion）等高階技術，用戶可對 3D
+                    模型進行旋轉、縮放、甚至實時變形。</li>
+            </ul>
+
+            <h3>應用潛力：</h3>
+            <ul>
+                <li>這種交互方式在產品可視化展示和教育訓練中展現出了巨大的潛力與價值。</li>
+                <li>基於空間定位追蹤（Spatial Positioning Tracking）和動態光源調整（Dynamic Lighting Adjustment）技術的應用，這些 AR
+                    體驗可以達到極高的沉浸感，使得虛擬物體與現實環境的融合更加自然。</li>
+                <li>進一步提升了用戶的參與度與感知真實性。</li>
+            </ul>
+
+            <p>近期 3D 元素與 AR 技術的深度結合，不僅革新了數字互動的模式，還為未來的網頁設計帶來了無限的創造可能與挑戰。</p>
+
+        </div>
+
+        <div class="trend">
+            <h2>4. 無邊界設計（Neumorphism）</h2>
+
+            <p>無邊界設計結合了扁平化和擬物化的優點，其核心在於通過柔和的陰影和立體效果，達到獨特的浮動視覺效果。</p>
+
+            <h3>無邊界設計的核心技術：</h3>
+            <ul>
+                <li>利用 <code>box-shadow</code> 創造柔和的陰影效果，以營造元素的浮動感。</li>
+                <li>開發者需精確控制陰影的顏色、模糊程度和偏移距離，確保陰影與背景的自然過渡。</li>
+            </ul>
+
+            <h3>模仿光源效果：</h3>
+            <ul>
+                <li>使用漸變背景（<code>background: linear-gradient()</code>）來模仿真實光源效果。</li>
+                <li>此技術可讓界面元素的陰影和高光效果更加自然真實，增強立體感。</li>
+            </ul>
+
+            <p>在實作中，無邊界設計要求設計者對光影的精確控制，以及對整體設計一致性的維護。這種設計風格不僅提升了視覺上的美觀性，還能提供用戶更為舒適的互動體驗。</p>
+        </div>
+
+        <div class="trend">
+            <h2>5. 扁平化設計 2.0</h2>
+            <p>扁平化設計 2.0 代表了現代 UI 設計的一種趨勢，它在保留極簡設計核心理念的基礎上，融合了多層次的視覺效果和動態元素的設計理論。透過
+                <code>background: linear-gradient()</code>
+                屬性的多段色彩漸變技術，設計師可以實現複雜的光影模擬，使得界面表層的視覺層次更加豐富。這種技術依賴於基於雙線性插值的色彩混合算法，允許多種顏色在空間內進行連續過渡，從而創造出更為自然且動態的視覺效果。此外，
+                <code>box-shadow</code>
+                屬性提供的陰影控制則更為精細，其內部處理涉及到高斯模糊運算來生成柔和邊緣，並通過操控多重陰影疊加來模擬深度感。這種基於多重陰影源的視覺錯覺可以通過精確調整偏移量和透明度實現，進一步增強了平面設計中的立體感。設計師還需考慮到動態視差效應（Parallax
+                Scrolling）的整合，該技術利用背景和前景之間不同的滾動速率，增強了用戶在界面中的沉浸感。結合 CSS
+                變換（transform）屬性中的三維矩陣運算，可以模擬複雜的空間變形效果，進一步加強了界面的互動性和視覺吸引力。整體來看，扁平化設計
+                2.0 不僅僅是對極簡風格的延續，更是對 UI 動態交互設計的一次深度革新，透過嚴謹的數學模型與色彩理論，為用戶帶來更高維度的視覺與操作體驗。
+            </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">聯絡資訊</h5>
+                    <address>
+                        <strong>Abovecompany Inc</strong><br>
+                        106319 <br>臺北市大安區羅斯福路四段一號
+                    </address>
+                    <p>
+                        <i class="icon-phone"></i> 02-3366-3366
+                        <br>
+                        <i class="icon-envelope-alt"></i> contactus@abovecompany.com
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">相關內容</h5>
+                    <ul class="link-list">
+                        <li><a href="Student Services.html" target="_blank">學員服務</a></li>
+                        <li><a href="Terms and conditions.html" target="_blank">使用條款</a>
+                        </li>
+                        <li><a href="Privacy policy.html" target="_blank">隱私政策</a></li>
+                        <li><a href="FAQ.html" target="_blank">常見問題</a></li>
+                        <li><a href="contact.html" target="_blank">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">專家觀點</h5>
+                    <ul class="link-list">
+                        <li><a href="news1.html" target="_blank">知識拓展
+                            </a></li>
+                        <li><a href="news2.html" target="_blank">
+                                工具與資源</a></li>
+                        <li><a href="news3.html" target="_blank">行業趨勢</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">最新消息</h5>
+                    <ul class="link-list">
+                        <li><a href="news4.html" target="_blank">即將更新：Python 依賴套件供應鏈攻擊與預防</a></li>
+                        <li><a href="news5.html" target="_blank">行業新聞：最新網頁設計趨勢解讀</a></li>
+                        <li><a href="news6.html" target="_blank">免費線上講座：Web 技術的應用物聯網設備即時數據可視化，名額有限！</a>
+                        <li><a href="news7.html" target="_blank">課程網站升級：個性化學習進度追蹤全新上線</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                        <p>
+                            <span>&copy; Above Site All right reserved. Template
+                                By </span><a href="https://github.com/learning-zone/website-templates/"
+                                target="_blank">learning-zone</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

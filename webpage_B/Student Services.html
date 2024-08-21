@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Forbidden</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        h1 {
+            font-size: 50px;
+            color: #cc0000;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .error-container {
+            background-color: #fff;
+            display: inline-block;
+            position: absolute;
+            /* 讓容器可以絕對定位 */
+            top: 50%;
+            /* 上下置中 */
+            left: 50%;
+            /* 左右置中 */
+            transform: translate(-50%, -50%);
+            /* 將容器的中心點移動到畫面中央 */
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:hover {
+            color: #004c99;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" target="_blank"><img src="img/logo.png" alt="logo" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html" target="_blank">Home</a></li>
+                        <li><a href="about.html" target="_blank">關於我們</a></li>
+                        <li><a href="courses.html" target="_blank">課程介紹</a></li>
+                        <li><a href="pricing.html" target="_blank">課程訂閱</a></li>
+                        <li><a href="portfolio.html" target="_blank">歷屆學員專案展示</a></li>
+                        <li><a href="contact.html" target="_blank">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="error-container">
+        <h1>403 Forbidden</h1>
+        <p>您無權訪問此頁面。</p>
+        <p>如果您認為這是錯誤，請聯繫網站管理員。</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料加載中...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #cc0000;
+            margin-top: 30px;
+            display: none;
+            /* 預設不顯示 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <h1>資料加載中，請稍候...</h1>
+    <p class="error-message">伺服器未返回任何資料，請重新傳送請求。</p>
+
+    <script>
+        // 模擬後端超時或未返回資料
+        setTimeout(function () {
+            document.querySelector('.error-message').style.display = 'block'; // 顯示錯誤訊息
+            document.querySelector('.loader').style.display = 'none'; // 隱藏加載動畫
+            document.querySelector('h1').innerText = '加載失敗';
+        }, 150000); // 150秒後顯示錯誤訊息
+    </script>
+</body>
+
+</html>

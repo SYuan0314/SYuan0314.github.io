@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <title>常見問題</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="http://webthemez.com" />
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #007BFF;
+            margin-bottom: 30px;
+        }
+
+        .faq {
+            border-top: 2px solid #007BFF;
+            padding-top: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            opacity: 1;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 導航欄 -->
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" target="_blank"><img src="img/logo.png" alt="logo" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html" target="_blank">Home</a></li>
+                        <li><a href="about.html" target="_blank">關於我們</a></li>
+                        <li><a href="courses.html" target="_blank">課程介紹</a></li>
+                        <li><a href="pricing.html" target="_blank">課程訂閱</a></li>
+                        <li><a href="portfolio.html" target="_blank">歷屆學員專案展示</a></li>
+                        <li><a href="contact.html" target="_blank">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>常見問題</h1>
+
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">
+                    1. 這個網站開發課程適合誰？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>這個網站開發課程專為對網站開發感興趣的各類人群設計。無論您是完全的初學者，還是已有開發經驗的專業人士，都能在這裡找到適合自己的學習內容。對於初學者來說，課程會從最基礎的 HTML 和 CSS
+                        開始，逐步帶您進入網站開發的世界。我們會提供詳細的指導和實作機會，讓您能夠從無到有地構建網站。</p>
+                    <p>對於有經驗的開發者，這個課程將提供進階的內容，如前端框架（例如 React）、後端開發（Node.js 和
+                        Express）、資料庫管理（MongoDB）等。這些進階課程設計是為了幫助您拓展技能，應對更複雜的開發挑戰。我們還會介紹最新的開發趨勢和技術，確保您能夠保持行業競爭力。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    2. 課程中會使用哪些工具和技術？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>在這個網站開發課程中，我們將使用多種當前行業內最流行和實用的工具和技術。首先，您將學習如何使用 Visual Studio
+                        Code，它是一款強大且免費的源代碼編輯器，支持多種程式語言並擁有豐富的擴展功能。</p>
+                    <p>課程將深入探討 HTML5 和 CSS3，讓您掌握現代網頁設計的基本技術。隨後，我們會引入 JavaScript，教您如何使用這個強大的程式語言來構建互動性強的網頁。我們還將探討使用 Git 和
+                        GitHub 進行版本控制，這是當今軟件開發中必不可少的技能。</p>
+                    <p>除此之外，課程將涵蓋更高階的技術，如 Node.js 進行伺服器端開發、Express 框架來管理伺服器路由、MongoDB 作為 NoSQL 資料庫系統，以及 React
+                        用於構建動態的前端應用。這些工具和技術將為您提供全面的網站開發知識，讓您能夠應對現代網站開發的各種挑戰。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    3. 我需要具備哪些先修知識才能參加這個課程？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>這個課程專為初學者設計，因此您不需要具備任何先前的程式設計或網站開發經驗。我們將從零開始，帶您逐步了解網站開發的基礎知識和概念。只要您有基礎的計算機操作技能，例如能夠使用網頁瀏覽器、文字處理軟件和檔案管理系統，就可以輕鬆開始學習。
+                    </p>
+                    <p>如果您已經有一些程式設計背景，這將幫助您更快地掌握課程內容。我們的課程內容覆蓋範圍廣泛，無論您是從零開始學習，還是希望鞏固已有的技能，我們都會提供相應的學習資源和挑戰性的實作練習。</p>
+                    <p>此外，課程還包括與行業專家的問答環節，以及針對常見問題的技術支援，這些都將幫助您克服學習中的任何困難，確保您能夠順利完成課程並獲得實用技能。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    4. 我可以在課程中學到哪些實用技能？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>參加這個課程後，您將掌握多種實用的網站開發技能。首先，您將學會如何使用 HTML 和 CSS
+                        來構建美觀且功能強大的網站。您將能夠設計響應式網頁，使其在不同裝置上都能有良好的顯示效果。此外，您還會學習 JavaScript
+                        這一強大的程式語言，從而實現網頁的互動性，例如表單驗證、動畫效果和數據動態更新。</p>
+                    <p>在後端開發方面，您將學習如何使用 Node.js 和 Express 框架來開發伺服器端應用程式。我們將指導您構建 API、處理請求和回應，以及與資料庫進行交互。資料庫管理方面，您將學會使用
+                        MongoDB 來存儲和檢索資料，並瞭解 NoSQL 資料庫的優勢與應用場景。</p>
+                    <p>完成課程後，您還將掌握前後端整合的技術，能夠獨立構建全棧網站。此外，課程還會介紹如何使用 Git
+                        進行版本控制，讓您在團隊開發中得心應手。這些技能將使您能夠從事網站開發相關的工作，或是自主開發自己的網站專案。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    5. 課程支持哪些學習模式？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>我們的網站開發課程設計了多種學習模式，以適應不同學員的學習需求。您可以選擇自學模式，這種模式適合那些擁有高度自我驅動力的學員，您可以按照自己的進度進行學習。我們提供豐富的學習資源，包括視頻講解、閱讀材料、實作練習和測驗題目，讓您能夠自主掌握網站開發的每個階段。
+                    </p>
+                    <p>如果您希望在學習過程中獲得更多的支持和指導，我們還提供導師輔導模式。在這種模式下，您將會與經驗豐富的導師進行定期的在線會議，他們會根據您的學習進度提供個性化的建議，並解答您在學習過程中遇到的各種疑問。此外，我們還有定期的在線研討會，邀請行業專家分享他們的經驗和技巧，幫助您進一步提升技能。
+                    </p>
+                    <p>無論您選擇哪種學習模式，我們都會提供一個友好的學習社群，您可以與其他學員交流經驗、分享學習成果。我們相信這種社群氛圍將有助於激發您的學習動力，並幫助您克服學習中的挑戰。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    6. 我可以在學習過程中獲得支援嗎？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>我們非常重視學員的學習體驗，因此提供了全方位的學習支援服務。在學習過程中，您可以隨時通過課程平台的討論區提出問題，其他學員和導師將會及時回應您的疑問。我們鼓勵學員積極參與討論，這不僅能幫助您解決問題，還能擴展您的知識視野。
+                    </p>
+                    <p>此外，我們還設有專門的技術支援團隊，隨時準備為您解決學習過程中遇到的技術問題。無論是軟件安裝、程式碼錯誤還是網站部署，技術支援團隊都將提供專業的指導，確保您能順利完成學習任務。</p>
+                    <p>我們還提供每周的在線答疑會議，您可以在會議中與導師進行一對一的互動，針對您遇到的具體問題進行深入探討。這些支援服務旨在幫助您克服學習中的障礙，確保您在課程中獲得成功。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    7. 課程結束後，我能夠獲得什麼樣的認證或證書？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>當您成功完成網站開發課程的所有學習內容後，您將獲得由我們頒發的結業證書。這張證書不僅是對您努力學習的肯定，也是您在網站開發領域能力的有力證明。結業證書將詳列您所學的主要技能和完成的專案，這對於求職或進一步進修將大有幫助。
+                    </p>
+                    <p>此外，在課程中，您將會完成多個實際開發專案，這些專案將成為您個人作品集的重要組成部分。當您尋求網站開發工作時，這些作品將展示您在真實場景中應用所學技能的能力，讓潛在的雇主或客戶看到您的實力。
+                    </p>
+                    <p>我們也將提供職業發展支援，幫助您撰寫技術簡歷、準備面試，並建立專業領域的人脈網絡。我們的目標是確保您在完成課程後，不僅獲得知識，還能夠在實際職場中成功應用這些技能，實現您的職業目標。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    8. 我如何報名參加這個課程？
+                    <i>▼</i>
+                </div>
+                <div class="faq-answer">
+                    <p>報名參加我們的網站開發課程非常簡單。您只需訪問我們的官方網站，然後在課程頁面上找到「立即報名」的按鈕。點擊按鈕後，您將被引導至報名表單頁面，請填寫相關個人資訊，如姓名、電子郵件地址和聯繫電話等。
+                    </p>
+                    <p>完成表單後，您將進入支付頁面。我們支持多種支付方式，包括信用卡、PayPal
+                        和銀行轉帳，您可以選擇最方便的支付方式來完成付款。支付完成後，您將會收到一封確認郵件，內含您的課程登入資訊和開始學習的詳細指南。</p>
+                    <p>如果您在報名過程中遇到任何問題或有任何疑問，可以隨時聯繫我們的客服團隊。我們的客服人員將會耐心解答您的問題，並幫助您順利完成報名。報名完成後，您將立即可以訪問課程內容，開始您的網站開發學習之旅。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widgetheading">聯絡資訊</h5>
+                        <address>
+                            <strong>Abovecompany Inc</strong><br>
+                            106319 <br>臺北市大安區羅斯福路四段一號
+                        </address>
+                        <p>
+                            <i class="icon-phone"></i> 02-3366-3366
+                            <br>
+                            <i class="icon-envelope-alt"></i> contactus@abovecompany.com
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widgetheading">相關內容</h5>
+                        <ul class="link-list">
+                            <li><a href="Student Services.html" target="_blank">學員服務</a></li>
+                            <li><a href="Terms and conditions.html" target="_blank">使用條款</a>
+                            </li>
+                            <li><a href="Privacy policy.html" target="_blank">隱私政策</a></li>
+                            <li><a href="FAQ.html" target="_blank">常見問題</a></li>
+                            <li><a href="contact.html" target="_blank">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widgetheading">專家觀點</h5>
+                        <ul class="link-list">
+                            <li><a href="news1.html" target="_blank">知識拓展
+                                </a></li>
+                            <li><a href="news2.html" target="_blank">
+                                    工具與資源</a></li>
+                            <li><a href="news3.html" target="_blank">行業趨勢</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget">
+                        <h5 class="widgetheading">最新消息</h5>
+                        <ul class="link-list">
+                            <li><a href="news4.html" target="_blank">即將更新：Python 依賴套件供應鏈攻擊與預防</a></li>
+                            <li><a href="news5.html" target="_blank">行業新聞：最新網頁設計趨勢解讀</a></li>
+                            <li><a href="news6.html" target="_blank">免費線上講座：Web 技術的應用物聯網設備即時數據可視化，名額有限！</a>
+                            <li><a href="news7.html" target="_blank">課程網站升級：個性化學習進度追蹤全新上線</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright">
+                            <p>
+                                <span>&copy; Above Site All right reserved. Template
+                                    By </span><a href="https://github.com/learning-zone/website-templates/"
+                                    target="_blank">learning-zone</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function () {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
