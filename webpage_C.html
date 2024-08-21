@@ -28,8 +28,8 @@
 
     <link rel="stylesheet" href="./webpage_C_files/layout.css" media="all">
 
-    <link rel="stylesheet" onload="this.onload=null;this.removeAttribute(&#39;media&#39;);"
-        href="./webpage_C_files/css2">
+    <link rel="stylesheet" onload="this.onload=null;this.removeAttribute('media');" href="./webpage_C_files/css2">
+
 
     <noscript>
         <link rel="stylesheet"
@@ -48,42 +48,6 @@
 
 <body class="d-flex flex-column min-vh-100 fontSizeM" data-aos-easing="ease" data-aos-duration="800"
     data-aos-delay="100">
-    <noscript>
-        Your browser does not support JavaScript! 您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態。
-    </noscript>
-    <script>
-        //default theme&fontSize
-        var theme = localStorage['theme'];
-        var fontSize = localStorage['fontSize'];
-        if (theme == undefined) {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) {
-                document.documentElement.className += ' dark';
-            }
-        } else {
-            switch (theme) {
-                case 'light':
-                    document.documentElement.className += ' light';
-                    break;
-                case 'dark':
-                    document.documentElement.className += ' dark';
-                    break;
-            }
-        }
-        switch (fontSize) {
-            case '1':
-                document.body.className += ' fontSizeL';
-                break;
-            case '2':
-                document.body.className += ' fontSizeM';
-                break;
-            case '3':
-                document.body.className += ' fontSizeS';
-                break;
-            default:
-                document.body.className += ' fontSizeM';
-                break;
-        }
-    </script>
     <header class="header">
         <div b-cc24bo3soz="" id="divHeader"><!-- 滿版的搜尋 -->
 
@@ -108,13 +72,13 @@
 
         <div class="breadcrumb1">
             <div class="wrap4 mx-auto px-3 px-md-4 px-lg-5">
-                <nav style="--bs-breadcrumb-divider: &#39;&gt;&#39;;" aria-label="breadcrumb">
+                <nav style="--bs-breadcrumb-divider: '&#39;&gt;&#39;;" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item breadHome">
-                            <a href="https://moda.gov.tw/index.html" )"="">首頁</a>
+                            <a href="https://moda.gov.tw/index.html" target="_blank">首頁</a>＞
                         </li>
-                        <li class="breadcrumb-item  ">
-                            <a href="https://moda.gov.tw/aboutus/402.html">關於moda</a>
+                        <li class=" breadcrumb-item ">
+                            <a href=" https://moda.gov.tw/aboutus/402.html" target="_blank">關於moda</a>＞
                         </li>
                         <li class="breadcrumb-item  active">
                             業務職掌 </li>
@@ -131,171 +95,34 @@
                     </div>
                     <b class="title6 d-block pt-1 lh-sm">數位發展部</b>
                     <ul class="sidebar list-unstyled sidebarJs">
-                        <li class="">
-                            <a class="menuI hasSub" href="javascript:;" target="" title="重點政策"><span
-                                    class="menuIFirst">重點政策</span></a>
-                            <ul class="menuSub list-unstyled">
-                                <li class="">
-                                    <a href="javascript:;" target="" title="施政說明">施政說明</a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:;" target="" title="施政說明">強化偏鄉數位服務</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/major-policies/alignment-assemblies/1453.html"
-                                        target="" title="對齊大會 Alignment Assemblies">對齊大會 Alignment Assemblies</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/major-policies/ngoempower/1465.html" target=""
-                                        title="數據賦能 公益創新">數據賦能 公益創新</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a class="menuI hasSub" href="javascript:;" target="" title="核心業務"><span
-                                    class="menuIFirst">核心業務</span></a>
-                            <ul class="menuSub list-unstyled">
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/digital-strategy/350.html" target=""
-                                        title="數位策略">數位策略</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/communications-cyber-resilience/358.html"
-                                        target="" title="韌性建設">韌性建設</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/resource-management/356.html" target=""
-                                        title="資源管理">資源管理</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/digital-service/354.html" target=""
-                                        title="數位政府">數位政府</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/democracy-network/360.html" target=""
-                                        title="民主網絡">民主網絡</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/digital-affairs/plural-innovation/352.html" target=""
-                                        title="多元創新">多元創新</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/ADI/index.html" target="_blank"
-                                        rel="noreferrer noopener" title="數位產業署（另開新視窗）">數位產業署</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/ACS/index.html" target="_blank"
-                                        rel="noreferrer noopener" title="資通安全署（另開新視窗）">資通安全署</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a class="menuI hasSub" href="javascript:;" target="" title="公告訊息"><span
-                                    class="menuIFirst">公告訊息</span></a>
-                            <ul class="menuSub list-unstyled">
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/bulletin/1179.html" target=""
-                                        title="行政公告">行政公告</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/press-releases/372.html" target=""
-                                        title="新聞發布">新聞發布</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/background-information/1003.html" target=""
-                                        title="新聞參考資料">新聞參考資料</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/clarification/378.html" target=""
-                                        title="常見問題澄清">常見問題澄清</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://web.pcc.gov.tw/prkms/tender/common/basic/readTenderBasic?pageSize=50&amp;firstSearch=true&amp;searchType=basic&amp;isBinding=N&amp;level_1=on&amp;orgName=%E6%95%B8%E4%BD%8D%E7%99%BC%E5%B1%95%E9%83%A8&amp;orgId=&amp;tenderName=&amp;tenderId=&amp;tenderType=TENDER_DECLARATION&amp;tenderWay=TENDER_WAY_ALL_DECLARATION&amp;dateType=isSpdt&amp;tenderStartDate=2023%2F03%2F02&amp;tenderEndDate=2023%2F03%2F08&amp;radProctrgCate=##"
-                                        target="_blank" rel="noreferrer noopener" title="招標公告（另開新視窗）">招標公告</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/recruitment/376.html" target=""
-                                        title="徵才公告">徵才公告</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/multimedia/1197.html" target=""
-                                        title="多媒體專區">多媒體專區</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/press/dictionary/1431.html" target=""
-                                        title="moda小辭典">moda小辭典</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a class="menuI hasSub" href="javascript:;" target="" title="資訊服務"><span
-                                    class="menuIFirst">資訊服務</span></a>
-                            <ul class="menuSub list-unstyled">
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/govinfo/384.html" target=""
-                                        title="資訊公開">資訊公開</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://data.gov.tw/datasets/search?p=1&amp;size=10&amp;s=pubdate.date_desc&amp;rat=42526"
-                                        target="_blank" rel="noreferrer noopener" title="資料開放（另開新視窗）">資料開放</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/service/1171.html" target=""
-                                        title="申辦及服務">申辦及服務</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/laws-and-regulations/1057.html"
-                                        target="" title="法規查詢">法規查詢</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/ethics/1239.html" target=""
-                                        title="廉政專區">廉政專區</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/bilingual-glossary/1391.html"
-                                        target="" title="雙語詞彙">雙語詞彙</a>
-                                </li>
-                                <li class="">
-                                    <a href="https://moda.gov.tw/information-service/cooperation-advocacy/1541.html"
-                                        target="" title="協力宣導">協力宣導</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="on">
                             <a class="menuI hasSub" href="javascript:;" target="" title="關於moda"><span
                                     class="menuIFirst">關於moda</span></a>
                             <ul class="menuSub list-unstyled">
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/introduction/404.html" target=""
-                                        title="本部簡介">本部簡介</a>
+                                    <a href="javascript:;" target="" title="本部簡介">本部簡介</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/principal-officers/987.html" target=""
-                                        title="正副首長">正副首長</a>
+                                    <a href="javascript:;" target="" title="正副首長">正副首長</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/organization/620.html" target=""
-                                        title="組織架構">組織架構</a>
+                                    <a href="javascript:;" target="" title="組織架構">組織架構</a>
                                 </li>
                                 <li class="on">
-                                    <a href="https://moda.gov.tw/aboutus/functions/622.html" target=""
-                                        title="業務職掌">業務職掌</a>
+                                    <a href="javascript:;" target="" title="業務職掌">業務職掌</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/history/410.html" target=""
-                                        title="重要紀事">重要紀事</a>
+                                    <a href="javascript:;" target="" title="重要紀事">重要紀事</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/visuals/412.html" target=""
-                                        title="標誌設計">標誌設計</a>
+                                    <a href="javascript:;" target="" title="標誌設計">標誌設計</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/ministers-since-2022/1527.html" target=""
-                                        title="歷任部長">歷任部長</a>
+                                    <a href="javascript:;" target="" title="歷任部長">歷任部長</a>
                                 </li>
                                 <li class="">
-                                    <a href="https://moda.gov.tw/aboutus/contact/414.html" target=""
-                                        title="聯絡資訊">聯絡資訊</a>
+                                    <a href="javascript:;" target="" title="聯絡資訊">聯絡資訊</a>
                                 </li>
                             </ul>
                         </li>
@@ -307,10 +134,6 @@
 
 
                 <div class="rightMain">
-                    <div class="a11yBrickBar1">
-                        <a href="https://moda.gov.tw/aboutus/functions/622#AC" id="AC" accesskey="C"
-                            class="a11yBrick position-absolute" title="中央內容區塊[快捷鍵Alt+C]">:::</a>
-                    </div>
                     <!--標題-->
                     <div class="titleBar2 row">
                         <div class="col">
@@ -318,57 +141,7 @@
                         </div>
 
                     </div>
-                    <!--搜尋功能-->
-                    <div class="conSearchBar1 mb-4 conSearchBarJs off">
-                        <div class="conSearchBarWrap">
-                            <!-- 結尾有日曆的 -->
-                            <div class="searchIw3">
-                                <div class="searchI">
-                                    <div class="searchI-C">
-                                        <label for="QryDateS" class="visually-hidden">日期</label>
-                                        <input name="QryDateS" type="text" id="QryDateS" title="yyyy-mm-dd"
-                                            class="ipt1 rounded-4 datepicker1 hasDatepicker" placeholder="yyyy-mm-dd"
-                                            maxlength="10" autocomplete="off" value="">
-                                    </div>
-                                    <div class="searchI-R">
-                                        <a href="javascript:;" title="點擊選擇日期起日" class="calendarBtn1"><span
-                                                class="visually-hidden">點擊選擇日期起日</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 開頭有~結尾有日曆的 -->
-                            <div class="searchIw4">
-                                <div class="searchI">
-                                    <div class="searchI-L">~</div>
-                                    <div class="searchI-C">
-                                        <label for="QryDateE" class="visually-hidden">至</label>
-                                        <input name="QryDateE" type="text" id="QryDateE" title="yyyy-mm-dd"
-                                            class="ipt1 rounded-4 datepicker1 hasDatepicker" placeholder="yyyy-mm-dd"
-                                            maxlength="10" autocomplete="off" value="">
-                                    </div>
-                                    <div class="searchI-R">
-                                        <a href="javascript:;" title="點擊選擇日期迄日" class="calendarBtn1"><span
-                                                class="visually-hidden">點擊選擇日期迄日</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 結尾有按鈕 -->
-                            <div class="searchIw5">
-                                <div class="searchI">
-                                    <div class="searchI-C">
-                                        <label for="QryKeyword" class="visually-hidden">關鍵字</label>
-                                        <input type="text" name="QryKeyword" id="QryKeyword" placeholder="請輸入關鍵字"
-                                            value="" class="searchI-C ipt1 rounded-4 searchField" title="關鍵字搜尋">
-                                    </div>
-                                    <div class="searchI-R">
-                                        <input type="button" class="btn btn2 rounded-4 searchSubmit" value="查詢"
-                                            title="送出關鍵字查詢" onclick="Search(1)">
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
                     <!--Header-->
                     <div id="ContentHeader">
                         <div class="article1 mb-4">
@@ -410,8 +183,8 @@
                     <div class="list1 row mb-5 g-3" id="ListTable">
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/436.html"
-                                    class="card-body text-decoration-none" title="數位策略司" target="">
+                                <a href="./webpage_C_files/數位策略司.html" class="card-body text-decoration-none"
+                                    title="數位策略司" target="_blank">
                                     <b class="card-title title5">數位策略司</b>
                                     <p class="card-text">Department of Digital Strategy</p>
                                 </a>
@@ -419,8 +192,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/438.html"
-                                    class="card-body text-decoration-none" title="韌性建設司" target="">
+                                <a href="./webpage_C_files/韌性建設司.html" class="card-body text-decoration-none"
+                                    title="韌性建設司" target="_blank">
                                     <b class="card-title title5">韌性建設司</b>
                                     <p class="card-text">Department of Communications and Cyber Resilience</p>
                                 </a>
@@ -428,8 +201,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/440.html"
-                                    class="card-body text-decoration-none" title="資源管理司" target="">
+                                <a href="./webpage_C_files/資源管理司.html" class="card-body text-decoration-none"
+                                    title="資源管理司" target="_blank">
                                     <b class="card-title title5">資源管理司</b>
                                     <p class="card-text">Department of Resource Management</p>
                                 </a>
@@ -437,8 +210,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/442.html"
-                                    class="card-body text-decoration-none" title="數位政府司" target="">
+                                <a href="./webpage_C_files/數位政府司.html" class="card-body text-decoration-none"
+                                    title="數位政府司" target="_blank">
                                     <b class="card-title title5">數位政府司</b>
                                     <p class="card-text">Department of Digital Service</p>
                                 </a>
@@ -446,8 +219,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/444.html"
-                                    class="card-body text-decoration-none" title="民主網絡司" target="">
+                                <a href="./webpage_C_files/民主網絡司.html" class="card-body text-decoration-none"
+                                    title="民主網絡司" target="_blank">
                                     <b class="card-title title5">民主網絡司</b>
                                     <p class="card-text">Department of Democracy Network</p>
                                 </a>
@@ -455,8 +228,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/446.html"
-                                    class="card-body text-decoration-none" title="多元創新司" target="">
+                                <a href="./webpage_C_files/多元創新司.html" class="card-body text-decoration-none"
+                                    title="多元創新司" target="_blank">
                                     <b class="card-title title5">多元創新司</b>
                                     <p class="card-text">Department of Plural Innovation</p>
                                 </a>
@@ -464,8 +237,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/448.html"
-                                    class="card-body text-decoration-none" title="秘書處" target="">
+                                <a href="./webpage_C_files/秘書處.html" class="card-body text-decoration-none" title="秘書處"
+                                    target="_blank">
                                     <b class="card-title title5">秘書處</b>
                                     <p class="card-text">Secretariat</p>
                                 </a>
@@ -473,8 +246,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/452.html"
-                                    class="card-body text-decoration-none" title="人事處" target="">
+                                <a href="./webpage_C_files/主計處.html" class="card-body text-decoration-none" title="人事處"
+                                    target="_blank">
                                     <b class="card-title title5">人事處</b>
                                     <p class="card-text">Department of Personnel</p>
                                 </a>
@@ -482,8 +255,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/454.html"
-                                    class="card-body text-decoration-none" title="政風處" target="">
+                                <a href="./webpage_C_files/政風處.html" class="card-body text-decoration-none" title="政風處"
+                                    target="_blank">
                                     <b class="card-title title5">政風處</b>
                                     <p class="card-text">Department of Civil Service Ethics</p>
                                 </a>
@@ -491,17 +264,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/456.html"
-                                    class="card-body text-decoration-none" title="主計處" target="">
-                                    <b class="card-title title5">主計處</b>
-                                    <p class="card-text">Department of Budget, Accounting and Statistics</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/458.html"
-                                    class="card-body text-decoration-none" title="資訊處" target="">
+                                <a href="./webpage_C_files/法制處.html" class="card-body text-decoration-none" title="資訊處"
+                                    target="_blank">
                                     <b class="card-title title5">資訊處</b>
                                     <p class="card-text">Department of Information Management</p>
                                 </a>
@@ -509,16 +273,7 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/aboutus/functions/460.html"
-                                    class="card-body text-decoration-none" title="法制處" target="">
-                                    <b class="card-title title5">法制處</b>
-                                    <p class="card-text">Department of Legal Affairs</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/ADI/index.html" class="card-body text-decoration-none"
+                                <a href="./webpage_C_files/數位產業署.html" class="card-body text-decoration-none"
                                     title="數位產業署（另開新視窗）" rel="noreferrer" noopener="" target="_blank">
                                     <b class="card-title title5">數位產業署</b>
                                     <p class="card-text">Administration for Digital Industries</p>
@@ -527,8 +282,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="card h-100 shadow-md">
-                                <a href="https://moda.gov.tw/ACS/index.html" class="card-body text-decoration-none"
-                                    title="資通安全署（另開新視窗）" rel="noreferrer" noopener="" target="_blank">
+                                <a href="webpage_C_files/" class="card-body text-decoration-none" title="資通安全署（另開新視窗）"
+                                    rel="noreferrer" noopener="" target="_blank">
                                     <b class="card-title title5">資通安全署</b>
                                     <p class="card-text">Administration for Cyber Security</p>
                                 </a>
@@ -539,7 +294,7 @@
 
                     <div class="pageBar mb-5 ">
                         <div class="pageSet mb-4">
-                            <div class="mRow">共<span class="totalData">14</span>筆資料</div>
+                            <div class="mRow">共<span class="totalData">12</span>筆資料</div>
                         </div>
                     </div>
                     <!--Footer-->
@@ -553,19 +308,6 @@
 
             </div>
         </div>
-        <input type="hidden" value="622" id="sqn">
-        <div id="ns" style="display:none;">
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card h-100 shadow-md">
-                    <a href="https://moda.gov.tw/aboutus/functions/622#href" class="card-body text-decoration-none"
-                        target="#target" title="#title">
-                        <b class="card-title title5">#newstitle</b>
-                        <p class="card-text">#newssubtitle</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="ca" style="display:none;"></div>
     </main>
 
     </li>
@@ -580,7 +322,7 @@
                 <div class="row">
                     <div class="col-12 col-md">
                         <div class="ftBtmLogo mb-3">
-                            <a class="d-inline-block" href="https://moda.gov.tw/index.html">
+                            <a class="d-inline-block" href="webpage_C.html" target="_blank">
                                 <!-- 淺色版面的logo -->
                                 <img class="mw-100 lightShow" src="./webpage_C_files/5nw5fc0u.eo2.svg" width="340"
                                     height="56" alt="moda — 數位發展部 Ministry of Digital Affairs">
@@ -590,9 +332,9 @@
                             </a>
                         </div>
                         <div class="ftBtmRights">
-                            <p class="mb-2 mb-md-3"><a class="fileTypeI ms-0 me-1"
-                                    href="https://spdx.org/licenses/CC0-1.0" target="_blank"
-                                    title="Creative Commons Zero (另開新視窗)">CC0</a>No copyright reserved.</p>
+                            <p class="mb-2 mb-md-3"><a class="fileTypeI ms-0 me-1" href="./webpage_C_files/ 1.0.html"
+                                    target="_blank" title="Creative Commons Zero (另開新視窗)">CC0</a>No copyright reserved.
+                            </p>
 
                             <p class="mb-2 mb-md-0">更新日期： <span id="spanDateNow">2024-08-20</span></p>
                         </div>
@@ -600,8 +342,8 @@
                     <div class="col-12 col-md text-md-end">
                         <ul class="listSlash list-unstyled list-inline">
                             <li class="list-inline-item">
-                                <a class="text-decoration-none" href="https://moda.gov.tw/announcement/privacy/949.html"
-                                    title="隱私權及網站安全政策" target="_self">隱私權及網站安全政策</a>
+                                <a class="text-decoration-none" href="./webpage_C_files/資訊公開.html" title="隱私權及網站安全政策"
+                                    target="_blank">隱私權及網站安全政策</a>
                             </li>
                             <li class="list-inline-item">
                                 <a class="text-decoration-none"
@@ -633,10 +375,7 @@
             </div>
         </div>
     </footer>
-    <a b-cc24bo3soz="" href="https://moda.gov.tw/aboutus/functions/622#toTop"
-        class="topBtn border border-2 border-white text-center rounded-circle" id="topBtn" title="返回頁面頂端"
-        style="bottom: 100px;"><i b-cc24bo3soz="" class="ci ci-top"></i><span b-cc24bo3soz=""
-            class="visually-hidden">返回頁面頂端</span></a>
+
 
 
     <script src="./webpage_C_files/apiurl.js.下載"></script>
