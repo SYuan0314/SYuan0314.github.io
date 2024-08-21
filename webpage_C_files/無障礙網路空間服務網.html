@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044 -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="480">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index,follow">
+<meta name="description" content="無障礙網路空間服務網為數位發展部建置為提供所有網站無障礙相關活動運作的核心，包含標章申請與查詢管理服務、無障礙網頁問題諮詢、無障礙相關推廣活動報名、無障礙相關資訊發布等都透過本服務網提供給廣大的使用者。本服務網之服務目標，期望透過無障礙網頁規範整合與維運，達成推廣無障礙網頁的普及度，促進身心障礙人士能無障礙的使用網站資訊之願景。">
+<meta name="keywords" content="無障礙,無障礙網路空間服務網,網站無障礙,網站親和力,數位發展部">
+<meta name="Accessible_websit" content="本網站通過AAA檢測等級無障礙網頁檢測">
+<title> 無障礙網路空間服務網  - 標章查詢 - 標章明細</title>
+<link href="./無障礙網路空間服務網_files/bootstrap.css" rel="stylesheet">
+<link href="./無障礙網路空間服務網_files/bootstrap-theme.css" rel="stylesheet">
+<link rel="stylesheet" href="./無障礙網路空間服務網_files/mystyle.css">
+<link rel="stylesheet" href="./無障礙網路空間服務網_files/mystyle2.css">
+<link rel="stylesheet" href="./無障礙網路空間服務網_files/new_style.css">
+<link rel="stylesheet" href="./無障礙網路空間服務網_files/new_version_css.css">
+<script type="text/javascript" async="" src="./無障礙網路空間服務網_files/analytics.js.下載"></script><script type="text/javascript" async="" src="./無障礙網路空間服務網_files/js"></script><script src="./無障礙網路空間服務網_files/jquery-3.6.0.js.下載" type="text/javascript"></script>
+<script src="./無障礙網路空間服務網_files/web.js.下載" type="text/javascript"></script>
+<script src="./無障礙網路空間服務網_files/Site.js.下載" type="text/javascript"></script>
+<script src="./無障礙網路空間服務網_files/jquery.validate.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/bootstrap.js.下載"></script>
+<script>
+
+    </script>
+<style>
+        #AU[accesskey] {
+            color: #333333;
+            margin-left: -1.8rem;
+        }
+
+        #AU:focus {
+            color: #FFF;
+        }
+
+        #AC[accesskey] {
+            color: #333333;
+            line-height: 2rem;
+            margin-top: 0.313rem;
+        }
+
+        #AC:focus {
+            color: #000;
+        }
+
+        #AF[accesskey] {
+            color: #000;
+            margin-left: -1.8rem;
+        }
+
+        #AF:focus {
+            color: #FFF;
+        }
+    </style>
+<script>
+        $(document).ready(function () {
+
+            // If there is a '#' in the URL (someone linking directly to a page with an anchor), highlight that section and set focus to it.
+            // The tabindex attribute is removed AFTER the user navigates away from the element to help address a nasty VoiceOver bug.
+
+            //if (document.location.hash) {
+            //    var myAnchor = document.location.hash;
+            //    $(myAnchor).attr('tabindex', -1).on('blur focusout', function () {
+            //        $(this).removeAttr('tabindex');
+            //    }).focus().yellowFade();
+            //}
+
+            /* This function looks for a change in the hash (activation of an in-page link) and sets focus to and
+            highlights the target element. This is necessary because webkit does not set focus as it should. If
+            the hash is empty (the user hit the back button after activating an in-page link) focus is set to body.
+            */
+            $(window).bind('hashchange', function () {
+                var hash = "#" + window.location.hash.replace(/^#/, '');
+                if (hash != "#") {
+                    $(hash).attr('tabindex', -1).on('blur focusout', function () {
+                        $(this).removeAttr('tabindex');
+                    }).focus().yellowFade();
+                }
+                else {
+                    $("#headcontainer").attr('tabindex', -1).on('blur focusout', function () {
+                        $(this).removeAttr('tabindex');
+                    }).focus();
+                }
+            });
+        });
+		
+		function encodeHTML(str) {
+            return str.replace(/data:/gi, '').replace(/javascript:/gi, '').replace(/[^\w-_. ]/gi, function (c) {
+                return `&#${c.charCodeAt(0)};`;
+            });
+        }
+
+        function encodeInput(input) {
+            const encoded = document.createElement('div');
+            encoded.innerText = input;
+            return encoded.innerHTML;
+        }
+		
+		//過濾XSS
+        function clearScriptTag(str) {
+            const reg = /<script[^>]*>([\S\s]*?)<\/script>/gim;
+            const reg1 = /javascript:/gim;
+            const reg2 = / *.js/gim;
+            if (reg.test(str)) {
+                str = str.replace(reg, '');
+            }
+            if (reg1.test(str)) {
+                str = str.replace(reg1, '');
+            }
+            if (reg2.test(str)) {
+                str = str.replace(reg2, '');
+            }
+            return str;
+        }
+    </script>
+
+<script async="" src="./無障礙網路空間服務網_files/js(1)"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-62389524-6');
+    </script>
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body>
+<noscript>
+        <div style="float: left; color: #f00;">
+            很抱歉，網站的某些功能在JavaScript沒有啟用的狀態下無法正常使用。
+        </div>
+    </noscript>
+<header class="header">
+<a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044#content" id="gotocenter" title="移到主要內容" class="sr-only sr-only-focusable">跳到主要內容</a>
+<nav class="top-menu-bar" aria-label="右上方功能選單">
+<div class="container">
+<a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044#U" id="AU" name="U" title="右上方功能區塊" accesskey="U">:::</a><span class="hide">|</span>
+<ul>
+<li><a href="https://accessibility.moda.gov.tw/Sitemap" title="提供瞭解網站整體架構及鍵盤快捷鍵">網站導覽</a></li>
+<li><a href="https://accessibility.moda.gov.tw/AppCases/webappeal_index.aspx" title="提供網站無障礙申訴">無障礙申訴專區</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Bilingual" title="提供網站無障礙專有名詞中英文對照說明">雙語詞彙</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Rss" title="提供RSS訂閱最新消息及活動報名資訊">RSS</a></li>
+<li><a href="https://accessibility.moda.gov.tw/about" title="提供瞭解本網站緣起、目的及聯絡資訊">關於平台</a></li>
+<li>
+<a href="https://accessibility.moda.gov.tw/Home/Login" title="會員登入" class="icon-MB">
+<img src="./無障礙網路空間服務網_files/icon-MB.png" style="width: 1.2rem;" alt="">登入
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="row header-row">
+<div class="logo col-xs-12 col-md-4">
+<h1>
+<a href="https://accessibility.moda.gov.tw/" title="數位發展部無障礙網路空間服務網：回首頁" style="display:block;">
+<img alt="回首頁" src="./無障礙網路空間服務網_files/logo.svg">
+<strong style="display: none;">數位發展部無障礙網路空間服務網</strong>
+</a>
+</h1>
+</div>
+<div class="col-sm-12 col-md-8 header-nav">
+<div>
+<div class="serch-box">
+<form action="https://accessibility.moda.gov.tw/SiteSearch/sitessearch" method="post" role="search"><input name="__RequestVerificationToken" type="hidden" value="6XbjpV4Pg0Wq8wt--SFXky-kvUpm_X0EkheVv3HMI0PIb5RYEeRS5sm4OXkGO7rLxKEa6VrrZ_skCiJGpesvLIAM-Lk1"> <input type="text" id="S" name="S" placeholder="關鍵字搜尋" value="關鍵字搜尋" title="關鍵字搜尋：文章關鍵字搜尋" accesskey="S" onblur="KeyWordxss()">
+<input type="submit" id="sKwss" name="sKwss" value="送出查詢" title="送出文章關鍵字查詢">
+</form> <script>
+                                    //過濾XSS
+                                    function clearScriptTag(str) {
+                                        const reg = /<script[^>]*>([\S\s]*?)<\/script>/gim;
+                                        const reg1 = /javascript:/gim;
+                                        const reg2 = / *.js/gim;
+                                        if (reg.test(str)) {
+                                            str = str.replace(reg, '');
+                                        }
+                                        if (reg1.test(str)) {
+                                            str = str.replace(reg1, '');
+                                        }
+                                        if (reg2.test(str)) {
+                                            str = str.replace(reg2, '');
+                                        }
+                                        return str;
+                                    }
+
+                                    function KeyWordxss() {
+                                        var myval = clearScriptTag($("#S").val());
+                                        $("#S").val(myval);
+                                    }
+
+                                    $('#sKwss').click(function () {
+                                        var myval = clearScriptTag($("#S").val());
+                                        $("#S").val(myval);
+                                        var chk = true;
+
+                                        if (myval === $("#S").attr('placeholder') || myval === '') {
+
+                                            chk = false;
+
+                                            alert("請輸入搜尋關鍵字，謝謝");
+                                            $("#S").val('');
+                                            $("#S").focus;
+                                        }
+
+                                        if (chk)
+                                        {
+                                              
+                                        }
+
+                                    });
+                                </script>
+</div>
+<div class="item-box ">
+<div class="social-box">
+<ul>
+<li style="float: left;">
+<a title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044" style="display:block;">
+<img src="./無障礙網路空間服務網_files/__header_FB.svg" alt="facebook" style="height: 33px;">
+</a>
+</li>
+<li style="float: left;">
+<a title="網站分享至twitter(另開視窗)" target="_blank" href="https://twitter.com/share?url=https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044" style="display:block;">
+<img src="./無障礙網路空間服務網_files/__header_twitter.svg" alt="twitter" style="height: 33px;">
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<nav class="menu" aria-label="主要功能選單">
+<div class="container menu-con">
+<ul>
+<li><a href="https://accessibility.moda.gov.tw/News/Category/43/1" title="提供網站公告、活動報名等內容">最新消息</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Applications/Apply" title="提供申請無障礙認證標章">標章申請</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Applications/Index/1?EnableId2=3" title="提供查詢無障礙認證標章資訊">標章查詢</a></li>
+<li><a href="https://accessibility.moda.gov.tw/AppCases/Index.aspx" title="提供申請App無障礙認證標章">App檢測專區</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Questions" title="提供標章申請及異動、無障礙網頁規範、網頁設計與規範要求、Freego檢測等常見問題">常見問題</a></li>
+<li>
+<a href="https://accessibility.moda.gov.tw/Accessible" title="提供認識無障礙網路空間、無障礙網頁開發規範、網站無障礙規範2.0版、無障礙標章申請流程、國內外相關資源、影音專區及線上學習專區等介紹">關於無障礙</a>
+</li>
+<li>
+<a href="https://accessibility.moda.gov.tw/EventsMenu" title="提供活動報名資訊及課程講義下載">活動資訊</a>
+</li>
+<li><a href="https://accessibility.moda.gov.tw/Download" title="提供函頒文件、規範全文及標章、檢測軟體、行動版無障礙規範及統計資料下載">下載專區</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+</nav>
+<div class="mobile-header-wrapper">
+<div class="container">
+<div class="mobile-header-block">
+<div class="logo-b">
+<a href="https://accessibility.moda.gov.tw/" title="數位發展部無障礙網路空間服務網：回首頁">
+<img src="./無障礙網路空間服務網_files/__header_LOGO_phone.svg" alt="LOGO">
+</a>
+</div>
+<div class="tool-b">
+<div class="search-input-b">
+<form action="https://accessibility.moda.gov.tw/SiteSearch/sitessearch2" method="post" role="search"><input name="__RequestVerificationToken" type="hidden" value="jhE0rPhEwaMcUEQKbpQdo3KApp9bxLbiLENh2qMkPQie5RYnPVzGK-3IJlLyPWMh7SnX6BLK506wSnTjKnMhT_Zzv-w1"> <input type="text" id="S1" name="S1" placeholder="關鍵字搜尋" value="關鍵字搜尋" title="關鍵字搜尋：文章關鍵字搜尋" accesskey="S" onblur="KeyWordxss1();">
+<input type="submit" id="sKwss1" name="sKwss1" value="送出查詢" title="送出文章關鍵字查詢">
+</form> <script>
+                                //過濾XSS
+                                function clearScriptTag(str) {
+                                    const reg = /<script[^>]*>([\S\s]*?)<\/script>/gim;
+                                    const reg1 = /javascript:/gim;
+                                    const reg2 = / *.js/gim;
+                                    if (reg.test(str)) {
+                                        str = str.replace(reg, '');
+                                    }
+                                    if (reg1.test(str)) {
+                                        str = str.replace(reg1, '');
+                                    }
+                                    if (reg2.test(str)) {
+                                        str = str.replace(reg2, '');
+                                    }
+                                    return str;
+                                }
+
+                                function KeyWordxss1() {
+                                    var myval = clearScriptTag($("#S1").val());
+                                    $("#S1").val(myval);
+                                }
+
+                                $('#sKwss1').click(function () {
+                                    var myval = clearScriptTag($("#S1").val());
+                                    $("#S1").val(myval);
+
+
+                                    var chk = true;
+
+                                    if (myval === $("#S1").attr('placeholder') || myval === '') {
+
+                                        chk = false;
+
+                                        alert("請輸入搜尋關鍵字，謝謝");
+                                        $("#S1").val('');
+                                        $("#S1").focus;
+                                    }
+
+                                    //alert(myval + "--" + $("#S").val());
+                                    return chk;
+
+                                });
+                            </script>
+</div>
+<a class="search-btn" href="javascript:void(0);">
+<img src="./無障礙網路空間服務網_files/__header_search_phone.svg" alt="搜尋">
+</a>
+<a class="menu-btn" href="javascript:void(0);">
+<img src="./無障礙網路空間服務網_files/__header_menu_phone.svg" alt="選單">
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mobile-menu-wrapper">
+<div class="container">
+<div class="mobile-menu-block">
+<div class="close-b">
+<a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044#" class="close-btn" aria-label="關閉選單">x</a>
+</div>
+<div class="menu-b">
+<ul>
+<li><a href="https://accessibility.moda.gov.tw/News/Category/43/2" title="提供網站公告、活動報名等內容">最新消息</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Applications/Apply" title="提供申請無障礙認證標章">標章申請</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Applications/Index/1?EnableId2=3" title="提供查詢無障礙認證標章資訊">標章查詢</a></li>
+<li><a href="https://accessibility.moda.gov.tw/AppCases/Index.aspx" title="提供申請App無障礙認證標章">App檢測專區</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Questions" title="提供標章申請及異動、無障礙網頁規範、網頁設計與規範要求、Freego檢測等常見問題">常見問題</a></li>
+<li>
+<a href="https://accessibility.moda.gov.tw/Accessible" title="提供認識無障礙網路空間、無障礙網頁開發規範、網站無障礙規範2.0版、無障礙標章申請流程、國內外相關資源、影音專區及線上學習專區等介紹">關於無障礙</a>
+</li>
+<li>
+<a href="https://accessibility.moda.gov.tw/EventsMenu" title="提供活動報名資訊及課程講義下載">活動資訊</a>
+</li>
+<li><a href="https://accessibility.moda.gov.tw/Download" title="提供函頒文件、規範全文及標章、檢測軟體、行動版無障礙規範及統計資料下載">下載專區</a></li>
+</ul>
+</div>
+<div class="share-b">
+<a title="網站分享至facebook(另開視窗)" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044" style="display:block;float:left;margin-bottom:25px;">
+<img src="./無障礙網路空間服務網_files/__header_FB.svg" alt="facebook" style="height: 33px;">
+</a>
+<a title="網站分享至twitter(另開視窗)" target="_blank" href="https://twitter.com/share?url=https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044" style="display:block;float:left;margin-bottom:25px;">
+<img src="./無障礙網路空間服務網_files/__header_twitter.svg" alt="twitter" style="height: 33px;">
+</a>
+</div>
+<div style="clear:both;"></div>
+<div class="link-btn-b">
+<ul>
+<li><a href="https://accessibility.moda.gov.tw/Sitemap" title="提供瞭解網站整體架構及鍵盤快捷鍵">網站導覽</a></li>
+<li><a href="https://accessibility.moda.gov.tw/AppCases/webappeal_index.aspx" title="提供網站無障礙申訴">無障礙申訴專區</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Bilingual" title="提供網站無障礙專有名詞中英文對照說明">雙語詞彙</a></li>
+<li><a href="https://accessibility.moda.gov.tw/Rss" title="提供RSS訂閱最新消息及活動報名資訊">RSS</a></li>
+<li><a href="https://accessibility.moda.gov.tw/about" title="提供瞭解本網站緣起、目的及聯絡資訊">關於平台</a></li>
+<li>
+<a href="https://accessibility.moda.gov.tw/Home/Login" title="會員登入" class="icon-MB">
+<img src="./無障礙網路空間服務網_files/icon-MB.png" style="width: 1.2rem;" alt="會員">登入
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<main id="main-content" class=" middle-font ">
+<noscript>
+            <div class="noscript-alert">
+                當 script 無法執行時<br />
+                於網站內進行任何查詢操作<br />
+                必須要手動清除文字方塊內的預設文字<br />
+                否則將會以預設文字為條件進行查詢<br />
+                (預設文字是為了符合 3A 標準)
+            </div>
+        </noscript>
+<section class="breadcrumb-wrapper">
+<div class="container">
+<a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20220830155044#C" title="中央內容區塊" id="AC" accesskey="C" name="C" style="">:::</a><span class="hide">|</span>
+<div class="breadcrumb-link-block">
+現在位置：<a href="https://accessibility.moda.gov.tw/Home/Index" title="移至首頁">首頁</a> &gt; <a href="https://accessibility.moda.gov.tw/Applications/Index" title="移至標章查詢">標章查詢</a> &gt; 標章明細
+</div>
+</div>
+</section>
+<div id="content" class="container">
+<section class="unit-wrapper mb-2">
+<h2 class="unit-title mb-4">標章資訊</h2>
+<div class="emblem-info-list-block">
+<div class="item">
+<div class="list-title-b">標章狀態</div>
+<div class="list-desc-b">
+啟用 </div>
+</div>
+<div class="item">
+<div class="list-title-b">機關代碼</div>
+<div class="list-desc-b">A29000000G</div>
+</div>
+<div class="item">
+<div class="list-title-b">機關名稱</div>
+<div class="list-desc-b">數位發展部</div>
+</div>
+<div class="item">
+<div class="list-title-b">網站名稱</div>
+<div class="list-desc-b">數位發展部全球資訊網</div>
+</div>
+<div class="item">
+<div class="list-title-b">網址</div>
+<div class="list-desc-b"><a href="https://moda.gov.tw/" target="_blank" title="數位發展部全球資訊網(另開視窗)">https://moda.gov.tw/</a></div>
+</div>
+<div class="item">
+<div class="list-title-b">標章等級</div>
+<div class="list-desc-b">AA</div>
+</div>
+<div class="item">
+<div class="list-title-b">登錄日期</div>
+<div class="list-desc-b">111-08-30</div>
+</div>
+<div class="item">
+<div class="list-title-b">標章啟用日期</div>
+<div class="list-desc-b">111-09-06</div>
+</div>
+<div class="item">
+<div class="list-title-b">標章到期日期</div>
+<div class="list-desc-b">114-09-06</div>
+</div>
+<div class="item">
+<div class="list-title-b">FreeGo 檢測紀錄</div>
+<div class="list-desc-b">
+通過 </div>
+</div>
+<div class="item">
+<div class="list-title-b">備註</div>
+<div class="list-desc-b"></div>
+</div>
+<div class="item">
+<div class="list-title-b"></div>
+<div class="list-desc-b"><a href="https://accessibility.moda.gov.tw/AppCases/webappeal_index.aspx?category=20220830155044" title="移至無障礙申訴專區">我要申訴</a></div>
+</div>
+</div>
+<br>
+</section>
+<section class="read-paper-block">
+<div class="img-b">
+<img src="./無障礙網路空間服務網_files/__report.svg" alt="報告">
+</div>
+<div class="desc-b">
+檢測日期　111-09-06<br>
+檢測狀態　符合<br>
+檢測類別　軟體辨識／人工檢測
+</div>
+<div class="btn-b">
+<a href="https://accessibility.moda.gov.tw/Applications/DetectLog/145115" class="c-btn form-send-btn" title="移至檢視報告">檢視報告</a>
+</div>
+</section>
+</div>
+<nav class="back-link-block" aria-label="瀏覽功能連結">
+<noscript>當script無法執行時可按 "alt + ←" 鍵替代</noscript>
+<a class="back-link history-back" title="移至上一頁" href="javascript:void(0);" onclick="javascript:history.back();">
+<img src="./無障礙網路空間服務網_files/__footer_button_back.svg" alt="上一頁"></a>
+<a href="https://accessibility.moda.gov.tw/" class="back-link" title="移至首頁">
+<img src="./無障礙網路空間服務網_files/__footer_button_home.svg" alt="首頁"></a>
+</nav>
+</main>
+<footer>
+<div class="top-b">
+<div class="container">
+<div class="menu-b">
+<div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/News/Category/43/1" title="移至最新消息">最新消息</a></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/Applications/Apply" title="移至標章申請">標章申請</a></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/Applications/Index" title="移至標章查詢">標章查詢</a></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/AppCases/Index.aspx" title="移至App檢測專區">App檢測專區</a></div><div class'sub-b'=""><div class="sub-link"><a href="https://accessibility.moda.gov.tw/AppAccessible/Detail/4446?Category=61" title="移至檢測作業辦法">檢測作業辦法</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/AppCases/AppDetectItems.aspx" title="移至檢測指引">檢測指引</a></div></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/Questions/Index" title="移至常見問題">常見問題</a></div><div class'sub-b'=""><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/18/1" title="移至標章申請及異動">標章申請及異動</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/33/1" title="移至無障礙網頁規範">無障礙網頁規範</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/19/1" title="移至網頁設計與規範要求">網頁設計與規範要求</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/20/1" title="移至Freego檢測問題">Freego檢測問題</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/21/1" title="移至其他問題">其他問題</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Questions/Category/58/1" title="移至檢測疑義">檢測疑義</a></div></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/Accessible" title="移至關於無障礙">關於無障礙</a></div><div class'sub-b'=""><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/6/1" title="移至認識無障礙網路空間">認識無障礙網路空間</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Guide/68" title="移至網站無障礙規範(110.07)">網站無障礙規範(110.07)</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/8/1" title="移至無障礙標章">無障礙標章</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/1/1" title="移至國內外相關資源">國內外相關資源</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/2/1" title="移至影音專區">影音專區</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/3/1" title="移至線上學習專區">線上學習專區</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/46/1" title="移至網站無障礙規範2.0版(典藏)">網站無障礙規範2.0版(典藏)</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Accessible/Category/7/1" title="移至無障礙網頁開發規範(典藏)">無障礙網頁開發規範(典藏)</a></div></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/EventsMenu/Index" title="移至活動資訊">活動資訊</a></div><div class'sub-b'=""><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Lessons" title="移至課程">課程</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Lectures" title="移至講義">講義</a></div></div></div><div class="list-item"><div class="title-link"><a href="https://accessibility.moda.gov.tw/Download/Index" title="移至下載專區">下載專區</a></div><div class'sub-b'=""><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/36/1" title="移至函頒文件">函頒文件</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/28/1" title="移至網站無障礙規範及標章">網站無障礙規範及標章</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/70/1" title="移至單機版檢測工具 Freego">單機版檢測工具 Freego</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/51/1" title="移至行動版無障礙規範相關文件">行動版無障礙規範相關文件</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/40/1" title="移至統計資料">統計資料</a></div><div class="sub-link"><a href="https://accessibility.moda.gov.tw/Download/Category/61/1" title="移至年度成果簡報">年度成果簡報</a></div></div></div>
+</div>
+<div class="contact-b">
+<div class="info-b">
+<div>
+<a class="bold-white" href="https://accessibility.moda.gov.tw/Policy" title="移至隱私權與安全政策">【隱私權與安全政策】</a></div>
+<div>
+<div>
+<span>如對本站有任何意見，歡迎聯絡客服中心</span>
+<span>
+<img src="./無障礙網路空間服務網_files/__footer_contact_time.svg" class="f-icon" style="width: 14px;" alt="服務時間">週一至週五 09:00~18:00
+</span>
+<span>
+<img src="./無障礙網路空間服務網_files/__footer_contact_mail.svg" class="f-icon" style="width: 15px;" alt="Email">
+<a class="bold-white" href="mailto:accessibility@cisanet.org.tw" title="客服中心Email">accessibility@cisanet.org.tw</a>
+</span>
+</div>
+<div>
+<span>
+<img src="./無障礙網路空間服務網_files/__footer_contact_telephone.svg" class="f-icon" style="width: 10px;" alt="客服電話"><a class="bold-white" href="tel:0225502818" title="客服中心專線電話02-25502818">02-25502818</a>
+</span>
+<span>
+<img src="./無障礙網路空間服務網_files/__footer_contact_telephone.svg" class="f-icon" style="width: 10px;" alt="客服電話及分機">02-25533988 #380 &nbsp;&nbsp;#351 &nbsp;&nbsp;#812
+</span>
+<span>
+<img src="./無障礙網路空間服務網_files/__footer_contact_fax.svg" class="f-icon" style="width: 18px;" alt="傳真">02-25531319
+</span>
+</div>
+</div>
+<div class="emblem-icon-b">
+<a href="https://www.gov.tw/" title="我的E政府(另開新視窗)" target="_blank" class="mr-3">
+<img alt="我的E政府" src="./無障礙網路空間服務網_files/gov.webp">
+</a>
+<a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20220922115855" title="移至無障礙標章網頁">
+<img src="./無障礙網路空間服務網_files/AAA21.png" width="88" height="31" alt="通過AAA檢測等級無障礙網頁檢測">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-b">
+<div class="container">
+Copyright 2013 版權所有 © 數位發展部
+</div>
+</div>
+</div></footer>
+
+<script src="./無障礙網路空間服務網_files/vue.global.min.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/axios.min.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/moment.min.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/moment-taiwan.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/vue3-sfc-loader.js.下載"></script>
+<script src="./無障礙網路空間服務網_files/common.js.下載"></script>
+<script>
+        window.appRoot = {
+            rel: "/",
+            controllerName: "Applications"
+        };
+        const options = {
+            moduleCache: { vue: Vue },
+            async getFile(url) {
+                const res = await fetch(url);
+                if (!res.ok)
+                    throw Object.assign(new Error(url + ' ' + res.statusText), { res });
+                return await res.text();
+            },
+            addStyle(textContent) {
+                const style = Object.assign(document.createElement('style'), { textContent });
+                const ref = document.head.getElementsByTagName('style')[0] || null;
+                document.head.insertBefore(style, ref);
+            },
+            log(type, ...args) { console[type](...args); },
+            compiledCache: {
+                set(key, str) {
+                    for (; ;) {
+                        try {
+                            window.localStorage.setItem(key, str);
+                            break;
+                        } catch (ex) {
+                            window.localStorage.removeItem(window.localStorage.key(0));
+                        }
+                    }
+                },
+                get(key) {
+                    return window.localStorage.getItem(key);
+                },
+            }
+        }
+        const { loadModule } = window['vue3-sfc-loader'];
+
+    </script>
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            if ($("#main-content").hasClass("big-font")) {
+                $("#big-font").addClass("active");
+                $("#middle-font").removeClass("active");
+                $("#small-font").removeClass("active");
+            }
+            else if ($("#main-content").hasClass("small-font")) {
+                $("#big-font").removeClass("active");
+                $("#middle-font").removeClass("active");
+                $("#small-font").addClass("active");
+            } else {
+                $("#big-font").removeClass("active");
+                $("#middle-font").addClass("active");
+                $("#small-font").removeClass("active");
+            }
+        });
+
+
+        $(".mobile-header-wrapper .mobile-header-block .tool-b a.search-btn").click(function () {
+            $(this).parent().parent().toggleClass("search-active");
+        });
+        $(".mobile-header-wrapper .mobile-header-block .tool-b a.menu-btn").click(function () {
+            $(".mobile-menu-wrapper").addClass("active");
+        });
+        $(".mobile-menu-wrapper .mobile-menu-block .close-b .close-btn").click(function () {
+            $(".mobile-menu-wrapper").removeClass("active");
+        });
+    </script>
+<script defer="" src="./無障礙網路空間服務網_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;8b6a28e82e0656f4&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfL4&quot;:true}},&quot;version&quot;:&quot;2024.8.0&quot;,&quot;token&quot;:&quot;757d5d5f931a40e0bde589039baea57f&quot;}" crossorigin="anonymous"></script><iframe allow="join-ad-interest-group" data-tagging-id="G-9EM0P12W1M" data-load-time="1724238451440" height="0" width="0" src="./無障礙網路空間服務網_files/rul.html" style="display: none; visibility: hidden;"></iframe>
+
+
+</body></html>
