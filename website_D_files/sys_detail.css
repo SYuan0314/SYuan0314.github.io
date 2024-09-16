@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+body > form
+{
+    background-image:url(https://ws.moe.edu.tw/001/Upload/1/sites/pagebackimage/a3a18eb9-14f9-49c7-9b0e-716c0b883675.png) ;;
+}
+.topbg .toplog .toplog h1 a {background-image:url(https://ws.moe.edu.tw/001/Upload/1/sites/pagebackimage/21e52e88-74dc-4e6b-9652-8593af5113d9.png);background-position: center;background-repeat: no-repeat;}
+@media (min-width: 240px) and (max-width: 767px){	.topbg .toplog h1 a{ /*上方Logo-mobile*/		background-image: url(https://ws.moe.edu.tw/001/Upload/1/sites/pagebackimage/21e52e88-74dc-4e6b-9652-8593af5113d9.png);		background-position: center;		background-repeat: no-repeat;	}}@media (min-width: 768px) and (max-width: 960px){		.topbg .toplog h1 a{ /*上方Logo-pad*/		background-image: url(https://ws.moe.edu.tw/001/Upload/1/sites/pagebackimage/21e52e88-74dc-4e6b-9652-8593af5113d9.png);		background-position: center;		background-repeat: no-repeat;	}}

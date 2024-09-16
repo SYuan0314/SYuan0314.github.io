@@ -1,0 +1,182 @@
+$(window).load(function () {
+    var CCMS_LanguageSN = 1;
+    var $page_content, th_col, th_row, col_count, col, row, $td, $th;
+    
+    var New_Windows_Title = "[另開新視窗]",
+        New_Windows_LanguageSN = 12;
+
+    if (0 < $("style").length) {
+        var $style = $("style");
+        for (i = 0; i < $style.length; i++) {
+            $('style').eq(i).html($('style').eq(i).html().replaceAll('font-size:12px;', 'font-size:0.75em;').replaceAll('font-size:16px;', 'font-size:1em;').replaceAll('font:16px;', 'font:1em;').replaceAll('font:24px;', 'font:1.5em;'))
+        }
+    }
+
+    function GetLanguage() {
+        try {
+            var domain = window.location.origin.toLowerCase();
+            if (domain.indexOf("/english") == -1 && domain.indexOf("/en") == -1) New_Windows_LanguageSN = 1;
+            else New_Windows_LanguageSN = 2
+        } catch (b) {
+            New_Windows_LanguageSN = 1
+        }
+        New_Windows_Title = 1 == New_Windows_LanguageSN ? "[另開新視窗]" : "[open a new window]"
+    }
+
+    function htmlEncode(value) {
+        // 建立一個暫存的div元素，並使用text()將內容存成html編碼文字後再用html()取出
+        return $('<div/>').text(value).html().replace(/&/g, '').replace(/>/g, '').replace(/</g, '').replace(/"/g, '').replace(/'/g, '');
+    }
+
+    function CheckIndex(b) {
+        var a = b.indexOf("開啟");
+        if (-1 != a) return a;
+        var a = b.indexOf("視窗");
+        if (-1 != a) return a;
+        a = b.indexOf("分頁");
+        if (-1 != a) return a;
+        a = b.indexOf("另開");
+        if (-1 != a) return a;
+        a = b.indexOf("新窗");
+        if (-1 != a) return a;
+        a = b.indexOf("new window");
+        return -1 != a ? a : a = b.indexOf("window")
+    }
+    var h2value = $('.for_accessibility h2').text();
+    if (h2value == null || h2value == '' || h2value.length == 0) {
+        h2value = '標題項目';
+    }
+    GetLanguage();
+    $("img:not([alt])").each(function (index) {
+        $(this).attr("alt", h2value + "_" + index);
+    });
+    $("img[alt='null'], img[alt='Null'], img[alt='NULL'] , img[alt=' ']").each(function (index) {
+        $(this).attr("alt", "");
+    });
+    $('a').each(function (index) {
+        if ($(this).text() == '' && $(this).children().length == 0) {
+            $(this).append('<p style="display:none">\u200C</p>');
+        }
+        var $atitle = $(this).attr('title');
+        var titlevalue = '';
+        if ($atitle == undefined || $atitle.length == 0) {
+            if ($(this).children().length > 0) {
+                titlevalue = $(this).text();
+                if (titlevalue == '') titlevalue = ' ';
+            } else if ($(this).children().length == 0 && $(this).text() != '') {
+                titlevalue = $(this).text();
+            } else {
+                titlevalue = h2value + "_" + index;
+            }
+            if (titlevalue.trim() == '' && $(this).attr('name') != undefined) titlevalue = $(this).attr('name');
+            $(this).attr('title', titlevalue);
+        }
+        var domain = htmlEncode(window.location.origin).toLowerCase();
+        if ($(this).attr('href') != null && $(this).attr('href').indexOf('http') > -1 && $(this).attr('href').indexOf(domain) == -1 && $(this).attr('href') != '#' && $(this).attr('target') != "_blank") {
+            $(this).attr('target', "_blank");
+        }
+        if ($(this).attr('target') == "_blank") {
+            if (CheckIndex($(this).attr('title')) == -1) {
+                $(this).attr('title', New_Windows_Title + $(this).attr('title'));
+            }
+        }
+        if ($(this).attr('title') == "<" || $(this).attr('title') == "prev") {
+            if (New_Windows_LanguageSN == 1) {
+                $(this).attr('title', '向左');
+            } else $(this).attr('title', 'Prev')
+        }
+        if ($(this).attr('title') == ">" || $(this).attr('title') == "next") {
+            if (New_Windows_LanguageSN == 1) {
+                $(this).attr('title', '向右');
+            } else $(this).attr('title', 'Next');
+        }
+        //if ($(this).find('img') != null && ($(this).children().length > 1) || $(this).text().trim() != '') {
+        //    $(this).find('img').attr('alt', '');
+        //}
+        if ($(this).find('img') != null) {
+            var alt2 = $(this).find('img').attr('alt');
+            if (alt2 != null && alt2.trim() != '' && alt2.indexOf('共') > -1 && alt2.indexOf('張') > -1) {
+                $(this).find('img').attr('alt', '');
+            }
+        }
+        var href = ($(this).attr('href') != null ? $(this).attr('href').toLowerCase() : '');
+        if (href.startsWith('tel:')) {
+            var content = $(this).html();
+            $(this).parent().html(content);
+        }
+    });
+    $("a[onkeypress]").each(function (index) {
+        $(this).removeAttr("onkeypress");
+    });
+    $('.base-mobile .search .in .hd .in h4').remove();
+    $("iframe").each(function (index) {
+        var title = '影音';
+        if ($('div[class="photoandtext"] h4').html() != "") title = $('div[class="photoandtext"] h4').html();
+        if ($(this).attr("title") == null) $(this).attr("title", title);
+        if ($(this).attr("title") == null && title == null && $(this).attr("data-src") != null && ($(this).attr("data-src").indexOf("youtu") > -1)) $(this).attr("title", 'youtube');
+        if ($(this).attr("title") == null && title == null) $(this).attr("title", 'Map');
+    });
+
+    function pxtoem(x) {
+        var y = 16;
+        var result = "0";
+        if (x) {
+            result = x / y;
+        }
+        var size = Math.pow(10, 4);
+        result = Math.round(result * size) / size;
+        result = result + "em";
+        return result;
+    }
+    if (0 < $('[style*="font-size"]').length) {
+        var $elem = $('[style*="font-size"]');
+        for (i = 0; i < $elem.length; i++) {
+            if ($elem.eq(i).css('font-size').toLowerCase().indexOf('px') != -1) {
+                if ($elem.eq(i).parents("[style*='font-size']").length == 0) {
+                    var px = $elem.eq(i).css('font-size').toLowerCase().replace('px', '');
+                    var em = pxtoem(px);
+                    if (em != "0") $elem.eq(i).css('font-size', em);
+                } else {
+                    $elem.eq(i).css('font-size', '');
+                }
+            }
+        }
+    }
+    $('#a2apage_sm_ifr').remove();
+    if (CCMS_LanguageSN == '1') {
+        //$('a[data-font-size="s"]').attr('title', $('a[data-font-size="s"]').attr('title').trim() + '字級');
+        //$('a[data-font-size="m"]').attr('title', $('a[data-font-size="m"]').attr('title').trim() + '字級');
+        //$('a[data-font-size="l"]').attr('title', $('a[data-font-size="l"]').attr('title').trim() + '字級');
+        $('a[title="Print"]').attr('title', '列印')
+        $('.share_box a').attr('title', $('.share_box a').attr('title') + '分享');
+        $('.a2a_i').each(function (index) {
+            var title = $(this).attr('title');
+            if (title != null)
+                $(this).attr('title', title.trim().replace(New_Windows_Title, New_Windows_Title + "分享至"));
+        });
+        $('#a2apage_show_more_less').on('keydown', function (event) {
+            if (event.keyCode == 9 && !event.shiftKey) {
+                event.preventDefault();
+                $('#tagsKeyWords').click();
+                $('#tagsKeyWords').focus();
+            }
+        });
+    } else {
+        $('.a2a_i').each(function (index) {
+            var title = $(this).attr('title');
+            if (title != null)
+                $(this).attr('title', title.trim().replace(New_Windows_Title, New_Windows_Title + " Share to "));
+        });
+    }
+    $(document).keydown(function (e) {
+        var key = window.event ? e.keyCode : e.which;
+        //console.log(key);
+        if (key == 9)
+            $('.sitemap').hide();
+    });
+    $('p[data-f-id="pbf"]').hide();
+
+    
+
+
+});
