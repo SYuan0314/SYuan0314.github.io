@@ -31,22 +31,40 @@
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
+
+            text-align: center;
+            /* 文字水平置中 */
+            line-height: 1.5;
+            /* 調整文字的垂直對齊 */
         }
 
         .link-button:hover {
             background-color: #1C86EE;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
     <h1>Root</h1>
-    <p>我們想讓各位在Webpage A理解何謂<span class="highlight">相關</span>。Webpage B、Webpage C則用於<span class="highlight">正式</span>實驗
+    <p>我們想讓各位在Webpage A理解何謂 <span class="highlight">相關</span> 。其餘 webpage 則用於 <span class="highlight">正式</span> 實驗
     </p>
     <div class="button-container">
         <a href="./webpage_A.html" class="link-button">Webpage A</a>
+    </div>
+    <div class="button-container">
         <a href="./webpage_B/index.html" class="link-button">Webpage B</a>
         <a href="./webpage_C.html" class="link-button">Webpage C</a>
+        <a href="./webpage_D.html" class="link-button">Webpage D</a>
+        <a href="./webpage_E.html" class="link-button">Webpage E</a>
+        <a href="./webpage_F.html" class="link-button">Webpage F</a>
+        <a href="./webpage_G.html" class="link-button">Webpage G</a>
+        <a href="./webpage_H.html" class="link-button">Webpage H</a>
+        <a href="./webpage_I.html" class="link-button">Webpage I</a>
     </div>
 </body>
 
