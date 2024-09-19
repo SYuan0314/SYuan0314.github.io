@@ -1,0 +1,188 @@
+jQuery.fn.setfocus=function(){return this.each(function(){var a=this;setTimeout(function(){try{a.focus()}catch(b){}},0)})};
+
+$(window).scroll(function () {
+	if ($(this).scrollTop() > 180) {
+		$(".navbar.bootsnav").stop(true, true).animate({
+			'top': 0,
+		}, 1200);
+
+	} else {
+		$(".navbar.bootsnav").stop(true, true).animate({
+			'top': 0
+		}, 1200);
+	}
+	if ($(this).scrollTop() > 180) {
+		var windowWidth = $(window).width();
+		if (windowWidth > 1400) {
+			$(".navbar.bootsnav").stop(true, true).animate({
+				'top': 0
+			}, 200).addClass('NavFixed');
+
+		} else {
+			$(".navbar.bootsnav").stop(true, true).animate({
+				'top': 0
+			}, 200).addClass('NavFixed');
+
+		}
+	} else {
+		$(".navbar.bootsnav").removeClass('NavFixed');
+
+	}
+	return false;
+});
+$(document).ready(function () {
+		$(".gotop").hide();
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 200) {
+			$(".gotop").fadeIn();
+		} else {
+			$(".gotop").fadeOut()
+		}
+	});
+	$(".gotop").click(function () {
+		$("body,html").animate({
+			scrollTop: 0
+		}, 800);
+		$('.sr-only-focusable').setfocus();
+		return false;
+	});
+
+	// $('.bigfont').click(function () {
+	// 	$('.wrapper').css({
+	// 		"font-size": "110%"
+	// 	});
+	// 	$('.bigfont').addClass('ative');
+	// 	$('.font').removeClass("ative");
+	// 	$('.smallfont').removeClass("ative");
+		
+	// });
+	//  $('.bigfont').keypress(function(e){
+    //     if(e.which == 13){
+	// 		$('.wrapper').css({
+	// 		"font-size": "110%"
+	// 	});
+	// 	$('.bigfont').addClass('ative');
+	// 	$('.font').removeClass("ative");
+	// 	$('.smallfont').removeClass("ative");
+	// 	}});
+	// $('.font').click(function () {
+	// 	$('.wrapper').css({
+	// 		"font-size": "100%"
+	// 	});
+	// 	$('.font').addClass('ative');
+	// 	$('.bigfont').removeClass("ative");
+	// 	$('.smallfont').removeClass("ative");
+		
+	// });
+
+	//  $('.font').keypress(function(e){
+    //     if(e.which == 13){
+	// 		$('.wrapper').css({
+	// 		"font-size": "100%"
+	// 	});
+	// 	$('.font').addClass('ative');
+	// 	$('.bigfont').removeClass("ative");
+	// 	$('.smallfont').removeClass("ative");
+	// 	}});
+	// $('.smallfont').keypress(function(e){
+    //     if(e.which == 13){
+	// 	$('.wrapper').css({
+	// 		"font-size": "90%"
+	// 	});
+	// 	$('.smallfont').addClass('ative');
+	// 	$('.bigfont').removeClass("ative");
+	// 	$('.font').removeClass("ative");	
+	// }});
+	// $('.smallfont').click(function () {
+	// 	$('.wrapper').css({
+	// 		"font-size": "90%"
+	// 	});
+	// 	$('.smallfont').addClass('ative');
+	// 	$('.bigfont').removeClass("ative");
+	// 	$('.font').removeClass("ative");
+		
+	// });
+})
+
+
+function CHKQRYSTR(val) {
+	var x = document.getElementById(val).value;
+	if (x.trim() == "") return false;
+	else return true;
+
+}
+
+
+/*----- new set fontSize -----*/
+var fontSizeBtn = $('.bigfont,.font,.smallfont');
+function SetFont(size) {
+	fontSizeChange(size);
+}
+function fontSizeChange(size){
+	var $wrapper = $('.wrapper');
+	var _sizeNum;
+	if(size == 'smallfont'){
+		_sizeNum = '90%';
+	}
+	if(size == 'font'){
+		_sizeNum = '100%';
+	}
+	if(size == 'bigfont'){
+		_sizeNum = '110%'
+	}
+	fontSizeBtn.removeClass('ative');
+	$wrapper.css('font-size',_sizeNum);
+	setStorage('fontSize', size);
+}
+function setStorage(key,data){
+    localStorage.setItem(key, data);
+}
+function getStorage(key){
+    if(key == 'fontSize'){
+        if (!localStorage['fontSize']) {
+            localStorage.setItem('fontSize', 'font');
+        }else{
+            return localStorage['fontSize'];
+        }
+    }
+}
+function defaultStorage(){
+    defaultFontSize = getStorage('fontSize');
+}
+fontSizeBtn.each(function(){
+	var $this = $(this);
+	var size;
+	if($this.hasClass('smallfont')){
+		size = 'smallfont';
+	}
+	if($this.hasClass('font')){
+		size = 'font';
+	}
+	if($this.hasClass('bigfont')){
+		size = 'bigfont'
+	}
+	$this.on('click',function(){
+		$this.addClass('ative');
+	});
+	$this.on('keypress',function(){
+		fontSizeChange(size);
+		$this.addClass('ative');
+	});
+});
+
+/*----- share -----*/
+function shareFn(key) {
+	var _loc = location;
+	var link = encodeURIComponent(_loc.href);
+	var url = "";
+	function newOpen(url) {
+		var mywin = window.open(url, "redirect");
+		mywin.open(url, "redirect");
+	}
+	switch (key) {
+		case "twitter":url = 'https://twitter.com/share?url='.concat(link);break;
+		case "fb": url = 'http://www.facebook.com/share.php?u='.concat(link); break;
+		case "line": url = 'https://lineit.line.me/share?url='.concat(link); break;
+	}
+	newOpen(url);
+}

@@ -1,0 +1,147 @@
+$(document).ready(function() {
+    // 以下 banner mobile版 換照片================================
+    var wdth = $(window).width();
+
+    $(window).resize(function() {});
+
+    // 以下 mobile 選單箭頭 =================================
+    // ================ 以下 mobile 開合按鈕 ================
+    function footerBtn() {
+        $('.open-btn').click(function() {
+            $('.fatfooter').toggle();
+        });
+    }
+    // ============ 以下 自型大中小 ======================
+    function fontControl() {
+        $(".fontControl").click(function() {
+                $("body").css("font-size", "16px"),
+                    $("a").css("font-size", "16px"),
+                    $(this).addClass("in"),
+                    $(".fontL").removeClass("in"),
+                    $(".fontM").removeClass("in")
+            }),
+            $(".fontM").click(function() {
+                $("body").css("font-size", "18px"),
+                    $("a").css("font-size", "18px"),
+                    $(this).addClass("in"),
+                    $(".fontL").removeClass("in"),
+                    $(".fontS").removeClass("in")
+            }),
+            $(".fontL").click(function() {
+                $("body").css("font-size", "20px"),
+                    $("a").css("font-size", "20px"),
+                    $(this).addClass("in"),
+                    $(".fontM").removeClass("in"),
+                    $(".fontS").removeClass("in")
+            })
+    }
+
+    // =================== 以下 國防部 ========================
+    $('.main-carousel').flickity({
+        cellAlign: 'left',
+        percentPosition: false,
+        imagesLoaded: true,
+        draggable: '>1',
+        autoPlay: true,
+    });
+
+    $('.unit-carousel').flickity({
+        draggable: '>1',
+        autoPlay: true,
+    });
+    $('.activities-carousel').flickity({
+        draggable: '>1',
+        autoPlay: true,
+    });
+    // 
+    function rwdUnitCarousel() {
+        if (wdth > 575) {
+            $('.unit-carousel').flickity({
+                cellAlign: 'left',
+                contain: true
+            });
+            $('.activities-carousel').flickity({
+                cellAlign: 'left',
+                autoPlay: true,
+                autoPlay: '1500',
+                contain: true
+            });
+        }
+    }
+
+    //資訊圖像化內容變換
+    $(document).ready(function () {
+        var altBuild = "鑄造進程說明如後：國艦國造採「長期規劃、分批造艦、整合產業、永續經營」等策略執行。\
+                                        105 年至 108 年分別啟動「潛艦國造」、「兩棲船塢運輸艦」、「高效能艦艇量產」、「快速布雷艇」、「新型救難艦」、「微型飛彈突擊艇」及「新一代飛彈巡防艦」\
+                                        等 7 項造艦計畫。其中潛艦國造於 106 年 3 月啟動後，已完成「準備階段」、「構想設計」、「初步設計」及「合約設計」等 4 階段設計工作，\
+                                        並賡續執行「細部設計」，108 年 4 月完成建造採購案決標，5 月專用廠房破土興建，預劃 114 年達成原型艦交艦目標。\
+                                        未來持續強化在地產業聚落與供應鏈發展，並結合軍事院校及民間大學科研成效，推動產學合作；108 年預估可提升造船產業總體產值約 275 億元，\
+                                        有效提升造船產業的規模與總體產值。(資料來源：108年國防報告書)";
+        var altBudget = "108 年度國防預算編列概況：\
+                                      1、人員維持計 1, 565 億元，主要依志願役人力招募與留營成效及常備兵役徵集訓練等需求，編列薪餉、加給及保險等法定給與，提升人才招募與留營誘因。\
+                                      2、作業維持計 942 億元（含國安局預算），置重點於維持主戰裝備妥善、提升部隊官兵戰場防護效能、改善官兵生活設施及各級單位基本運作需求等項目；優化官兵照\
+                                            顧，同時兼顧部隊戰備演訓、災害防救等任務執行。\
+                                      3、軍事投資計 898 億元，持續執行新式高級教訓機、沱江級艦量產等案履約，並增列潛艦及新一代飛彈巡防艦第二階段原型艦籌建等計畫推動，藉落實國防自主與擴大\
+                                            內需，具體展現自我防衛決心及能力。(資料來源：108年國防報告書)";
+        var altNotice = "教召流程說明：1.每年年初於網路公告召集資訊。2.前60日召集部隊電話訪查。3.前40日縣市指揮部郵遞通知。\
+                                        4.前10日轄區員警親送通知。5.前5日電信業者簡訊通知。6.教召前(後)由後備幹部現地親訪。(資料來源：108年國防報告書)";
+        var altRecruit = "結合「募兵制」政策推動，滾動式研擬各項配套措施，作法如后：\
+                                          1.配合「募兵制」之推動，行政院已核定調增「地域加給」、「留營慰助金」、「志願役勤務加給第二階段戰鬥\
+                                            加給」、「志願役勤務加給」、「士官督導長主管職務加給」、「資訊（網路戰）勤務加給」、「電偵官\
+                                            兵勤務加給」、「三軍儀隊勤務加給」及「戰航管加給」等 9 項。後續規劃辦理「戰\
+                                            鬥部隊加給級距」、「空勤勤務加給」、「戰航管勤務官兵勤務加給」、「消防人\
+                                            員勤務加給」、「地域加給」、「網路戰加給」、「海勤加給」、「三軍儀隊勤務\
+                                            加給」、「空降特戰勤務加給」及「反情報勤務加給」等 10 項調整作業，以利留用\
+                                            優質人力。\
+                                          2.除實質提升待遇增加誘因外，在整體政策配套下，持續藉健全內部管理、落實進修\
+                                            培育、改善服役環境、精進就業輔導、關懷袍澤生活及完善軍眷照護等作為，優化\
+                                            服役環境(資料來源：108年國防報告書)";
+
+        function changeInfo(imgPath, altTxt) {
+            $("#showPhoto").attr("src", imgPath);
+            $("#showPhoto").attr("alt", altTxt);
+            $("#build").removeClass("active");
+        }
+
+        $("#build").click(function () {
+            changeInfo("img/infoGraphic02.gif", altBuild);
+        });
+        $("#build").focusin(function () {
+            changeInfo("img/infoGraphic02.gif", altBuild);
+        });
+        $("#budget").click(function () {
+            changeInfo("img/infoGraphic01.gif", altBudget);
+        });
+        $("#budget").focusin(function () {
+            changeInfo("img/infoGraphic01.gif", altBudget);
+        });
+        $("#notice").click(function () {
+            changeInfo("img/infoGraphic04.gif", altNotice);
+        });
+        $("#notice").focusin(function () {
+            changeInfo("img/infoGraphic04.gif", altNotice);
+        });
+        $("#recruit").click(function () {
+            changeInfo("img/infoGraphic03.gif", altRecruit);
+        });
+        $("#recruit").focusin(function(){
+          changeInfo("img/infoGraphic03.gif", altRecruit);
+      });
+});
+	
+	
+    // page mobile btn toggle
+    function PageMenuToggle() {
+        $('#pagemenusToggle').click(function() {
+            $(this).toggleClass('mobiletoggle');
+            $('.pagesMenu ul').toggle();
+        });
+    }
+
+
+    footerBtn();
+    fontControl();
+    rwdUnitCarousel();
+    PageMenuToggle();
+    menuClick();
+});

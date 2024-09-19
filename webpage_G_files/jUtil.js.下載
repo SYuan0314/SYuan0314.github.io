@@ -1,0 +1,381 @@
+﻿function getParameterByName(name) {
+    var url = encodeURI(window.location.toString());
+    var str = "";
+    var str_value = "";
+    if (url.indexOf("?") != -1) {
+        var ary = url.split("?")[1].split("&");
+        for (var i in ary) {
+            str = ary[i].toString().split("=")[0];
+            if (str == name) {
+                str_value = ary[i].toString().split("=")[1];
+            }
+        }
+    }
+    return str_value;
+}
+
+
+function getParameterByUrlAndName(Url, para) {
+    var url = encodeURI(Url);
+    var str = "";
+    var str_value = "";
+    if (url.indexOf("?") != -1) {
+        var ary = url.split("?")[1].split("&");
+        for (var i in ary) {
+            str = ary[i].toString().split("=")[0];
+            if (str == para) {
+                str_value = ary[i].toString().split("=")[1];
+            }
+        }
+    }
+    return str_value;
+}
+
+//Jason 設定選單
+$(function () {
+    var sNode = getParameterByName('n');
+    $('.minor-nav').find('ul').find('a').each(function () {
+        if (sNode == '') return;
+        if (getParameterByUrlAndName($(this).attr('href'), 'n') == sNode) {
+            $(this).parents("li").eq(0).addClass('is-active');
+        }
+    });
+})
+
+//Jason ccms_hitcount 計算點擊數
+$(function () {
+    $('[data-ccms_hitcount]').click(function () {
+        var sUrl = '/Common/GetVisitcount.ashx?s=' + $(this).data('ccms_hitcount') + '&sms=' + getParameterByName('sms') + '&n=' + getParameterByName('n');
+        $.ajax({
+            url: sUrl
+            , type: 'GET',
+            success: function (date) {
+
+                //$('#footer_visitcount_span').html(date);
+            }
+        });
+
+    });
+    $('[data-ccms_hitcount_relfile]').each(function () {
+        $(this).click(function (e) {
+            var sUrl = '/Common/GetVisitcount.ashx?type=relfile&s=' + $(this).data('ccms_hitcount_relfile');
+            $.ajax({
+                url: sUrl,
+                contentType: 'text/plain',
+                type: 'GET',
+                success: function (date) {
+                    //$('#footer_visitcount_span').html(date);
+                }
+            });
+
+        });
+    });
+    if (typeof (CCMS_SitesSN_Encryption) != 'undefined') {
+        var sUrl = '/Common/GetVisitcount.ashx?sitessn=' + CCMS_SitesSN_Encryption;
+        if (window.getParameterByName && getParameterByName('n') != '') {
+            sUrl = sUrl + '&n=' + getParameterByName('n') + '&sms=' + getParameterByName('sms') + '&s=' + getParameterByName('s');
+        }
+        if ($('#footer_todayvisitcount_span').length > 0)
+            sUrl = sUrl + '&istoday=1';
+        $.ajax({
+            url: sUrl,
+            contentType: 'text/plain',
+            type: 'GET',
+            success: function (data) {
+                var visit = $.parseJSON(data);
+                if ($('#footer_visitcount_span')) {
+                    $('#footer_visitcount_span').html(visit['Total']);
+                    $('#footer_visitcount_span_cus').html(visit['Total']);
+                }
+                if ($('#footer_todayvisitcount_span').length > 0) {
+                    $('#footer_todayvisitcount_span').html(visit['Today']);
+                }
+            }
+        });
+    }
+})
+//相關連結 下拉GO按鈕
+$(function () {
+    $('.btngo_quicklink').click(function () {
+        var $selected = $('#' + $(this).data('selectid')).find(':selected'),
+            _target = ($selected.data('isnewwindow')) ? '_blank' : '_self'; //是否新開視窗
+        // console.log($(this).data('selectid'));
+        if ($selected.data('href')) {
+            window.open($selected.data('href'), _target);
+        }
+    });
+});
+
+//data-fancyboxOpen 用fancybox 打開連結
+$(function () {
+    //$('[data-fancyboxOpen]').click(function (e) {
+    //    e.preventDefault();
+    //    var Src = $(this).data('fancyboxopen');
+    //    $.fancybox.open({
+    //        href: Src,
+    //        type: 'iframe',
+    //        padding: 20,
+    //        autoSize: false,
+    //        height: 150
+    //    });
+    //})
+
+    $('[data-fancyboxOpen]').click(function (e) {
+        e.preventDefault();
+        var index = $('[data-fancyboxOpen]').index(this);
+        var Src = $(this).data('fancyboxopen');
+        $.fancybox.open({
+            href: Src,
+            type: 'iframe',
+            padding: 20,
+            autoSize: false,
+            height: 150,
+            afterShow: function () {
+                $(this.content).focus();
+            },
+            beforeClose: function () {
+                $("[data-fancyboxOpen]").eq(index).focus();
+            }
+        });
+    });
+
+    $(document).on('keydown', '.fancybox-close', function (event) {
+        if (event.keyCode == 9) {
+            event.stopPropagation();
+            event.preventDefault();
+            $.fancybox.close();
+        }
+    });
+});
+
+//文字轉注音
+$(function () {
+    $('.bopomofo').click(function (e) {
+        e.preventDefault();
+        ShowPhonetic(this);
+    });
+
+    function ShowPhonetic(that) {
+        var IsActive = $(that).hasClass('active');
+        var Select = '.page-content';
+        var ExSelector = '.page-select,.xxxx';
+        if (!IsActive) {
+            if (!$.fn.JPhonetic) {
+                $.getScript('/scripts/JPhonetic.js', function (data, textStatus, jqxhr) {
+                    $.fn.JPhonetic({
+                        'Selector': Select,
+                        'ExSelector': ExSelector
+                    });
+                });
+            } else {
+                $.fn.JPhonetic({
+                    'Selector': Select,
+                    'ExSelector': ExSelector
+                });
+            }
+            $(that).addClass('active')
+        } else {
+            $.fn.JPhoneticRecovery({
+                'Selector': Select
+            });
+            $(that).removeClass('active');
+        }
+    }
+});
+
+//播放語音 
+$(function () {
+    var SupportSpeech = (typeof (speechSynthesis) != "undefined");
+    if (SupportSpeech) {
+        $('.recitation').click(function (e) {
+            e.preventDefault();
+            Recitation(this);
+        });
+        window.onbeforeunload = function () {
+            if (speechSynthesis) {
+                speechSynthesis.cancel();
+            }
+
+        };
+        function Recitation(that) {
+            if (speechSynthesis) {
+                var IsActive = $(that).hasClass('active');
+                if (!IsActive) {
+                    var msg = $("#CCMS_Content").text();
+                    var script = $("#CCMS_Content").find('script').text();
+
+                    let msg1 = new SpeechSynthesisUtterance();
+                    //msg1.text = msg;
+                    msg1.text = msg.replace(script, '');
+                    speechSynthesis.cancel();
+                    speechSynthesis.speak(msg1);
+                    $(that).addClass('active');
+                    $(that).removeClass('recitation');
+                    $(that).addClass('recitation_cancel');
+                }
+                else {
+                    speechSynthesis.cancel();
+                    $(that).removeClass('active');
+                    $(that).addClass('recitation');
+                    $(that).removeClass('recitation_cancel');
+                }
+            } else {
+
+            }
+        }
+    } else {
+        $('.recitation').remove();
+    }
+
+});
+
+//日期檢查
+$(function () {
+    $('input.dynDateTime').on('input focusin', function () {
+        var $Input = $(this);
+        if ($Input.val().length > 0 && !IsDateFormat($Input.val())) {
+            //$("#" + $Input.attr('name') + '_err').show();
+            $("#" + $Input.attr("name") + '_err').remove();
+            if (CCMS_LanguageSN == 1)
+                $Input.after('<font id="' + $Input.attr("name") + '_err" color="ff0000">格式錯誤: 民國年/月/日 (ex: 105/12/31)</font>');
+            else
+                $Input.after('<font id="' + $Input.attr("name") + '_err" color="ff0000">Wrong format: yyyy/mm/day (ex: 2019/12/31)</font>');
+        } else {
+            $("#" + $Input.attr("name") + '_err').remove();
+        }
+    });
+
+    function IsDateFormat(str) {
+        var reg = /^(\d{2,4})\/(\d{2})\/(\d{2})$/;
+        if (str == "") return true;
+        if (!reg.test(str)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+})
+
+function doSearch(that) {
+    var KeyWord = that.closest('div').find('[data-search="' + that.attr("data-search") + '"]').val();
+    window.location.href = "Advanced_Search.aspx?q=" + htmlEncode(KeyWord);
+}
+
+$(function () {
+    //全文索引按鈕
+    $('.CCMS_SearchBtn').each(function () {
+        $(this).click(function () {
+            doSearch($(this));
+        });
+    });
+    //jPager GO按鈕
+    $('.C_Pager').each(function () {
+        var path = $(this).data('path');
+        var $PageSize = $(this).find('select');
+        var $button = $(this).find('.btn');
+        $button.click(function () {
+            var PageSize = $PageSize.val();
+            window.location = path + '&page=1&PageSize=' + PageSize + '';
+        });
+    });
+
+});
+
+//判斷是否點擊後台地球
+$(function () {
+    //if (getParameterByName('ccms_cs') == '1') {
+    //    $('a').each(function () {
+    //        var sHref = $(this).attr('href');
+    //        if (sHref && sHref.indexOf('?') > -1) {
+    //            $(this).attr('href', sHref + '&ccms_cs=1');
+    //        } else {
+    //            $(this).attr('href', sHref + '?ccms_cs=1');
+    //        }
+
+    //    })
+    //}
+});
+
+function CCMS_Print(SitesSN) {
+
+    $.ajax({
+        url: "/Common/CCMS_WebAPI.ashx?Type=GetSitesPrint&SitesSN=" + SitesSN,
+        type: 'get',
+        success: function (Result) {
+            var afterHtml = $('<div class="group-list content" data-setlen="1" data-type="4" data-child="2"><div class="in"><div class="ct"><div class="in">' + Result.PrintFooterContent + '</div></div></div></div>');
+            $('.group.base-section').after(afterHtml);
+            var beforeHtml = $('<div class="group-list content" data-setlen="1" data-type="4" data-child="2"><div class="in"><div class="ct"><div class="in">' + Result.PrintTopContent + '</div></div></div></div>');
+            $('.group.base-section').before(beforeHtml);
+            setTimeout(function () {
+                print();
+                afterHtml.remove();
+                beforeHtml.remove();
+            }, 100);
+        },
+        error: function () {
+            //your code here
+        }
+    });
+
+
+
+
+}
+
+
+//另開新視窗的連結加上 rel="noreferrer" 屬性
+$(function () {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        var _blank = links[i].target;
+        if (_blank == '_blank') {
+            links[i].setAttribute('rel', 'noreferrer');
+        }
+    }
+})
+
+// 寫入 cookie
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    //document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + "; secure; path=/;SameSite=Lax";
+}
+
+$(function () {
+    //電子報訂閱功能
+    function doEpaperSub(that) {
+        var KeyWord = that.closest('.subscription').find('input').val();
+        window.location.href = encodeURI(that.attr("data-epaperurl")) + "&q=" + htmlEncode(KeyWord);
+    }
+
+    if ($('.CCMS_EpaperSubBtn').length > 0) {
+        $('.CCMS_EpaperSubBtn').each(function () {
+            $(this).click(function (e) {
+                e.preventDefault();
+                doEpaperSub($(this));
+            });
+        });
+    }
+});
+
+$(function () {
+    $('.tgMapTypeCtrl > div > table > tbody > tr > td > img').prop('title', 'TGOS img');
+});
+
+//QRCode放大
+$(function () {
+    $('[data-popupqrcode]').fancybox();
+});
+
+
+/**
+ * @summary 提供JS在append字串時，防止Client Potential XSS類別風險
+ * @param {string} value 未處理的不安全字串
+ */
+function htmlEncode(value){
+    // 建立一個暫存的div元素，並使用text()將內容存成html編碼文字後再用html()取出
+    return $('<div/>').text(value).html();
+  }

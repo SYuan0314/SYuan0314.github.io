@@ -1,0 +1,34 @@
+$(".picZoomJs").each(function () {
+                var t = $(this),
+                    e = t.data("mctxtclose"),
+                    i = t.data("mctxtprev"),
+                    n = t.data("mctxtnext"),
+                    a = t.data("mctxtnum");
+                t.magnificPopup({
+                    delegate: "a",
+                    type: "image",
+                    closeOnContentClick: !1,
+                    closeBtnInside: !1,
+                    tClose: e,
+                    mainClass: "mfp-with-zoom mfp-img-mobile",
+                    image: {
+                        verticalFit: !0,
+                        titleSrc: function (t) {
+                            return t.el.find(".title").html()
+                        }
+                    },
+                    gallery: {
+                        enabled: !0,
+                        tPrev: i,
+                        tNext: n,
+                        tCounter: '<span title="' + a + '">%curr% of %total%</span>'
+                    },
+                    zoom: {
+                        enabled: !0,
+                        duration: 300,
+                        opener: function (t) {
+                            return t.find("img")
+                        }
+                    }
+                })
+            });

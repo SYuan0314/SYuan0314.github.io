@@ -1,0 +1,125 @@
+define(function(){
+	
+	function main(env, opt, file){
+
+		var $set = {
+				targetClass: 'block',
+				activeClass: 'is-active',
+				hud: null,
+				speed: 620, //速度
+				debug: false
+			}
+
+		$.extend($set, opt);
+
+		var $env = $(env),
+			$ct = $env.find('.ct'),
+			$li = $ct.find('li'),
+			$a = $ct.find('a'),
+			$a_len = $a.length,
+			$targets = $();
+
+		var $hud = null,
+			$hud_h = 0;
+
+		if( $set.hud ) {
+			$hud = $($set.hud);
+			$hud_h = $hud.height();
+		}
+
+		var _eventName = file; //事件名稱
+
+		var $body = $('html,body'),
+			$window = $(window),
+			$window_h = $window.height();
+
+		var $window_t = $window.scrollTop();
+
+		$a.each(function(i, d){
+			var $this = $(this),
+				$target = $('.'+ $set.targetClass + (i + 1)).eq(0);
+
+			if( $target.length ) { //如果有東西
+				$targets = $targets.add($target);
+
+				if( $target.attr('id') !== undefined ) {
+					$this.attr('href', '#'+ $target.attr('id'));
+				}
+
+				$this.on(_eventName, function(evt){ //改變主題順序
+					//smooth_scroll($target); //捲動到目標
+					$target_t = $target.offset() && $target.offset().top; //取目標高度與選單高度
+					var $href = $($(this).attr('href'));
+					if( $set.hud ) {
+						$hud_h = $hud.height();
+					}
+		
+					$body.stop().animate({ //捲動
+						scrollTop: $target_t - $hud_h
+					}, $set.speed, 'swing',function(){$href.find('a[href]').eq(0).focus();});
+				});
+
+				$this.on('click', function(evt){ //當錨點被點擊
+					evt.preventDefault(); //停止預設動作
+
+					$this.trigger(_eventName); //改變主題順序
+				});
+			}else {
+
+				$this.on('click', function(evt){ //當錨點被點擊
+					evt.preventDefault(); //停止預設動作
+
+					$body.stop().animate({ //捲動
+						scrollTop: 0
+					}, $set.speed, 'swing');
+				});
+			}
+		});
+
+		$window.on('scroll', function(evt){
+			var _i = null;
+
+			$window_t = $window.scrollTop();
+
+			$targets.each(function(i, n){
+				var $this = $(this),
+					$this_o = $this.offset(),
+					$this_t = $this_o.top,
+					$this_h = $this.height();
+
+				if( $window_t < ( $this_t + ( $this_h / 3 )) ) {
+
+					_i = i;
+					return false;
+				}
+			});
+			
+			$li.removeClass($set.activeClass); //取消熄滅所有錨點，點亮相應錨點
+
+			if( _i !== null ) {
+				$li.eq(_i).addClass($set.activeClass);
+			}
+
+		}).scroll();
+
+		function smooth_scroll(target) { //捲動到目標的方法
+
+			$target_t = target.offset() && target.offset().top; //取目標高度與選單高度
+
+			if( $set.hud ) {
+				$hud_h = $hud.height();
+			}
+
+			$body.stop().animate({ //捲動
+				scrollTop: $target_t - $hud_h
+			}, $set.speed, 'swing');
+		}
+		
+		if($set.debug) {
+			console.log('預設值:', $set);
+			console.log('檔案 '+ file +'.js 已順利執行。');
+		}
+	}
+	
+	return main;
+});

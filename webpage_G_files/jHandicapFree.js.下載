@@ -1,0 +1,427 @@
+﻿if ($(".base-section table").length > 0) {
+    var $base_section = $('.base-section'),
+        $table = $base_section.find('table');
+
+    for (i = 0; i < $table.length; i++) {
+        if ($table.eq(i).attr('id') == undefined) {
+            $table.eq(i).attr('id', 'table_' + i);
+        }
+
+        var $th = $table.eq(i).find('th');
+
+        if ($th.length > 4) {
+            $table.eq(i).attr('class', $table.eq(i).attr('class') + ' RWDPadtable');
+        }
+
+        if ($th.length == 0) {
+            //var $td = $table.eq(i).find('td');
+            //for (j = 0; j < $td.length; j++) {
+            //    var row = $td.eq(j).parent().index() + 1; // 欄位置
+            //    var col = $td.eq(j).index() + 1; // 列位置
+
+            //    var col_count = 0;
+
+            //    if (row == 1) {
+            //        if ($td.eq(j).attr('id') == undefined) {
+            //            $td.eq(j).attr('id', 'table_' + i + '_' + j);
+            //        }
+            //    } else {
+            //        //寫入欄headers
+            //        for (k = 0; k < $td.length; k++) {
+            //            var td_row = $td.eq(k).parent().index() + 1; // 欄位置
+            //            var td_col = $td.eq(k).index() + 1; // 列位置
+
+            //            if (td_row == 1) {
+            //                if ($td.eq(k).attr("colspan") == undefined) {
+            //                    col_count = Number(col_count) + Number(1);
+            //                } else {
+            //                    col_count = Number(col_count) + Number($td.eq(k).attr("colspan"));
+            //                }
+            //            }
+
+            //            if (col_count >= col) {
+            //                if ($td.eq(j).attr('headers') == undefined) {
+            //                    $td.eq(j).attr('headers', $td.eq(k).attr("id"));
+            //                }
+            //                if ($td.eq(j).attr('data-title') == undefined) {
+            //                    $td.eq(j).attr('data-title', document.getElementById($td.eq(k).attr("id")).innerText);
+            //                }
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
+        } else {
+            if ($table.eq(i).attr('id') == undefined) {
+                $table.eq(i).attr('id', 'table_' + i);
+            }
+
+            var $th = $table.eq(i).find('th');
+            for (j = 0; j < $th.length; j++) {
+                if ($th.eq(j).attr('id') == undefined) {
+                    $th.eq(j).attr('id', 'table_' + i + '_' + j);
+                }
+            }
+
+            var $td = $table.eq(i).find('td');
+            for (k = 0; k < $td.length; k++) {
+                var row = $td.eq(k).parent().index() + 1; // 欄位置
+                var col = $td.eq(k).index() + 1; // 列位置
+
+                var row_count = 0;
+                var col_count = 0;
+
+                //寫入欄headers
+                for (l = 0; l < $th.length; l++) {
+                    var th_row = $th.eq(l).parent().index() + 1; // 欄位置
+                    var th_col = $th.eq(l).index() + 1; // 列位置
+
+                    if (th_row == 1) {
+                        if ($th.eq(l).attr("colspan") == undefined) {
+                            col_count = Number(col_count) + Number(1);
+                        } else {
+                            col_count = Number(col_count) + Number($th.eq(l).attr("colspan"));
+                        }
+                    }
+
+                    if (col_count >= col) {
+                        if ($td.eq(k).attr('headers') == undefined) {
+                            if ($td.eq(k).attr("colspan") == undefined) {
+                                $td.eq(k).attr('headers', $th.eq(l).attr("id"));
+                            } else {
+                                var tdcolspan = '';
+                                for (z = 0; z < $td.eq(k).attr("colspan"); z++) {
+                                    tdcolspan = tdcolspan + $th.eq(l + z).attr("id") + ' ';
+                                }
+                                $td.eq(k).attr('headers', tdcolspan.substring(0, tdcolspan.length - 1));
+                            }
+                        }
+                        if ($td.eq(k).attr('data-title') == undefined) {
+                            if ($td.eq(k).attr("colspan") == undefined) {
+                                if (document.getElementById($th.eq(l).attr("id")) != null) {
+                                    $td.eq(k).attr('data-title', document.getElementById($th.eq(l).attr("id")).innerText);
+                                }
+                            } else {
+                                var tdcolspan = '';
+                                for (z = 0; z < $td.eq(k).attr("colspan"); z++) {
+                                    if (document.getElementById($th.eq(l + z).attr("id")) != null) {
+                                        tdcolspan = tdcolspan + document.getElementById($th.eq(l + z).attr("id")).innerText + '/';
+                                    }
+                                }
+                                $td.eq(k).attr('data-title', tdcolspan.substring(0, tdcolspan.length - 1));
+                            }
+                        }
+                        break;
+                    }
+                }
+
+                //寫入列headers
+                for (l = 0; l < $th.length; l++) {
+                    var th_row = $th.eq(l).parent().index() + 1; // 欄位置
+                    var th_col = $th.eq(l).index() + 1; // 列位置
+
+                    if (th_col == 1) {
+                        if ($th.eq(l).attr("rowspan") == undefined) {
+                            row_count = Number(row_count) + Number(1);
+                        } else {
+                            row_count = Number(row_count) + Number($th.eq(l).attr("rowspan"));
+                        }
+                    }
+
+                    if (row_count >= row) {
+                        var rowheaders = $td.eq(k).attr('headers');
+                        if (rowheaders == undefined) {
+                            if ($td.eq(k).attr('headers') == undefined) {
+                                if ($td.eq(k).attr("rowspan") == undefined) {
+                                    $td.eq(k).attr('headers', $th.eq(l).attr("id"));
+                                } else {
+                                    var tdrowspan = '';
+                                    for (z = 0; z < $td.eq(k).attr("rowspan"); z++) {
+                                        tdrowspan = tdrowspan + $th.eq(l + z).attr("id") + ' ';
+                                    }
+                                    $td.eq(k).attr('headers', tdrowspan.substring(0, tdrowspan.length - 1));
+                                }
+                            }
+                            if ($td.eq(k).attr('data-title') == undefined) {
+                                if ($td.eq(k).attr("rowspan") == undefined) {
+                                    if (document.getElementById($th.eq(l).attr("id")) != null) {
+                                        $td.eq(k).attr('data-title', document.getElementById($th.eq(l).attr("id")).innerText);
+                                    } 
+                                } else {
+                                    var tdrowspan = '';
+                                    for (z = 0; z < $td.eq(k).attr("rowspan"); z++) {
+                                        if (document.getElementById($th.eq(l + z).attr("id")) != null) {
+                                            tdrowspan = tdrowspan + document.getElementById($th.eq(l + z).attr("id")).innerText + '/';
+                                        }
+                                    }
+                                    $td.eq(k).attr('data-title', tdrowspan.substring(0, tdrowspan.length - 1));
+                                }
+                            }
+                        } else {
+                            var rowheaders = rowheaders + ' ' + $th.eq(l).attr("id");
+                            if ($td.eq(k).attr('headers') == undefined) {
+                                $td.eq(k).attr('headers', rowheaders);
+                            }
+                            if (document.getElementById($td.eq(k).attr('headers')) != null && document.getElementById($th.eq(l).attr("id")) != null) {
+                                var rowtitle = document.getElementById($td.eq(k).attr('headers')).innerText + '/' + document.getElementById($th.eq(l).attr("id")).innerText;
+                                if ($td.eq(k).attr('data-title') == undefined) {
+                                    $td.eq(k).attr('data-title', rowtitle);
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+var Link_Title = '[連結]';
+var New_Windows_Title = '[另開新視窗]';
+
+function GetLanguage() {
+    if (CCMS_LanguageSN == 1) {
+        Link_Title = '[連結]';
+        New_Windows_Title = '[另開新視窗]';
+    } else if (CCMS_LanguageSN == 3) {
+        Link_Title = '[连结]';
+        New_Windows_Title = '[另开新视窗]';
+    } else {
+        Link_Title = '[Link]';
+        New_Windows_Title = '[open a new window]';
+    }
+}
+
+function CheckIndex(str1) {
+    var s = -1;
+    s = str1.indexOf("開啟新");
+    if (s != -1) return (s);
+    s = str1.indexOf("新視窗");
+    if (s != -1) return (s);
+    s = str1.indexOf("开启新");
+    if (s != -1) return (s);
+    s = str1.indexOf("新视窗");
+    if (s != -1) return (s);
+    s = str1.indexOf("新分頁");
+    if (s != -1) return (s);
+    s = str1.indexOf("新連結");
+    if (s != -1) return (s);
+    s = str1.indexOf("new window");
+    if (s != -1) return (s);
+    s = str1.indexOf("window");
+    if (s != -1) return (s);
+    return (s);
+}
+
+
+if ($(".base-section img").length > 0) {
+    GetLanguage();
+    var $page_title = $('.base-section .simple-text'),
+        $h3 = $page_title.find('h3'),
+        $base_section = $('.base-section'),
+        $img = $base_section.find('img');
+
+    for (i = 0; i < $img.length; i++) {
+        if (($img.eq(i).attr('alt') == '' || $img.eq(i).attr('alt') == undefined) && $h3.eq(0).text() != '') {
+            $img.eq(i).attr('alt', $h3.eq(0).text() + '-' + (i + 1));
+        }
+    }
+}
+
+if ($("body a").length > 0) {
+    var $A = $("body a");
+    for (i = 0; i < $A.length; i++) {
+        $img = $A.eq(i).find('img')
+        if ($img != undefined && $A.eq(i).text() != '') {
+            $img.eq(i).attr('alt', '');
+        }
+
+        if ($A.eq(i).attr('class') == 'btn' || $A.eq(i).attr('class') == 'CCMS_SearchBtn') {
+            $A.eq(i).attr('role', 'button');
+        }
+
+        if ($A.eq(i).attr('href') == '#' && $img.html() != undefined) {
+            $A.eq(i).before($A.eq(i).html());
+            $A.eq(i).remove();
+        }
+    }
+}
+
+if ($("body input").length > 0) {
+    var $Input = $("body input");
+    for (i = 0; i < $Input.length; i++) {
+        if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+            $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0em;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+        }
+    }
+}
+
+if ($("body select").length > 0) {
+    var $Input = $("body select");
+    for (i = 0; i < $Input.length; i++) {
+        if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+            $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0em;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+        }
+    }
+}
+
+if ($("body textarea").length > 0) {
+    var $Input = $("body textarea");
+    for (i = 0; i < $Input.length; i++) {
+        if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+            $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0em;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+        }
+    }
+}
+
+$(".fb_reset").remove();
+
+$(document).ready(function () {
+
+    //1988紓困振興線上客服機器人
+    $("#imgICON").eq(0).attr('alt', '線上客服機器人');
+});
+
+$(window).on("load", function () {
+    setTimeout(setWait, 4000);
+});
+
+function setWait() {
+    if ($('.TGOS_WMTS img').length > 0) {
+        $('.TGOS_WMTS img').attr('alt', 'tgosmap');
+    }
+
+    if ($('.map_wrapper img').length > 0) {
+        var $img = $('.map_wrapper img');
+        for (i = 0; i < $img.length; i++) {
+            $img.eq(i).attr('alt', 'tgosNotFoundImg');
+        }
+    }
+
+    //TGOS Img Alt
+    if ($('#TGMap img').length > 0) {
+        var $img = $("#TGMap img");
+        for (i = 0; i < $img.length; i++) {
+            if ($img.eq(i).attr('alt') == undefined) {
+                $img.eq(i).attr('alt', 'tgosimg');
+            }
+        }
+    }
+
+    if ($(".tgMapTypeCtrl img").length > 0) {
+        var $img = $(".tgMapTypeCtrl img");
+        $img.eq(0).attr('alt', '航照影像');
+        $img.eq(1).attr('alt', '地形暈渲圖');
+        $img.eq(2).attr('alt', '地形暈渲混合地圖');
+        $img.eq(3).attr('alt', '福衛影像混合地圖');
+        $img.eq(4).attr('alt', '福衛二號衛星地圖');
+        $img.eq(5).attr('alt', '臺灣通用電子地圖');
+        $img.eq(6).attr('alt', '臺灣通用電子地圖');
+    }
+
+    if ($("body input").length > 0) {
+        var $Input = $("body input");
+        for (i = 0; i < $Input.length; i++) {
+            if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0em;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+            }
+        }
+    }
+
+    if ($("body iframe").length > 0) {
+        var $Iframe = $("body iframe");
+        for (i = 0; i < $Iframe.length; i++) {
+            if ($Iframe != undefined && $Iframe.eq(i).attr('id') != '' && $Iframe.eq(i).attr('title') == undefined) {
+                $Iframe.eq(i).attr('title', 'iframe'+i);
+            }
+        }
+    }
+    if ($('.map_wrapper select').length > 0) {
+        var mapSelect = $('.map_wrapper select');
+        for (i = 0; i < mapSelect.length; i++) {
+            mapSelect.eq(i).attr('id', 'mapSelect');
+        }
+    }
+
+    if ($("body select").length > 0) {
+        var $Input = $("body select");
+        for (i = 0; i < $Input.length; i++) {
+            if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0em;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+            }
+        }
+    }
+
+    if ($(".base-section a").length > 0) {
+        GetLanguage();
+        var $base_section = $('.base-section'),
+            $a = $base_section.find('a');
+
+        for (i = 0; i < $a.length; i++) {
+            if ($a.eq(i).text() == '') {
+                if ($a.eq(i).html() == '') {
+                    if ($a.eq(i).attr('title') != undefined) {
+                        $a.eq(i).text($a.eq(i).attr('title'));
+                    } else if ($a.eq(i).attr('name') != undefined) {
+                        $a.eq(i).append('<span style="display:none;">' + $a.eq(i).attr('name') + '</span>');
+                    }
+                }
+            }
+
+            if ($a.eq(i).attr('title') == undefined) {
+                $a.eq(i).attr('title', $a.eq(i).text());
+            }
+
+            if ($a.eq(i).text().startsWith('http') == true && $a.eq(i).attr('href') != undefined) {
+                $a.eq(i).text(Link_Title);
+            }
+
+            var _href = $a.eq(i).attr('href') || '',
+                _dot_i = _href.lastIndexOf('.'),
+                _slash = _href.lastIndexOf('/');
+
+            if (_dot_i > _slash) { //最後是 .*
+                var _dot_i = _href.lastIndexOf('.') + 1, //最後一個.
+                    _ques_i = _href.indexOf('?'), // 最後一個問候
+                    _length = _href.length,
+                    _type = 'other';
+
+                if (_ques_i === -1 || _dot_i > _ques_i) { //如果沒有問號或問號比.前面
+                    _length = _href.length - _dot_i;
+                } else { //如果有問號
+                    _length = _ques_i - _dot_i;
+                }
+
+                _type = _href.substr(_dot_i, _length);
+                if ($a.eq(i).attr('title').indexOf(_type) == -1 && 'zip;xlsx;xls;txt;rar;pptx;ppt;png;pdf;ogv;ogg;odt;ods;odp;odf;mp4;mp3;jpg;jpeg;gif;docx;doc;csv;'.indexOf(_type) != -1) {
+                    $a.eq(i).attr('title', $a.eq(i).attr('title') + '.' + _type);
+                }
+            }
+
+            if ($a.eq(i).attr('target') == '_blank' || $a.eq(i).attr('target') == '_nwMof' || $a.eq(i).attr('target') == '_gipNW') {
+                if (CheckIndex($a.eq(i).attr('title')) == -1) {
+                    //20240215 政黨網News頁的檔案下載不加
+                    if (!(CCMS_SitesSN_Encryption == 444 && $a.eq(i).attr('class') != 'pdf')) {
+                        $a.eq(i).attr('title', $a.eq(i).attr('title') + New_Windows_Title);
+                    }
+                }
+            }
+        }
+    }
+
+    if ($(".list-text.tab > div > div > div > ul > li").length > 0) {
+        var $li = $(".list-text.tab > div > div > div > ul > li");
+        var $tab_a = $li.find('a');
+        $tab_a.attr('role', 'tab');
+        $($tab_a[0]).attr('aria-selected', 'true');
+        $($tab_a).click(function () {
+            $tab_a.removeAttr('aria-selected');
+            $(this).attr('aria-selected', 'true');
+        });
+    }
+
+    //HM1110112E 對於輔助科技應當要忽略的圖片，使用空字串作為替代文字，並且不可使用標題屬性。
+    //使用在美編、排版等用途的圖片，替代說明文字請為空值(即alt = "")
+    $(".notShowAlt").removeAttr("alt");
+}

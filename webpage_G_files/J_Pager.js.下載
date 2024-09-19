@@ -1,0 +1,135 @@
+﻿
+function JPager(setting) {
+    this.JPager = $(setting.Pager);
+    this.GridView = $(setting.GridView);
+
+    this.DataWarehouse = $(setting.DataWarehouse);
+    this.DataWarehouseDatas = function () { return this.DataWarehouse.find('tr'); };
+    this.DataWarehouseDatasGridShow = function () { return this.DataWarehouse.find('tr').filter(function (i) { return ($(this).data('gridshow') == true) }); };
+
+    this.GridViewDatas = function () { return this.GridView.find('tbody tr'); };
+    this.DataCount = function () { return this.DataWarehouseDatasGridShow().length; }
+    this.PageSize = setting.PageSize;
+    this._PagerUIMaxSize = 10;//分頁數量
+    this._PagerUILeftMaxSize = 4;//分頁右邊取幾個
+
+    this.PagerUL = this.JPager.find('ul');
+    this.PageIndex = 1;
+    this.PageMaxIndex = function () { return this.PagerUL.find('li').length; };
+
+    this.SearchBox = $(setting.SearchBox);
+
+    if (this.SearchBox) {
+
+        var $Keyword = $('<input id=txtSearch type="search"  value="" >');
+        this.SearchBox.append($Keyword);
+        this.SearchBoxKeyword = function () { return this.SearchBox.find('input').val(); }
+
+
+
+        $Keyword.keyup($.proxy(function () {
+            this.Search(this.SearchBoxKeyword());
+        }
+            , this))
+    }
+
+
+
+    this.BindPager = $.proxy(function () {
+        this.PagerUL.find('li').remove();
+        for (i = 1; i <= Math.ceil(this.DataCount() / this.PageSize); i++) {
+            var li = $('<li page="' + i + '"><a href="javascript:void(0);">' + i + '</a></li>');
+            var _Pager = this;
+            li.click(function () {
+                _Pager.ChangePageIndex($(this).attr('page'));
+            })
+            this.PagerUL.append(li);
+
+        }
+    }, this)
+
+    this.ChangePageIndex = $.proxy(function (PageIndex) {
+
+        this.PageIndex = parseInt(PageIndex);
+        this.PagerUL.find('li').removeClass('is-active');
+        this.PagerUL.find('li[page="' + PageIndex + '"]').addClass('is-active');
+
+        this.RecoverDataWarehouse();
+        var Select = this.DataWarehouseDatasGridShow().slice((PageIndex - 1) * this.PageSize, PageIndex * this.PageSize);
+        this.GridView.find('tbody').empty();
+        this.GridView.append(Select);
+
+        //頁籤縮減
+        //this._PagerUIMaxSize = 4;//分頁數量
+        //this._PagerUILeftMaxSize = 1;//分頁右邊取幾個
+        var minPageNo = this.PageIndex - this._PagerUILeftMaxSize;
+        if (minPageNo <= 0) {
+            minPageNo = 1;
+        }
+        var MaxPageNo = minPageNo + this._PagerUIMaxSize - 1;
+
+        if (this.PageMaxIndex() <= MaxPageNo) {
+            minPageNo = minPageNo - (MaxPageNo - this.PageMaxIndex());
+            MaxPageNo = MaxPageNo - (MaxPageNo - this.PageMaxIndex());
+        }
+        var ArrayPageNo = [];
+        for (var i = minPageNo; i <= MaxPageNo; i++) {
+            ArrayPageNo.push(i);
+        }
+        this.PagerUL.find('li').hide();
+        $.each(this.PagerUL.find('li'), function (k, v) {
+            var PageNo = k + 1;
+            if ($.inArray(PageNo, ArrayPageNo) > -1) {
+                $(v).show();
+            } else {
+
+            }
+        })
+
+
+        //this.BindPager();
+    }, this)
+
+    this.Search = $.proxy(function (KeyWord) {
+        this.RecoverDataWarehouse();
+        if (KeyWord == '') {
+            this.DataWarehouseDatas().data('gridshow', true);
+        } else {
+            this.DataWarehouseDatas().data('gridshow', false);
+            this.DataWarehouseDatas().each(function () {
+                var isFind = false;
+
+                $(this).find('td').each(function () {
+                    if ($(this).html().toLowerCase().indexOf(KeyWord.toLowerCase()) > -1)
+                        isFind = true;
+                });
+                if (isFind)
+                    $(this).data('gridshow', true);
+            })
+        }
+        this.BindPager();
+        this.ChangePageIndex(1);
+    }, this)
+
+    this.RecoverDataWarehouse = $.proxy(function (KeyWord) {
+        this.DataWarehouse.append(this.GridViewDatas());
+        this.DataWarehouseDatas().sort(sort_li).appendTo(this.DataWarehouse);
+        function sort_li(a, b) {
+            return ($(b).data('position')) < ($(a).data('position')) ? 1 : -1;
+        }
+
+    }, this)
+
+    this.Search('');
+}
+
+function StopBubble(e) {
+    if (e && e.stopPropagation) {//非IE 
+        e.stopPropagation();
+    }
+    else {//IE 
+        window.event.cancelBubble = true;
+    }
+}
+
+

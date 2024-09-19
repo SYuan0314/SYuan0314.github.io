@@ -1,0 +1,115 @@
+﻿
+var wdth = $(window).width();
+$(function () {
+    globalClick();
+    mainMenu();
+    menuFocus();
+    menuClick();
+    endMenu();
+    fbAutoWidth();
+    carouselFocus('.main-carousel');
+    carouselFocus('.unit-carousel');
+    carouselFocus('.activities-carousel');
+})
+
+//全域點擊滑鼠
+function globalClick() {
+    if (wdth > 999) {
+        $(this).click(function () {
+            //隱藏下拉選單
+            $('.dropdown-menu').css({
+                display: 'none'
+            });
+            //繼續輪播圖
+            $('.main-carousel').flickity("playPlayer");
+        });
+    }
+}
+
+function mainMenu() {
+    if (wdth > 999) {
+        $('.dropdown').mouseenter(function () {
+            $('.dropdown-menu', this).css({
+                display: 'block'
+            });
+        });
+        $('.dropdown').mouseover(function () {
+            $('.dropdown').removeClass('open'),
+                $(this).addClass('open')
+        });
+
+        $('.dropdown').mouseleave(function () {
+            $('.dropdown-menu', this).css({
+                display: 'none'
+            });
+        });
+        $('.dropdown').mouseout(function () {
+            $('.dropdown').removeClass('open')
+        });
+    }
+}
+function menuFocus() {
+    if (wdth > 999) {
+        $('.dropdown-toggle').focus(function () {
+            $('.dropdown-menu').css({
+                display: 'none'
+            });
+            $(this).siblings('.dropdown-menu').css({
+                display: 'block'
+            })
+        });
+    }
+}
+function menuClick() {
+    if (wdth < 999) {
+        $('.dropdown-menu').removeAttr('style');
+    }
+}
+function endMenu() {
+    //按下tab鍵且不是shift+tab
+    $('.dropdown-menu-end').keydown(event, function () {
+        if (!event.shiftKey && event.keyCode == 9) {
+            $('.dropdown-menu').css({
+                display: 'none'
+            });
+        }
+    });
+}
+
+function fbAutoWidth() {
+    var a = ifr_fb.src
+        , b = a.indexOf("&width=")
+        , a1 = a.substring(0, b + 7)
+        , c = a.indexOf("&small_header")
+        , a2 = a.substring(c)
+        , d = a.indexOf("&height=")
+        , a3 = a.substring(d)
+        , g = parseInt($('.policyArea').width())
+        , i = parseInt($('.fbox').width())
+        , w = parseInt($('.box960').width())
+        , h = parseInt($('.fbox').height());
+    //f
+    (w != g) ? (f = (w - g - 40)) : (f = w),
+
+        f > 500 && (f = 500),
+        (w != g) ? (ifr_fb.src = a1 + (f - 20) + "&height=" + h + a2) : (ifr_fb.src = a1 + f + a3),
+        ifr_fb.width = f + "px",
+        ctl00_ContentPlaceHolder1_div_fb.style.width = f + "px",
+        ctl00_ContentPlaceHolder1_div_fb.style.marginLeft = "auto",
+        ctl00_ContentPlaceHolder1_div_fb.style.marginRight = "auto"
+}
+function carouselFocus(selecter) {
+    let carousel = $(selecter);
+    carousel.find('.carousel-cell').on('focusin', function (e) {
+        carousel.flickity("stopPlayer");
+    });
+
+    $('.carousel-cell').focusin(function () {
+        $('.carousel-cell').removeClass('is-selected');
+        $(this).addClass('is-selected');
+        let index = $(this).index();
+        let flk = new Flickity(selecter);
+        flk.select(index);
+    })
+
+}

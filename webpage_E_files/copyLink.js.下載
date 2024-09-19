@@ -1,0 +1,22 @@
+$(document).on("click", "a", function (e) {
+                if ($(this).find('span').length > 0) {
+                    if ($(this).find('span')[0].innerHTML.toUpperCase().indexOf("PDF") >= 0) {
+                        window.open($(this)[0].href);
+                        return false;
+                    }
+                } else if ($(this).hasClass("copyLinkBtnJs")) {
+                    e.preventDefault();
+                    var temp = $('<input>'); // 建立input物件
+                    $('body').append(temp); // 將input物件增加到body
+                    var url = $(this).data('url'); // 取得要複製的連結
+                    temp.val(url).select(); // 將連結加到input物件value
+                    document.execCommand('copy'); // 複製
+                    temp.remove(); // 移除input物件
+                    $(this).find('.copyMsg').fadeIn(200, function () {
+                        $(this).delay(1500).fadeOut(200);
+                    });
+    }
+ 
+            });
+
+            

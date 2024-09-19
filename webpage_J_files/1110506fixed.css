@@ -1,0 +1,196 @@
+﻿/*共通*/
+.container-fluid header {
+    max-width: 1200px;
+    width: 95%;
+}
+
+body {
+    font-size: 1rem;
+}
+
+.bookmark li, p {
+    line-height: unset;
+}
+/*首頁*/
+/*搜尋欄*/
+/*@media (max-width: 767.98px) and (min-width: 576px) {
+    .container-fluid .mobile-search {
+        position: absolute;
+        width: 100%;
+        margin-top: 280px;
+        z-index:1;
+    }
+}
+@media (max-width: 575.98px) {
+    .container-fluid .mobile-search {
+        position: absolute;
+        width: 100%;
+        margin-top: 200px;
+    }
+}*/
+/*資訊圖像化*/
+.infoGraphic a {
+    font-size: initial;
+}
+/*內頁*/
+/*針對iframe搜尋結果頁調整 */
+/*.ifrContent {
+    margin: auto;
+    float: unset;
+}*/
+
+/*內頁-PublishIframe.aspx*/
+img.img_print {
+    top: 8px;
+    position: relative;
+    width: 30px;
+    float: right;
+    right: 10px;
+}
+/*title*/
+.mg-title {
+    position: absolute;
+    margin-top: 5px;
+}
+
+.thisPageName {
+    height: 3rem;
+}
+
+/*.container-fluid .pagesMainArea .pageContents .thisPages img {
+    width: unset;
+}*/
+
+.container-fluid .pagesMainArea .pageContents .thisPages.ifr_img img {
+    width: 100%;
+}
+
+.ifr_img iframe {
+    border: 0;
+}
+
+/*內頁-PublishTable.aspx*/
+.thisPages .newstitles {
+    width: 80%;
+    margin-left: 2%;
+}
+
+table.newstitles tr td {
+    line-height: 1.5rem;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+.container-fluid .pagesMainArea .pageContents .thisPages .mndgroup {
+    width: 100%;
+}
+
+/*內頁-部長簡介*/
+.thisPages .principal {
+    font-size: 1.1rem;
+}
+
+    .thisPages .principal tbody {
+        border-top: #cccccc solid 2px;
+        border-bottom: #cccccc solid 2px;
+    }
+
+        .thisPages .principal tbody td {
+            line-height: 1.7;
+            border-bottom: #cccccc dotted 1px;
+            padding: 2px 5px;
+        }
+
+/*內頁-歷任部長*/
+.ministerwrap img {
+    max-height: 151px;
+    width: auto !important;
+}
+
+/*內頁-中英詞彙對照*/
+.book-img {
+    width: 90px;
+    position: absolute;
+    right: 5%;
+    z-index: 1;
+    text-align: center;
+}
+
+    .book-img img {
+        width: 100%;
+    }
+
+/*內頁-Publish.aspx*/
+.container-fluid .pagesMainArea .pageContents .thisPages .icon {
+    width: unset;
+}
+
+.posabs {
+    position: absolute;
+}
+
+.thisPages .title {
+    color: #153162;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+    .thisPages .title .date {
+        margin-bottom: 10px;
+    }
+
+        .thisPages .title .date span {
+            color: #fff;
+            background-color: #31610E;
+            padding: 5px;
+            font-weight: normal;
+        }
+
+.title2 {
+    color: #153162;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.accesskey {
+    color: transparent !important;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.carousel-cell.is-selected:focus {
+    border: 4px solid red;
+    outline: unset;
+    outline-offset: unset;
+}
+
+@media (min-width: 1000px) {
+    .mobile {
+        display: none;
+    }
+}
+
+.w_100 {
+    width: 100%;
+}
+
+li.dropdown {
+    padding: 0;
+}
+
+    li.dropdown > a {
+        padding-left: 0!important;
+    }
+    li.dropdown:hover {
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+.container-fluid .video .box960 .leftarea .box img {
+    width: 100%;
+    height: 281px;
+}
+noscript {
+    text-align: center;
+}

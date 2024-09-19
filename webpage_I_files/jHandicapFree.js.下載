@@ -1,0 +1,657 @@
+﻿$(window).on("load", function () {
+    if ($(".base-section table").length > 0) {
+        var $base_section = $('.base-section'),
+            $table = $base_section.find('table');
+
+        for (i = 0; i < $table.length; i++) {
+            if ($table.eq(i).attr('id') == undefined) {
+                $table.eq(i).attr('id', 'table_' + i);
+            }
+
+            var $th = $table.eq(i).find('th');
+
+            if ($th.length > 4) {
+                $table.eq(i).attr('class', $table.eq(i).attr('class') + ' RWDPadtable');
+            }
+
+            if ($th.length != 0) {
+                if ($table.eq(i).attr('id') == undefined) {
+                    $table.eq(i).attr('id', 'table_' + i);
+                }
+
+                var $th = $table.eq(i).find('th');
+                for (j = 0; j < $th.length; j++) {
+                    if ($th.eq(j).attr('id') == undefined) {
+                        $th.eq(j).attr('id', 'table_' + i + '_' + j);
+                    }
+                }
+
+                var $td = $table.eq(i).find('td');
+                for (k = 0; k < $td.length; k++) {
+                    var row = $td.eq(k).parent().index() + 1; // 欄位置
+                    var col = $td.eq(k).index() + 1; // 列位置
+
+                    var row_count = 0;
+                    var col_count = 0;
+
+                    //寫入欄headers
+                    for (l = 0; l < $th.length; l++) {
+                        var th_row = $th.eq(l).parent().index() + 1; // 欄位置
+                        var th_col = $th.eq(l).index() + 1; // 列位置
+
+                        if (th_row == 1) {
+                            if ($th.eq(l).attr("colspan") == undefined) {
+                                col_count = Number(col_count) + Number(1);
+                            } else {
+                                col_count = Number(col_count) + Number($th.eq(l).attr("colspan"));
+                            }
+                        }
+
+                        if (col_count >= col) {
+                            if ($td.eq(k).attr('headers') == undefined) {
+                                if ($td.eq(k).attr("colspan") == undefined) {
+                                    $td.eq(k).attr('headers', $th.eq(l).attr("id"));
+                                } else {
+                                    var tdcolspan = '';
+                                    for (z = 0; z < $td.eq(k).attr("colspan"); z++) {
+                                        tdcolspan = tdcolspan + $th.eq(l + z).attr("id") + ' ';
+                                    }
+                                    $td.eq(k).attr('headers', tdcolspan.substring(0, tdcolspan.length - 1));
+                                }
+                            }
+                            if ($td.eq(k).attr('data-title') == undefined) {
+                                if ($td.eq(k).attr("colspan") == undefined) {
+                                    try {
+
+                                        $td.eq(k).attr('data-title', document.getElementById($th.eq(l).attr("id")).innerText);
+                                    }
+                                    catch (erro) { }
+                                } else {
+                                    var tdcolspan = '';
+                                    for (z = 0; z < $td.eq(k).attr("colspan"); z++) {
+                                        if ($th.eq(l + z).attr("id") != undefined) {
+                                            try {
+                                                tdcolspan = tdcolspan + document.getElementById($th.eq(l + z).attr("id")).innerText + '/';
+                                            }
+                                            catch (erro) { }
+                                        }
+                                    }
+                                    $td.eq(k).attr('data-title', tdcolspan.substring(0, tdcolspan.length - 1));
+                                }
+                            }
+                            break;
+                        }
+                    }
+
+                    //寫入列headers
+                    for (l = 0; l < $th.length; l++) {
+                        var th_row = $th.eq(l).parent().index() + 1; // 欄位置
+                        var th_col = $th.eq(l).index() + 1; // 列位置
+
+                        if (th_col == 1) {
+                            if ($th.eq(l).attr("rowspan") == undefined) {
+                                row_count = Number(row_count) + Number(1);
+                            } else {
+                                row_count = Number(row_count) + Number($th.eq(l).attr("rowspan"));
+                            }
+                        }
+
+                        if (row_count >= row) {
+                            var rowheaders = $td.eq(k).attr('headers');
+                            if (rowheaders == undefined) {
+                                if ($td.eq(k).attr('headers') == undefined) {
+                                    if ($td.eq(k).attr("rowspan") == undefined) {
+                                        $td.eq(k).attr('headers', $th.eq(l).attr("id"));
+                                    } else {
+                                        var tdrowspan = '';
+                                        for (z = 0; z < $td.eq(k).attr("rowspan"); z++) {
+                                            tdrowspan = tdrowspan + $th.eq(l + z).attr("id") + ' ';
+                                        }
+                                        $td.eq(k).attr('headers', tdrowspan.substring(0, tdrowspan.length - 1));
+                                    }
+                                }
+                                if ($td.eq(k).attr('data-title') == undefined) {
+                                    if ($td.eq(k).attr("rowspan") == undefined) {
+                                        $td.eq(k).attr('data-title', document.getElementById($th.eq(l).attr("id")).innerText);
+                                    } else {
+                                        var tdrowspan = '';
+                                        for (z = 0; z < $td.eq(k).attr("rowspan"); z++) {
+                                            tdrowspan = tdrowspan + document.getElementById($th.eq(l + z).attr("id")).innerText + '/';
+                                        }
+                                        $td.eq(k).attr('data-title', tdrowspan.substring(0, tdrowspan.length - 1));
+                                    }
+                                }
+                            } else {
+                                var rowheaders = rowheaders + ' ' + $th.eq(l).attr("id");
+                                if ($td.eq(k).attr('headers') == undefined) {
+                                    $td.eq(k).attr('headers', rowheaders);
+                                }
+                                var rowtitle = '';
+                                if (document.getElementById($td.eq(k).attr('headers')) == undefined) {
+                                    try {
+                                        rowtitle = document.getElementById($th.eq(l).attr("id")).innerText;
+                                    }
+                                    catch (erro) { }
+                                }
+                                else {
+                                    rowtitle = document.getElementById($td.eq(k).attr('headers')).innerText + '/' + document.getElementById($th.eq(l).attr("id")).innerText;
+                                }
+                                if ($td.eq(k).attr('data-title') == undefined) {
+                                    $td.eq(k).attr('data-title', rowtitle);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    var Link_Title = '[連結]';
+    var New_Windows_Title = '[另開新視窗]';
+    var Goto_Title = '點擊前往';
+
+    function GetLanguage() {
+        if (CCMS_LanguageSN == 1) {
+            Link_Title = '[連結]';
+            New_Windows_Title = '[另開新視窗]';
+            Goto_Title = '點擊前往';
+        } else {
+            Link_Title = '[Link]';
+            New_Windows_Title = '[open a new window]';
+            Goto_Title = 'Click to go';
+        }
+    }
+
+    function CheckIndex(str1) {
+        var s = -1;
+        s = str1.indexOf("開啟新");
+        if (s != -1) return (s);
+        s = str1.indexOf("新視窗");
+        if (s != -1) return (s);
+        s = str1.indexOf("开启新");
+        if (s != -1) return (s);
+        s = str1.indexOf("新视窗");
+        if (s != -1) return (s);
+        s = str1.indexOf("新分頁");
+        if (s != -1) return (s);
+        s = str1.indexOf("新連結");
+        if (s != -1) return (s);
+        s = str1.indexOf("new window");
+        if (s != -1) return (s);
+        s = str1.indexOf("window");
+        if (s != -1) return (s);
+        return (s);
+    }
+
+    function String2Base64(p, _type) {
+        var bytes = new TextEncoder().encode(p);
+
+        if (_type != undefined && _type != '') {
+            if (p.indexOf('.' + _type) == -1 && '.zip;.xlsx;.xls;.txt;.rar;.pptx;.ppt;.png;.pdf;.ogv;.ogg;.odt;.ods;.odp;.odf;.mp4;.mp3;.jpg;.jpeg;.gif;.docx;.doc;.csv;'.indexOf(_type) != -1) {
+                bytes = bytes + '.' + _type;
+            }
+        }
+
+        var base64String = btoa(String.fromCharCode.apply(null, bytes));
+        var urlEncodedString = encodeURIComponent(base64String);
+
+        return urlEncodedString;
+    }
+
+    // 取得檔案的副檔名
+    function getExtension(filename) {
+        var parts = filename.split('.');
+        if (parts.length <= 1) {
+            return '';
+        }
+        return parts[parts.length - 1];
+    }
+
+    if ($(".base-section").length > 0) {
+        GetLanguage();
+    }
+
+    if ($(".base-section img").length > 0) {
+        var $page_title = $('.base-section .simple-text'),
+            $h3 = $page_title.find('h3'),
+            $base_section = $('.base-section'),
+            $img = $base_section.find('img');
+
+        for (i = 0; i < $img.length; i++) {
+            if (($img.eq(i).attr('alt') == '' || $img.eq(i).attr('alt') == undefined) && $h3.eq(0).text() != '') {
+                $img.eq(i).attr('alt', $h3.eq(0).text() + '-' + (i + 1));
+            }
+        }
+    }
+
+    if ($("body a").length > 0) {
+        var $A = $("body a");
+        for (i = 0; i < $A.length; i++) {
+            $img = $A.eq(i).find('img');
+
+            if ($A.eq(i).text() == '') {
+                if ($A.eq(i).html() == '') {
+                    if ($A.eq(i).attr('title') != undefined) {
+                        $A.eq(i).text($A.eq(i).attr('title'));
+                    } else if ($A.eq(i).attr('name') != undefined) {
+                        $A.eq(i).append('<span style="display:none;">' + $A.eq(i).attr('name') + '</span>');
+                    }
+                }
+            }
+
+            if ($A.eq(i).attr('title') == undefined) {
+                $A.eq(i).attr('title', $A.eq(i).text());
+            }
+
+            if ($A.eq(i).text().startsWith('http') == true && $A.eq(i).attr('href') != undefined) {
+                $A.eq(i).text(Link_Title);
+            }
+
+            if ($A.eq(i).attr('target') == '_blank' || $A.eq(i).attr('target') == '_nwMof' || $A.eq(i).attr('target') == '_gipNW') {
+                GetLanguage();
+                if (CheckIndex($A.eq(i).attr('title')) == -1) {
+                    $A.eq(i).attr('title', $A.eq(i).attr('title') + " " + New_Windows_Title);
+                }
+            }
+
+            if ($img != undefined && $A.eq(i).text() != '') {
+                $img.eq(i).attr('alt', '');
+            }
+
+            if ($A.eq(i).attr('class') == 'btn' || $A.eq(i).attr('class') == 'CCMS_SearchBtn' || $A.eq(i).attr('href') == '#') {
+                $A.eq(i).attr('role', 'button');
+            }
+
+            if ($A.eq(i).attr('href') == '#' && $img.html() != undefined) {
+                //$A.eq(i).before($A.eq(i).html());
+                //$A.eq(i).remove();
+
+                $A.eq(i).attr('href', 'javascript:void(0)');
+            }
+
+            if ($A.eq(i).attr('title').indexOf(Goto_Title) == -1 && $A.eq(i).attr('title').indexOf(Goto_Title) == -1) {
+                $A.eq(i).attr('title', Goto_Title + " " + $A.eq(i).attr('title'));
+            }
+
+            if ($A.eq(i).attr('href') != undefined) {
+                var Ws = 'https://ws.thb.gov.tw';
+                var Path = '/Download.ashx';
+                var isEbook = '.html';
+                var Extension = getExtension($A.eq(i).attr('href').replace(Ws, ''));
+                var Name = String2Base64($A.eq(i).attr('title').replace(Goto_Title + ' ', '').replace(' ' + New_Windows_Title, '').split('.' + Extension)[0] + '.' + Extension, Extension);
+
+                if ($A.eq(i).attr('href').indexOf(Ws) > -1 && $A.eq(i).attr('href').indexOf(Path) == -1 && $A.eq(i).attr('href').indexOf(isEbook) == -1) {
+                    $A.eq(i).attr('href', Ws + Path + '?u=' + String2Base64($A.eq(i).attr('href').replace(Ws, ''), '') + '&n=' + Name + '&icon=.' + Extension);
+                }
+
+                if ($A.eq(i).attr('href').indexOf(Ws) > -1 && $A.eq(i).attr('href').indexOf('&icon=') == -1 && $A.eq(i).attr('href').indexOf(isEbook) == -1) {
+                    const url = new URL($A.eq(i).attr('href'));
+                    const params = new URLSearchParams(url.search);
+                    const paramValue = params.get('u');
+                    var base64String = atob(paramValue);
+                    $A.eq(i).attr('href', $A.eq(i).attr('href') + '&icon=.' + getExtension(base64String));
+                }
+            }
+
+            var _href = $A.eq(i).attr('href') || '',
+                _dot_i = _href.lastIndexOf('.'),
+                _slash = _href.lastIndexOf('/');
+
+            if (_dot_i > _slash) { //最後是 .*
+                var _dot_i = _href.lastIndexOf('.') + 1, //最後一個.
+                    _ques_i = _href.indexOf('?'), // 最後一個問候
+                    _length = _href.length,
+                    _type = 'other';
+
+                if (_ques_i === -1 || _dot_i > _ques_i) { //如果沒有問號或問號比.前面
+                    _length = _href.length - _dot_i;
+                } else { //如果有問號
+                    _length = _ques_i - _dot_i;
+                }
+
+                _type = _href.substr(_dot_i, _length);
+                if ($A.eq(i).attr('title').indexOf(_type) == -1 && 'zip;xlsx;xls;txt;rar;pptx;ppt;png;pdf;ogv;ogg;odt;ods;odp;odf;mp4;mp3;jpg;jpeg;gif;docx;doc;csv;'.indexOf(_type) != -1) {
+                    $A.eq(i).attr('title', $A.eq(i).attr('title') + '.' + _type);
+                }
+
+                if ($A.eq(i).attr('class') != undefined) {
+                    if ($A.eq(i).attr('class').indexOf(_type) == -1 && 'zip;xlsx;xls;txt;rar;pptx;pdf;ppt;odt;ods;odp;odf;mp4;mp3;docx;doc;csv;'.indexOf(_type) != -1) {
+                        $A.eq(i).attr('class', $A.eq(i).attr('class') + ' ' + _type);
+                    }
+                }
+                else {
+                    if (('zip;xlsx;xls;txt;rar;pptx;pdf;ppt;odt;ods;odp;odf;mp4;mp3;docx;doc;csv;').indexOf(_type) > -1) {
+                        $A.eq(i).attr('class', _type);
+                    }
+                }
+            }
+
+            if ($A.eq(i).attr('href') == undefined) {
+                $A.eq(i).removeAttr('title');
+            }
+        }
+    }
+
+    if ($("body input").length > 0) {
+        var $Input = $("body input");
+        for (i = 0; i < $Input.length; i++) {
+            var dataBeforeValue = $Input.eq(i).attr('id');
+
+            if ($Input.eq(i).attr('type') == 'submit') {
+                continue;
+                //dataBeforeValue = $Input.eq(i).attr('value');
+            }
+            if ($Input.eq(i).attr('type') == 'button') {
+                continue;
+            }
+            if ($Input.eq(i).attr('type') == 'text' && !$Input.eq(i).hasClass('dynDateTime')) {
+                var $parentLabel = $Input.eq(i).closest('label');
+                var $parentSpan = $parentLabel.find('span[data-before]');
+                if ($parentSpan.length > 0) {
+                    dataBeforeValue = $parentSpan.data('before');
+                }
+            }
+
+            if ($Input != undefined && $Input.eq(i).attr('id') != '' && $Input.eq(i).attr('type') != 'hidden' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0;"><span>' + dataBeforeValue + '</span></label>');
+            }
+
+            var $Label = $("[for='" + $Input.eq(i).attr('id') + "']");
+
+            if ($Label.length > 0) {
+                if ($Label.text() == '') {
+                    var $parentSpan = $Input.eq(i).closest('span[data-before]');
+                    if ($parentSpan.length > 0) {
+                        dataBeforeValue = $parentSpan.attr('data-before');
+                    } else if ($Input.eq(i).attr('title') != '') {
+                        dataBeforeValue = $Input.eq(i).attr('title')
+                    }
+                    else {
+                        dataBeforeValue = $Input.eq(i).attr('id');
+                    }
+                    $Label.html($Label.html() + '<span style="font-size: 0;">' + dataBeforeValue + '</span>');
+                }
+            }
+        }
+    }
+
+    if ($("body select").length > 0) {
+        var $Input = $("body select");
+        for (i = 0; i < $Input.length; i++) {
+            var dataBeforeValue = $Input.eq(i).attr('id');
+            var $parentLabel = $("input[id =" + dataBeforeValue + "]");
+            if ($parentLabel !== undefined && $parentLabel.attr('title') !== undefined && $parentLabel.attr('title') !== '') {
+                dataBeforeValue = $parentLabel.attr('title').replace(Goto_Title, '').replace(New_Windows_Title, '').replace(' ', '');
+            }
+            if ($Input != undefined && ($Input.eq(i).attr('id') == '' || $Input.eq(i).attr('id') == undefined)) {
+                $Input.eq(i).attr('id', 'select' + i);
+            }
+
+            if ($Input != undefined && ($Input.eq(i).attr('id') != '' || $Input.eq(i).attr('id') != undefined) && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0;"><span>' + dataBeforeValue + '</span></label>');
+            }
+
+            var $Label = $("[for='" + $Input.eq(i).attr('id') + "']");
+
+            if ($Label.length > 0) {
+                if ($Label.text() == '') {
+                    $Label.html($Label.html() + '<span style="font-size: 0;">' + dataBeforeValue + '</span>');
+                }
+            }
+        }
+    }
+
+    if ($("body textarea").length > 0) {
+        var $Input = $("body textarea");
+        for (i = 0; i < $Input.length; i++) {
+            if ($Input != undefined && $Input.eq(i).attr('id') != '' && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+            }
+
+            var $Label = $("[for='" + $Input.eq(i).attr('id') + "']");
+
+            if ($Label.length > 0) {
+                if ($Label.text() == '') {
+                    $Label.html($Label.html() + '<span style="font-size: 0;">' + $Input.eq(i).attr('id') + '</span>');
+                }
+            }
+        }
+    }
+
+    if ($('body img').length > 0) {
+        var $img = $('body img');
+        for (i = 0; i < $img.length; i++) {
+            if ($img.eq(i).attr('alt') == undefined) {
+                $img.eq(i).attr('alt', '');
+            }
+        }
+    }
+    $(window).on("load", function () {
+        setTimeout(setSpectrumAlt, 3000);
+    });
+
+    //TGOS Img Alt
+    function setSpectrumAlt() {
+        if ($('.TGOS_WMTS img').length > 0) {
+            $('.TGOS_WMTS img').attr('alt', 'tgosmap');
+        }
+
+        if ($('.img-spectrum').length > 0) {
+            var $img = $('body img');
+            for (i = 0; i < $img.length; i++) {
+                $img.eq(i).attr('alt', '波形圖與頻譜圖');
+            }
+        }
+
+        //TGOS Img Alt
+        if ($('#TGMap img').length > 0) {
+            var $img = $("#TGMap img");
+            for (i = 0; i < $img.length; i++) {
+                if ($img.eq(i).attr('alt') == undefined) {
+                    $img.eq(i).attr('alt', 'tgosimg');
+                }
+            }
+        }
+
+        if ($(".tgMapTypeCtrl img").length > 0) {
+            var $img = $(".tgMapTypeCtrl img");
+            $img.eq(0).attr('alt', '航照影像');
+            $img.eq(1).attr('alt', '地形暈渲圖');
+            $img.eq(2).attr('alt', '地形暈渲混合地圖');
+            $img.eq(3).attr('alt', '福衛影像混合地圖');
+            $img.eq(4).attr('alt', '福衛二號衛星地圖');
+            $img.eq(5).attr('alt', '臺灣通用電子地圖');
+            $img.eq(6).attr('alt', '臺灣通用電子地圖');
+        }
+    }
+    if ($("body select").length > 0) {
+        var $Input = $("body select");
+        for (i = 0; i < $Input.length; i++) {
+            if ($Input != undefined && ($Input.eq(i).attr('id') == '' || $Input.eq(i).attr('id') == undefined)) {
+                $Input.eq(i).attr('id', 'select' + i);
+            }
+
+            if ($Input != undefined && ($Input.eq(i).attr('id') != '' || $Input.eq(i).attr('id') != undefined) && $("[for='" + $Input.eq(i).attr('id') + "']").length == 0) {
+                $Input.eq(i).before('<label for="' + $Input.eq(i).attr('id') + '" style="font-size: 0;"><span>' + $Input.eq(i).attr('id') + '</span></label>');
+            }
+
+            var $Label = $("[for='" + $Input.eq(i).attr('id') + "']");
+
+            if ($Label.length > 0) {
+                if ($Label.text() == '') {
+                    $Label.html($Label.html() + '<span style="font-size: 0;">' + $Input.eq(i).attr('id') + '</span>');
+                }
+            }
+        }
+    }
+
+
+    if ($('.TGOS_WMTS').length > 0) {
+        var $img = $(".TGOS_WMTS img");
+        for (i = 0; i < $img.length; i++) {
+            if ($img.eq(i).attr('alt') == undefined) {
+                $img.eq(i).attr('alt', '');
+            }
+        }
+    }
+
+    function replaceElementTag(targetSelector, newTagString) {
+        $(targetSelector).each(function () {
+            var newElem = $(newTagString, { html: $(this).html() });
+            $.each(this.attributes, function () {
+                newElem.attr(this.name, this.value);
+            });
+            $(this).replaceWith(newElem);
+        });
+    }
+
+    if ($("nav").length > 0) {
+        var $NAV = $("nav");
+        for (i = 0; i < $NAV.length; i++) {
+            if ($NAV.eq(i).text() == '') {
+                $NAV.eq(i).remove();
+            }
+        }
+    }
+
+    //GoogleReCaptchaV3
+    $('.grecaptcha-badge').next().attr("title", "googleRecaptcha");
+    $('.g-recaptcha > iframe').attr('title', 'google-recaptcha-hidden');
+    $('.g-recaptcha-response').attr('title', 'g-recaptcha-response');
+
+    //針對錨點下顏色
+    if (location.hash != '') {
+        var $hash = $(location.hash);
+
+        $hash.eq(0).attr('tabindex', '-1');
+
+        $hash.focus(function () {
+            if ($hash.eq(0).attr('style') == undefined)
+                $hash.eq(0).attr('style', 'border: 3px solid #068278;');
+            else
+                $hash.eq(0).attr('style', $hash.eq(0).attr('style') + 'border: 3px solid #068278;');
+        });
+        $hash.focusout(function () {
+            if ($hash.eq(0).attr('style') != undefined)
+                $hash.eq(0).attr('style', $hash.eq(0).attr('style').repeat('border: 3px solid #068278;', ''));
+
+            if ($hash.eq(0).attr('style') == '')
+                $hash.eq(0).removeAttr('style');
+
+            $hash.eq(0).removeAttr('tabindex');
+        });
+
+        $hash.focus();
+    }
+
+    $(".fb_reset").remove();
+
+    var $fb_css = $('[data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe"]');
+    if ($fb_css.length > 0) {
+        var styleTag = $fb_css[0];
+        var styleText = styleTag.innerHTML;
+        var newStyleText = styleText.replace(/font-size\s*:\s*12px/g, 'font-size:1em');
+        styleTag.innerHTML = newStyleText;
+    }
+
+    // font-size px to em
+    $('[style]').each(function () {
+        var originalStyle = $(this).attr('style');
+
+        // 使用正則表達式尋找 font-size: [number]px;
+        var modifiedStyle = originalStyle.replace(/font-size:\s*(\d+)\s*px;/g, function (match, p1) {
+            // 將 px 單位轉換為 em（這裡只是一個簡單的轉換，實際應用中可能需要更複雜的邏輯）
+            var pxValue = parseInt(p1);
+            var emValue = pxValue / 16.0; // 16px 為一個 em 的標準值
+
+            return 'font-size: ' + emValue + 'em;';
+        });
+
+        // 更新元素的 style 屬性
+        $(this).attr('style', modifiedStyle);
+    });
+
+    //h2 沒內容 移除
+    $('h2').each(function () {
+        if ($(this).text().trim() == '') {
+            $(this).remove();
+        }
+    });
+
+    //h3 沒內容 移除
+    $('h3').each(function () {
+        if ($(this).text().trim() == '') {
+            $(this).remove();
+        }
+    });
+
+    //h4 沒內容 移除
+    $('h4').each(function () {
+        if ($(this).text().trim() == '') {
+            $(this).remove();
+        }
+    });
+
+    //GoogleMap無障礙修正----
+    var attempts = 10;
+    var interval = setInterval(
+        function () {
+            var $gmap = $('div[id="map_canvas1"]')[0];
+            if ($gmap != undefined && $gmap.innerHTML != '') {
+                //CSS
+                $('style').each(function () {
+                    if ($(this).innerText != '') {
+                        var styleText = $(this).text();
+                        var newStyleText = styleText.replace(/font-size:\s*(\d+)\s*px;/g, function (match, p1) {
+                            // 將 px 單位轉換為 em（這裡只是一個簡單的轉換，實際應用中可能需要更複雜的邏輯）
+                            var pxValue = parseInt(p1);
+                            var emValue = pxValue / 16.0; // 16px 為一個 em 的標準值
+
+                            return 'font-size: ' + emValue + 'em;';
+                        });
+                        $(this).text(newStyleText);
+                    }
+                });
+                //img src='https://maps.gstatic.com/mapfiles/transparent.png' 補 alt
+                $('img[src="https://maps.gstatic.com/mapfiles/transparent.png"]').each(function () {
+                    if ($(this).attr('alt') === undefined || $(this).attr('alt') === '') {
+                        $(this).attr('alt', '座標圖');
+                    }
+                });
+                //area 補 alt
+                $('area').each(function () {
+                    if ($(this).attr('alt') === undefined || $(this).attr('alt') === '') {
+                        $(this).attr('alt', $(this).attr('title'));
+                    }
+                });
+                //Style
+                $('[style]').each(function () {
+                    var originalStyle = $(this).attr('style');
+
+                    // 使用正則表達式尋找 font-size: [number]px;
+                    var modifiedStyle = originalStyle.replace(/font-size:\s*(\d+)\s*px;/g, function (match, p1) {
+                        // 將 px 單位轉換為 em（這裡只是一個簡單的轉換，實際應用中可能需要更複雜的邏輯）
+                        var pxValue = parseInt(p1);
+                        var emValue = pxValue / 16.0; // 16px 為一個 em 的標準值
+
+                        return 'font-size: ' + emValue + 'em;';
+                    });
+
+                    // 更新元素的 style 屬性
+                    $(this).attr('style', modifiedStyle);
+                });
+                // 停止檢查
+                clearInterval(interval);
+            }
+            else {
+                attempts--;
+                if (attempts === 0)
+                    // 停止檢查
+                    clearInterval(interval);
+            }
+        }
+        , 1000);
+    //------------------------------
+});
