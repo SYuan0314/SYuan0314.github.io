@@ -1,4 +1,4 @@
-﻿.preface,
+.preface,
 .steps,
 .sitemap,
 .main>.searchOnLp,
@@ -1466,6 +1466,7 @@ input[type=reset] {
     -webkit-appearance: none;
     -moz-appearance: none;
     height: var(--inputHeight);
+    line-height: var(--inputHeight);
     padding: 0 1em;
     margin: 5px;
     border-radius: 1.5em;

@@ -52,49 +52,6 @@
   <link rel="stylesheet" type="text/css" href="./webpage_F_files/style.css">
   <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    h1 {
-      color: #4CAF50;
-    }
-
-    h2 {
-      color: #555;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #1E90FF;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .link-section {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .highlight {
-      font-weight: bold;
-      color: red;
-    }
-
     /* 修改后的統計欄樣式 */
     #statistics {
       width: 300px;
@@ -191,6 +148,7 @@
       text-align: center;
       margin-top: 10px;
       transition: background-color 0.3s ease;
+      line-height: normal;
     }
 
     #submit-button:hover {
@@ -215,6 +173,7 @@
       font-size: 12px;
       z-index: 1001;
       transition: background-color 0.3s ease;
+      line-height: normal;
     }
 
     .toggle-button:hover {
@@ -244,8 +203,9 @@
           </ul>
         </li>
       </ul>
-    </nav><button type="button" class="sidebarCtrl" aria-label="開啟側欄"></button><button type="button" class="searchCtrl"
-      aria-label="簡易查詢" aria-expanded="false"></button>
+    </nav>
+    <button type="button" class="sidebarCtrl" aria-label="開啟側欄"></button>
+    <button type="button" class="searchCtrl" aria-label="簡易查詢" aria-expanded="false"></button>
     <section class="search">
       <form id="SearchForm" action="https://www.mohw.gov.tw/sp-GS-1.html"><input name="Query" id="Query" type="text"
           placeholder="請輸入關鍵字"><input id="GSearchSend" type="button" value="查詢"></form><a class="adv" target="_blank"

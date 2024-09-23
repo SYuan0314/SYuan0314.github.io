@@ -41,8 +41,8 @@ $(function(){
   // 行動版「主選單」 
   // --------------------------------------------------------------- //
   // 複製「主選單」到側欄給行動版用
-  _menu.clone().appendTo(_sidebar);
-  $('.headNav').clone().appendTo(_sidebar);
+  //_menu.clone().appendTo(_sidebar);
+  //$('.headNav').clone().appendTo(_sidebar);
   _sidebar.find('.fontSize').remove(); //行動版不要選文字大小的功能
   var _sidebarMenu = _sidebar.find('.menu');
   var _hasChild = _sidebarMenu.find('.hasChild>a').attr('href', 'javascript:;').attr('role', 'button');
