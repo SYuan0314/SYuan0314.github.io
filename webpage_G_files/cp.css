@@ -1,0 +1,230 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+    font-family: "微軟正黑體",Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* 內容文字 */
+.text_8pt {
+    font-variant: normal;
+    font-style: normal;
+    text-decoration: none;
+    background: url(/Upload/UserFiles/arrow_160.gif) no-repeat left;
+    padding-left: 18px;
+}
+
+.text_9pt {
+    font-variant: normal;
+    font-style: normal;
+    line-height: 160%;
+    text-decoration: none;
+    background: url(/Upload/UserFiles/item04.gif) no-repeat left;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.text_10pt {
+    line-height: 200%;
+    color: #09F;
+    border-bottom: #CCC 1px dashed;
+    padding-bottom: 5px;
+}
+
+.text_11pt {
+    font-variant: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #FB970F;
+}
+
+.text_11_1pt {
+    font-variant: normal;
+    font-style: normal;
+    line-height: 100%;
+    text-decoration: none;
+}
+
+.text_12pt {
+    font-variant: normal;
+    font-style: normal;
+    line-height: 180%;
+    text-decoration: none;
+}
+
+.text_12_1pt {
+    font-variant: normal;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 160%;
+}
+
+.text_12_2pt {
+    font-variant: normal;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 120%;
+}
+
+/* 文字色彩(請按英文字母排序) */
+.black00 {
+    COLOR: #000000;
+    text-decoration: none;
+}
+
+    .black00 A:link {
+        COLOR: #000000;
+        text-decoration: none;
+    }
+
+    .black00 A:visited {
+        COLOR: #000000;
+        text-decoration: none;
+    }
+
+    .black00 A:hover {
+        COLOR: #000000;
+        text-decoration: none;
+        position: relative;
+        top: 1pt;
+        left: 1pt;
+    }
+
+
+.blue01 {
+    COLOR: #03ace9;
+    text-decoration: none;
+}
+
+    .blue01 A:link {
+        COLOR: #03ace9;
+        text-decoration: none;
+    }
+
+    .blue01 A:visited {
+        COLOR: #03ace9;
+        text-decoration: none;
+    }
+
+    .blue01 A:hover {
+        COLOR: #03ace9;
+        text-decoration: none;
+        position: relative;
+        top: 1pt;
+        left: 1pt;
+    }
+
+.blue02 {
+    COLOR: #006c83;
+    text-decoration: none;
+}
+
+    .blue02 A:link {
+        COLOR: #006c83;
+        text-decoration: none;
+    }
+
+    .blue02 A:visited {
+        COLOR: #006c83;
+        text-decoration: none;
+    }
+
+    .blue02 A:hover {
+        COLOR: #006c83;
+        text-decoration: none;
+        position: relative;
+        top: 1pt;
+        left: 1pt;
+    }
+
+.tilte {
+    background: url(/Upload/UserFiles/item01.gif) no-repeat left -2px;
+    padding-left: 30px;
+    line-height: 200%;
+    color: #09F;
+    border-bottom: #CCC 1px dashed;
+    padding-bottom: 3px;
+    margin: 5px 0;
+    display: block;
+    height: 30px;
+}
+
+.gi img {
+    border: #CCC 1px solid;
+    padding: 3px;
+}
+
+.bi {
+    background: url(/Upload/UserFiles/arrow_185.gif) no-repeat left;
+    padding-left: 15px;
+    margin-left: 8px;
+}
+
+ul li {
+    list-style: none;
+}
+
+ol li {
+    list-style: decimal;
+}
+
+.tilte2 {
+    background: url(/Upload/UserFiles/new_item.jpg) no-repeat left 5px;
+    padding-left: 25px;
+    line-height: 200%;
+    color: #0C9;
+    padding-bottom: 3px;
+    margin: 5px 0;
+    display: block;
+    height: 30px;
+}
+
+.tilte3 {
+    background: url(/Upload/UserFiles/Comp_054.jpg) no-repeat left -2px;
+    padding-left: 35px;
+    line-height: 200%;
+    color: #800080;
+    padding-bottom: 3px;
+    margin: 5px 0;
+    display: block;
+    height: 30px;
+    border-bottom: #CCC 1px dashed;
+}
+
+.tilte4 {
+    background: url(/Upload/UserFiles/icon_16.jpg) no-repeat left -2px;
+    padding-left: 35px;
+    line-height: 200%;
+    color: #C60;
+    padding-bottom: 3px;
+    margin: 5px 0;
+    display: block;
+    height: 30px;
+    border-bottom: #CCC 1px dashed;
+}
+
+/*---------------------cp頁外框----------------------------*/
+.data_midlle_cp {
+    padding: 0 0 0 27px;
+    padding: 0 0 0 21px \9;
+}
+
+.data_top_cp {
+}
+
+/*---------------------強制斷行----------------------------*/
+.history {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@page {
+ size: 330mm 427mm;
+ margin: 40px 5% 40px 5%;}
+@media print {
+	body {font-size:24px; background: none!important;}
+	.topbg,#content_left,#content_right,#data_bottom,#footer_bg { display:none;}
+	#content_middle,.data_midlle_visit { width:100%!important;}
+	
+}

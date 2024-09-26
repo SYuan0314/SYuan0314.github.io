@@ -1,0 +1,78 @@
+$(function () {
+    //var i = 4;
+    //var itemImg = $("#imgList ul li a object");
+    var itemA = $("#imgList ul li");
+    var speed = 1000; //停留秒數
+
+    //左右換頁鍵------------------------------------------------------------
+    //計算頁數
+    var page = 1;
+    var maxpage = Math.floor(((itemA.length) + 2) / 3); //不滿四張圖也算一頁
+    //alert(maxpage);
+    //設定ul寬度
+    //var ulWidth = itemA.length * 310;
+    var ulWidth = maxpage * 930;
+    $("#imgList ul").css("width", ulWidth);
+
+    $("#next").click(function () {
+        if (itemA.length > 3) {
+            if (page != (maxpage)) {  //maxpage - 1
+                page++;
+                $("#imgList ul").animate({ left: -900 * (page - 1) }, 1000);
+            }
+            //            else {
+            //                $("#imgList ul").animate({ left: -900 * 0 }, 1);
+            //                page = 1;
+            //                $("#imgList ul").animate({ left: -900 * page }, 1000);
+            //            }
+        }
+
+    });
+
+    //上一頁
+    $("#pre").click(function () {
+        if (itemA.length > 3) {
+            if (page > 1) {
+                page--;
+                $("#imgList ul").animate({ left: -900 * (page - 1) }, 1000);
+                //                if (page == 0) {
+                //                    $("#imgList ul").animate({ left: -900 * (maxpage) }, 1);  //maxpage - 1
+                //                    page = (maxpage); //maxpage - 1
+                //                }
+            }
+            //            else {
+            //                page = maxpage - 2;
+            //                $("#imgList ul").animate({ left: -900 * (maxpage - 1) }, 1);
+            //                $("#imgList ul").animate({ left: -900 * page }, 1000);
+            //            }
+        }
+    });
+    //-------------------------------------------------------------------------
+
+    //停止輪播
+    //    $("#imgList").hover(function() {
+    //        clearTimeout(timer);
+    //    }, function() {
+    //        timer = setTimeout(autoShow, speed);
+    //    });
+    //    $("#pre").hover(function() {
+    //        clearTimeout(timer);
+    //    }, function() {
+    //        timer = setTimeout(autoShow, speed);
+    //    });
+    //    $("#next").hover(function() {
+    //        clearTimeout(timer);
+    //    }, function() {
+    //        timer = setTimeout(autoShow, speed);
+    //    });
+
+    //輪播
+    //function autoShow() {
+    //    $("#next").click();
+    //    timer = setTimeout(autoShow, speed);
+    //}
+    //啟動自動輪播
+    //autoShow();
+
+
+});
