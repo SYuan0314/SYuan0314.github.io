@@ -1,1 +1,0 @@
-define(function(){return function(d,e,f){var a={top:100,showSpeed:600,hideSpeed:400,debug:!1};$.extend(a,e);var b=$(window),c=$(d);b.scroll(function(){768<$(window).width()&&(b.scrollTop()>a.top?c.fadeIn(a.showSpeed):c.fadeOut(a.hideSpeed))});a.debug&&(console.log("\u9810\u8a2d\u503c:",a),console.log("\u6a94\u6848 "+f+".js \u5df2\u9806\u5229\u57f7\u884c\u3002"))}});
