@@ -2709,18 +2709,23 @@
 
     let pageEnterTime = new Date().toLocaleString(); // 網頁進入時間
 
+    /*這段是a tag可以彈出評價*/
     document.addEventListener('DOMContentLoaded', function () {
-        document.addEventListener('mouseup', function () {
-            var selection = window.getSelection();
-            var range = selection.getRangeAt(0);
-            var rect = range.getBoundingClientRect();
+        // 監聽所有 <a> 標籤的點擊事件
+        document.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                //event.preventDefault(); // 阻止鏈接的預設跳轉行為
 
-            // 收集選取的內容
-            var content = collectSelectedContent(range);
+                var rect = this.getBoundingClientRect(); // 獲取 <a> 標籤的位置
+                var content = {
+                    text: this.textContent.trim(),
+                    images: []  // 如果鏈接中有圖片，你可以加入這部分的處理
+                };
 
-            if (content) {
-                showRatingOptions(rect, content, 'mixed');
-            }
+                if (content.text) {
+                    showRatingOptions(rect, content, 'text'); // 顯示評價選項
+                }
+            });
         });
     });
 

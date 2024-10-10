@@ -179,54 +179,40 @@
     <h1>Webpage A</h1>
     <h2>Webpage A是用來熟悉本實驗＂鏈結文字與目標網頁相關性測試＂網頁操作方式</h2>
     <div class="link-section">
-        <p>首先，本研究專注於鏈結，意即 pdf 下載亦或捲動頁面之按鈕都並非是本實驗所關注<br><br>
+        <p>首先，本研究專注於鏈結，意即 pdf 下載亦或捲動頁面之按鈕都 <span style="color: red;font-weight: bold;">並非</span>是本實驗所關注<br><br>
             當我們在待測網頁中發現連結：<a href="https://www.google.com" target="_blank">Google</a><br>
-            我們就要點進去，判斷超鏈結文字與目標網頁的關聯性<br>
-            本實驗中將關聯性分為: <span style="color: red;font-weight: bold;">非常相關</span>、<span
-                style="color: red;font-weight: bold;">可能相關</span>、<span
-                style="color: red;font-weight: bold;">不確定</span>、<span
-                style="color: red;font-weight: bold;">可能不相關</span>、<span
-                style="color: red;font-weight: bold;">非常不相關</span><br>
-            以及 <span style="color: red;font-weight: bold;">Broken/Timeout</span>（ex：HTTP status code 404）<br>
+            <span style="color: red;font-weight: bold;">我們需要點進去，判斷超鏈結文字與目標網頁的關聯性</span><br>
+            本實驗中將關聯性分為 : "非常相關" 、 "可能相關" 、 "不確定" 、 "可能不相關" 、 "非常不相關" 以及 "Broken/Timeout（ex：HTTP status code 404）"<br>
         </p>
     </div>
 
     <div class="link-section">
-        <p>By the way , 我們等等發現一個超連結就用<span style="color: red;font-weight: bold;">滑鼠選取它（左鍵拖曳反白）</span><br>
-            便可以給予相似度評價，並將其加入至統計欄<br>
+        <p>當我們點到一個鏈結時，便可以給予相似度評價，並將其加入至統計欄<br>
         <div style="text-align: center;">
             <img src="src/example.png" alt="example" style="max-width: 20%; height: auto;">
         </div><br>
-        此外統計欄內的相關性可以刪除～<br>
+        此外統計欄內的相關性是能夠刪除的<br>
         <div style="text-align: center;">
             <img src="src/統計欄.jpg" alt="統計欄" style="max-width: 20%; height: auto;">
         </div>
+        <a href="#" onclick="event.preventDefault();">但並非可以打開相似度評價的文字均為鏈結</a><br>
+        這部分需要讓受試者自行判斷
         </p>
     </div>
-    <div class="link-section">
-        <p>下方是一個以文字為主的鏈結</p>
+    <div class=" link-section">
+        <p>下方是一個鏈結範例</p>
         <a href="https://mail.ntu.edu.tw/owa/calendar/231111d435d54d41908fa9c59d0812a3@ntu.edu.tw/4576890d12e040bab4ab864c413aa2be12994112486015644960/calendar.html"
             target="_blank">NTU 113學年度行事曆</a>
         <p>鏈結錨文字：NTU 113學年度行事曆</p>
-        <p>目標網頁：NTU 113學年度行事曆</p>
-        <p>當您認為<span style="color: red;font-weight: bold;">整個網頁的link都評分完</span>後可以點選送出<br>
-            送出後會下載一個json檔，問卷填完後再麻煩<span style="color: red;font-weight: bold;">回傳該json檔</span></p>
+        <p>目標網頁：NTU 113學年度行事曆</p><br>
+        <p>當您認為整個網頁的link都評分完後可以點選送出<br>
+            送出後會下載一個json檔，問卷填完後再麻煩回傳json檔</p>
     </div>
 
     <div class="link-section">
-        <p>下方是一個以圖片為主的鏈結：</p>
-        <a href="https://www.showtimes.com.tw/ticketing" target="_blank">
-            <img src="src/image.jpg" alt="NTU 113學年度行事曆" style="max-width: 100%; height: auto;">
-        </a>
-        <p>鏈結圖片文字：NTU 113學年度行事曆 </p>
-        <p>目標網頁：電影院購票網頁</p>
-        <p>注１：有些元素可能不太好選取<br>若您發現了一個鏈結且反白困難<br>
-            <span style="color: red;font-weight: bold;">可告知研究人員 由研究人員手動紀錄實驗數據</span>
+        <p>注1：本實驗不限制任何搜尋引擎、工具之使用<br>由於待測網頁皆由現有網站 modify 而成<br>
+            <span style="color: red;font-weight: bold;">因此在本實驗中禁止額外瀏覽待測網頁之原網站</span>
         </p>
-        <p>注２：我們只關注在<span style="color: red;font-weight: bold;">當前</span> webpage</span>
-            與目標網頁之相關性<br>目標網頁與其更深層網頁關係並非本實驗所關注。</p>
-        <p>注３：本實驗不限制任何搜尋引擎、工具之使用<br>由於待測網頁皆由現有網站 modify 而成<br><span
-                style="color: red;font-weight: bold;">因此在本實驗中禁止額外瀏覽待測網頁之原網站</span></p>
         <br>
         <p>若了解如何給予相似度評價後即可告知研究人員<br>並準備開始實驗</p>
     </div>

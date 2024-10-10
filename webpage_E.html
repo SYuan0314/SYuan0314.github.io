@@ -820,8 +820,8 @@
                                         class="form-control4" placeholder="請輸入關鍵字" autocomplete="off">
                                 </div>
                                 <div class="page_box flex0">
-                                    <input type="submit" name="ctl00$ctl10$btnSearch" value="查詢" id="btnSearch"
-                                        title="查詢" class="btn btn3">
+                                    <input name="ctl00$ctl10$btnSearch" value="查詢" id="btnSearch" title="查詢"
+                                        class="btn btn3">
                                 </div>
                             </div>
 
@@ -859,7 +859,7 @@
                             <ul class="group_list">
                                 <li>
                                     <a href="https://www.moenv.gov.tw/page/614C0D67758AEF2B/4a150501-a852-409a-8cd6-7a432538e6af"
-                                        target="_self">
+                                        target="_blank">
                                         <div class="groupListTop">
                                             <div class="groupListTopL">
                                                 <p class="h5 green_b">廢棄物棄置案件管理系統 </p>
@@ -875,7 +875,7 @@
                                 </li>
                                 <li>
                                     <a href="https://www.moenv.gov.tw/page/614C0D67758AEF2B/a636f4a0-ea15-48d5-800a-b9f9814a263b"
-                                        target="_self">
+                                        target="_blank">
                                         <div class="groupListTop">
                                             <div class="groupListTopL">
                                                 <p class="h5 green_b">土壤及地下水風險分析資訊系統 </p>
@@ -891,7 +891,7 @@
                                 </li>
                                 <li>
                                     <a href="https://www.moenv.gov.tw/page/614C0D67758AEF2B/3ba8e06b-62cd-4811-81bd-ff6fcee55ae4"
-                                        target="_self">
+                                        target="_blank">
                                         <div class="groupListTop">
                                             <div class="groupListTopL">
                                                 <p class="h5 green_b">生活廢棄物質管理資訊系統 </p>
@@ -1063,17 +1063,21 @@
         let pageEnterTime = new Date().toLocaleString(); // 網頁進入時間
 
         document.addEventListener('DOMContentLoaded', function () {
-            document.addEventListener('mouseup', function () {
-                var selection = window.getSelection();
-                var range = selection.getRangeAt(0);
-                var rect = range.getBoundingClientRect();
+            // 監聽所有 <a> 標籤的點擊事件
+            document.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    //event.preventDefault(); // 阻止鏈接的預設跳轉行為
 
-                // 收集選取的內容
-                var content = collectSelectedContent(range);
+                    var rect = this.getBoundingClientRect(); // 獲取 <a> 標籤的位置
+                    var content = {
+                        text: this.textContent.trim(),
+                        images: []  // 如果鏈接中有圖片，你可以加入這部分的處理
+                    };
 
-                if (content) {
-                    showRatingOptions(rect, content, 'mixed');
-                }
+                    if (content.text) {
+                        showRatingOptions(rect, content, 'text'); // 顯示評價選項
+                    }
+                });
             });
         });
 

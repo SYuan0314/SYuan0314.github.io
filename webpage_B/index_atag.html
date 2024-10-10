@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Above 線上第一網站開發課程</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="http://webthemez.com" />
+	<!-- css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+	<link href="css/jcarousel.css" rel="stylesheet" />
+	<link href="css/flexslider.css" rel="stylesheet" />
+	<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" />
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<style>
+		/* 修改后的統計欄樣式 */
+		#statistics {
+			width: 300px;
+			height: 500px;
+			padding: 15px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			position: fixed;
+			bottom: 150px;
+			right: 20px;
+			z-index: 1000;
+			resize: both;
+			overflow: auto;
+			transition: height 0.3s ease;
+		}
+
+		#statistics h3 {
+			text-align: center;
+			color: #4CAF50;
+			margin: 0;
+			padding-bottom: 10px;
+		}
+
+		.stat-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 6px;
+			background-color: #f9f9f9;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.stat-item img {
+			max-width: 50px;
+			height: auto;
+			margin-right: 10px;
+		}
+
+		.stat-item .item-content {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+		}
+
+		.stat-item .item-text {
+			margin-right: 10px;
+			color: #333;
+		}
+
+		.stat-item .item-time {
+			color: #666;
+			font-size: 12px;
+			margin-left: auto;
+		}
+
+		.stat-item button {
+			background-color: #FFA500;
+			border: none;
+			color: white;
+			padding: 5px 10px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 14px;
+			margin-left: 5px;
+			transition: background-color 0.3s ease;
+		}
+
+		.stat-item button:hover {
+			background-color: #FF8C00;
+		}
+
+		.stat-item .delete-button {
+			background-color: #FF6347;
+		}
+
+		.stat-item .delete-button:hover {
+			background-color: #FF4500;
+		}
+
+		#submit-button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 8px;
+			font-size: 16px;
+			cursor: pointer;
+			text-align: center;
+			margin-top: 10px;
+			transition: background-color 0.3s ease;
+		}
+
+		#submit-button:hover {
+			background-color: #45a049;
+		}
+
+		.rating-text {
+			color: red;
+			/* 將 rating 的字體顏色設為紅色 */
+		}
+
+		.toggle-button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 5px 10px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 12px;
+			z-index: 1001;
+			transition: background-color 0.3s ease;
+		}
+
+		.toggle-button:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<!-- start header -->
+		<header>
+			<div class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index.html" target="_blank"><img src="img/logo.png"
+								alt="logo" /></a>
+					</div>
+					<div class="navbar-collapse collapse ">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="IIndex.html" target="_blank">Home</a></li>
+							<li><a href="about.html" target="_blank">關於我們</a></li>
+							<li><a href="courses.html" target="_blank">課程介紹</a></li>
+							<li><a href="pricing.html" target="_blank">課程訂閱</a></li>
+							<li><a href="portfolio.html" target="_blank">歷屆學員專案展示</a></li>
+							<li><a href="contact.html" target="_blank">聯絡我們</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+		<section id="featured">
+
+			<!-- Slider -->
+			<div id="main-slider" class="flexslider">
+				<ul class="slides">
+					<li>
+						<img src="img/slides/1.jpg" alt="" />
+						<div class="flex-caption">
+							<div class="item_introtext">
+								<strong>迅速掌握</strong>
+								<p>前端與後端開發技術</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="img/slides/2.jpg" alt="" />
+						<div class="flex-caption">
+							<div class="item_introtext">
+								<strong>遠端教學</strong>
+								<p>自由安排學習進度</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="img/slides/3.jpg" alt="" />
+						<div class="flex-caption">
+							<div class="item_introtext">
+								<strong>專案開發</strong>
+								<p><a href="./portfolio.html" target="_blank"
+										style="color: inherit; text-decoration: none;">實際應用所學</a></p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- end slider -->
+
+		</section>
+		<section class=" callaction">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="aligncenter">
+							<h1 class="aligncenter">課程特色</h1>
+							<h4>
+								想學會打造專業網站嗎？別再等待！我們的網頁開發課程將帶你從零開始，讓你掌握前後端技術，成為真正的開發高手！<br>
+								不論你是新手還是想提升技能的開發者，這是你進階的最佳選擇！立即報名，改變你的職業生涯！</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="content">
+
+
+			<div class="container">
+				<div class="row">
+					<div class="skill-home">
+						<div class="skill-home-solid clearfix">
+							<div class="col-md-3 text-center">
+								<span class="icons c1"><i class="fa fa-trophy"></i></span>
+								<div class="box-area" style="position: relative; z-index: 10;">
+									<h3>前端開發</h3>
+									<p style="position: relative; z-index: 12;">
+										學習 HTML、CSS、JavaScript 等技術，掌握網頁設計、使用者介面（UI）和使用者體驗（UX）的開發技能，打造響應式和互動性強的網站。</p>
+								</div>
+							</div>
+							<div class="col-md-3 text-center">
+								<span class="icons c2"><i class="fa fa-picture-o"></i></span>
+								<div class="box-area">
+									<h3>後端開發</h3>
+									<p style="position: relative; z-index: 12;">
+										學習伺服器端語言如 Node.js、Python、Ruby 等，掌握數據庫管理、API 開發和伺服器配置，確保網站功能穩定性。</p>
+								</div>
+							</div>
+							<div class=" col-md-3 text-center">
+								<span class="icons c3"><i class="fa fa-desktop"></i></span>
+								<div class="box-area">
+									<h3>全端整合</h3>
+									<p style="position: relative; z-index: 12;">學習前後端的整合技術，包括RESTful
+										API 的設計與串接、DevOps 實踐，掌握將前端與後端無縫結合的能力。</p>
+								</div>
+							</div>
+							<div class="col-md-3 text-center">
+								<span class="icons c4">
+									<a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-tw"
+										target="_blank">
+										<img src="img/image_white.png" alt="SEO" style="width: 70px;">
+									</a>
+								</span>
+								<div class="box-area">
+									<h3>資安與 SEO 優化</h3>
+									<p style="position: relative; z-index: 12;">
+										著重於學習網站安全防護技術、性能優化、Google SEO 優化，以及抵禦常見網絡攻擊，以保證並維持網站安全性。
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		<div class=" testimonial-area">
+			<div class="testimonial-solid">
+				<div class="container">
+					<div class="testi-icon-area">
+						<div class="quote">
+							<i class="fa fa-microphone"></i>
+						</div>
+					</div>
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="">
+								<a href="#"></a>
+							</li>
+							<li data-target="#carousel-example-generic" data-slide-to="1" class="">
+								<a href="#"></a>
+							</li>
+							<li data-target="#carousel-example-generic" data-slide-to="2" class="active">
+								<a href="#"></a>
+							</li>
+							<li data-target="#carousel-example-generic" data-slide-to="3" class="">
+								<a href="#"></a>
+							</li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item">
+								<p>這門課程真的超出了我的預期。前端課程不僅僅是學習基本的HTML、CSS 和 JavaScript，而是深入探討如何創造出色的用戶體驗，讓我真正理解了 UI／UX
+									的重要性。<br>後端課程則讓我從一個對伺服器技術一無所知的初學者，變成能夠獨立設計和管理複雜系統的開發者。
+								</p>
+								<p>
+									<b>- 歷屆學員１ -</b>
+								</p>
+							</div>
+							<div class="item">
+								<p>全端整合部分真的是一個挑戰，但也是最有成就感的部分。學會如何將前端和後端結合，並且確保它們能夠協同工作。<br>這讓我覺得自己像是一名真正的工程師，能夠從零開始打造完整的應用。
+								</p>
+								<p>
+									<b>- 歷屆學員２ -</b>
+								</p>
+							</div>
+							<div class="item active">
+								<p>這門課程讓我全面掌握了網站開發的各個環節，從前、後端技術和網站安全，教學內容實用且深入。讓我從初學者成長為能獨立完成整個開發流程的全端開發工程師，收獲相當豐厚。
+								</p>
+								<p>
+									<b>- 歷屆學員３ -</b>
+								</p>
+							</div>
+							<div class="item">
+								<p>SEO與資安課程非常實用，講師對於如何提升網站的搜索引擎排名有獨到見解。<br>現在工作中最常用的就是後期資安相關課程，這門課讓我為目前工作打下基礎。
+								</p>
+								<p>
+									<b>- 歷屆學員４ -</b>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="courses">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="aligncenter">
+							<h2 class="aligncenter">六項學員專屬服務</h1><span class="clear spacer_responsive_hide_mobile "
+									style="height:13px;display:block;"></span>在課程有效期限內，學員均享有六項專屬服務，全方位支持您的學習與專題製作。
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>專案諮詢</h3>
+							<p>學員每周可預約與指定導師進行一對一的專案諮詢，獲得實際開發中的技術指導。</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>持續學習資源更新</h3>
+							<p>學員可以免費獲取最新的學習資源與教材，保持技術與時俱進。</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>社群支持與交流</h3>
+							<p>加入專屬學員社群，隨時與其他開發者學員交流經驗、討論問題，形成學習共同體。</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>網站性能診斷</h3>
+							<p>提供免費的網站性能診斷服務，幫助學員優化自己開發的網站，提升速度和SEO效果。</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>安全漏洞檢測</h3>
+							<p>為學員提供網站安全漏洞的免費檢測服務，確保所學技術應用後的網站安全無虞。
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="textbox">
+							<h3>就業輔導與推薦</h3>
+							<p>提供專業的求職輔導與面試技巧指導，並推薦優質企業，助學員順利進入職場。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">聯絡資訊</h5>
+							<address>
+								<strong>Abovecompany Inc</strong><br>
+								106319 <br>臺北市大安區羅斯福路四段一號
+							</address>
+							<p>
+								<i class="icon-phone"></i> 02-3366-3366
+								<br>
+								<i class="icon-envelope-alt"></i> contactus@abovecompany.com
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">相關內容</h5>
+							<ul class="link-list">
+								<li><a href="Student Services.html" target="_blank">學員服務</a></li>
+								<li><a href="Terms and conditions.html" target="_blank">使用條款</a>
+								</li>
+								<li><a href="Privacy policy.html" target="_blank">隱私政策</a></li>
+								<li><a href="FAQ.html" target="_blank">常見問題</a></li>
+								<li><a href="contact.html" target="_blank">聯絡我們</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">專家觀點</h5>
+							<ul class="link-list">
+								<li><a href="news1.html" target="_blank">UI 新趨勢
+									</a></li>
+								<li><a href="news2.html" target="_blank">
+										工具與資源</a></li>
+								<li><a href="news3.html" target="_blank">近期設計趨勢</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">最新消息</h5>
+							<ul class="link-list">
+								<li><a href="news4.html" target="_blank">即將更新：Python 依賴套件供應鏈攻擊與預防</a></li>
+								<li><a href="news5.html" target="_blank">行業新聞：最新網頁設計趨勢解讀</a></li>
+								<li><a href="news6.html" target="_blank">免費線上講座：Web 技術的應用物聯網設備即時數據可視化，名額有限！</a>
+								<li><a href="news7.html" target="_blank">課程網站升級：個性化學習進度追蹤全新上線</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="sub-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="copyright">
+								<p>
+									<span>&copy; Above Site All right reserved. Template
+										By </span><a href="https://github.com/learning-zone/website-templates/"
+										target="_blank">learning-zone</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- 修改后的統計欄 -->
+	<div id="statistics">
+		<button class="toggle-button" onclick="toggleStatistics()">縮小</button>
+		<h3>統計欄</h3>
+		<div id="selected-items"></div>
+		<button id="submit-button" onclick="submitStatistics()">送出</button>
+	</div>
+
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.fancybox.pack.js"></script>
+	<script src="js/jquery.fancybox-media.js"></script>
+	<script src="js/portfolio/jquery.quicksand.js"></script>
+	<script src="js/portfolio/setting.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/owl-carousel/owl.carousel.js"></script>
+	<script>
+		let isMinimized = false;
+
+		function toggleStatistics() {
+			const statistics = document.getElementById('statistics');
+			const toggleButton = document.querySelector('.toggle-button');
+
+			if (isMinimized) {
+				statistics.style.height = '500px';
+				toggleButton.textContent = '縮小';
+				isMinimized = false;
+			} else {
+				statistics.style.height = '50px';
+				toggleButton.textContent = '展開';
+				isMinimized = true;
+			}
+		}
+
+		let pageEnterTime = new Date().toLocaleString(); // 網頁進入時間
+
+		document.addEventListener('DOMContentLoaded', function () {
+			// 監聽所有 <a> 標籤的點擊事件
+			document.querySelectorAll('a').forEach(function (link) {
+				link.addEventListener('click', function (event) {
+					//event.preventDefault(); // 阻止鏈接的預設跳轉行為
+
+					var rect = this.getBoundingClientRect(); // 獲取 <a> 標籤的位置
+					var content = {
+						text: this.textContent.trim(),
+						images: []  // 如果鏈接中有圖片，你可以加入這部分的處理
+					};
+
+					if (content.text) {
+						showRatingOptions(rect, content, 'text'); // 顯示評價選項
+					}
+				});
+			});
+		});
+
+		function collectSelectedContent(range) {
+			var content = {
+				text: '',
+				images: []
+			};
+
+			var fragment = range.cloneContents();
+			var walker = document.createTreeWalker(fragment, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null, false);
+
+			while (walker.nextNode()) {
+				var node = walker.currentNode;
+
+				if (node.nodeType === Node.TEXT_NODE) {
+					content.text += node.textContent.trim() + ' ';
+				} else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'IMG') {
+					content.images.push(node.src);
+				}
+			}
+
+			content.text = content.text.trim();
+			return content.text.length > 0 || content.images.length > 0 ? content : null;
+		}
+
+		function showRatingOptions(rect, content, type) {
+			var ratingContainer = document.createElement('div');
+			ratingContainer.classList.add('rating-container');
+
+			var select = document.createElement('select');
+			var defaultOption = document.createElement('option');
+			defaultOption.textContent = '選擇相關性';
+			defaultOption.disabled = true;
+			defaultOption.selected = true;
+			select.appendChild(defaultOption);
+
+			var options = ['非常相關', '可能相關', '不確定', '可能不相關', '非常不相關', '連結毀損/回應逾時'];
+			options.forEach(function (optionText) {
+				var option = document.createElement('option');
+				option.value = optionText;
+				option.textContent = optionText;
+				select.appendChild(option);
+			});
+
+			ratingContainer.appendChild(select);
+			document.body.appendChild(ratingContainer);
+
+			// 確保位置正確並提高 z-index
+			ratingContainer.style.position = 'absolute';
+			ratingContainer.style.zIndex = '10000'; // 提高 z-index
+			ratingContainer.style.left = (rect.left + window.scrollX) + 'px';
+			ratingContainer.style.top = (rect.bottom + window.scrollY) + 'px';
+
+			// 檢查並調整位置以確保在可見範圍內
+			var containerRect = ratingContainer.getBoundingClientRect();
+			if (containerRect.bottom > window.innerHeight) {
+				ratingContainer.style.top = (rect.top + window.scrollY - containerRect.height) + 'px';
+			}
+			if (containerRect.right > window.innerWidth) {
+				ratingContainer.style.left = (rect.right + window.scrollX - containerRect.width) + 'px';
+			}
+
+			select.addEventListener('mousedown', function () {
+				isClickInside = true;
+			});
+
+			select.addEventListener('change', function () {
+				var selectedRating = this.value;
+				if (selectedRating) {
+					addToStatistics(content, selectedRating, type);
+					document.body.removeChild(ratingContainer);
+					console.log('Rating container removed.');
+					document.removeEventListener('click', handleClickOutside);
+				}
+			});
+
+			let isClickInside = false;
+
+			setTimeout(function () {
+				document.addEventListener('click', handleClickOutside);
+			}, 0);
+
+			function handleClickOutside(event) {
+				if (!ratingContainer.contains(event.target)) {
+					document.body.removeChild(ratingContainer);
+					console.log('Rating container removed due to outside click.');
+					document.removeEventListener('click', handleClickOutside);
+				}
+			}
+		}
+
+		function addToStatistics(content, rating, type) {
+			var statistics = document.getElementById('selected-items');
+
+			var item = document.createElement('div');
+			item.classList.add('stat-item');
+			var itemContent = document.createElement('div');
+			itemContent.classList.add('item-content');
+
+			var itemText = document.createElement('span');
+			itemText.classList.add('item-text');
+
+			if (type === 'mixed') {
+				if (content.text.length > 0) {
+					itemText.innerHTML = content.text + ' - <span class="rating-text">相關性: ' + rating + '</span>';
+				}
+
+				if (content.images.length > 0) {
+					content.images.forEach(function (src) {
+						var img = document.createElement('img');
+						img.src = src;
+						img.alt = '已選擇的圖片';
+						itemText.appendChild(img);
+					});
+					itemText.innerHTML += ' - <span class="rating-text">相關性: ' + rating + '</span>';
+				}
+			} else if (type === 'image') {
+				itemText.innerHTML = '<img src="' + content.src + '" alt="已選擇的圖片"> - <span class="rating-text">相關性: ' + rating + '</span>';
+			} else {
+				itemText.innerHTML = content.text + ' - <span class="rating-text">相關性: ' + rating + '</span>';
+			}
+
+			var itemTime = document.createElement('span');
+			itemTime.classList.add('item-time');
+			itemTime.textContent = '時間: ' + new Date().toLocaleString();
+
+			var deleteButton = document.createElement('button');
+			deleteButton.textContent = '刪除';
+			deleteButton.classList.add('delete-button');
+			deleteButton.addEventListener('click', function () {
+				statistics.removeChild(item);
+			});
+
+			itemContent.appendChild(itemText);
+			item.appendChild(itemContent);
+			item.appendChild(itemTime); // 添加時間標記
+			item.appendChild(deleteButton);
+
+			statistics.appendChild(item);
+		}
+
+		function submitStatistics() {
+			var statistics = document.getElementById('selected-items');
+			var items = statistics.querySelectorAll('.stat-item');
+			var data = [];
+
+			items.forEach(function (item) {
+				var textContent = item.querySelector('.item-text').textContent;
+				var images = [];
+				item.querySelectorAll('img').forEach(function (img) {
+					images.push(img.src);
+				});
+				var timeContent = item.querySelector('.item-time').textContent;
+				data.push({
+					content: textContent,
+					images: images,
+					time: timeContent
+				});
+			});
+
+			var submitTime = new Date().toLocaleString(); // 送出時間
+
+			var jsonData = {
+				pageEnterTime: pageEnterTime,
+				submitTime: submitTime,
+				data: data
+			};
+
+			var json = JSON.stringify(jsonData, null, 2);
+			var blob = new Blob([json], { type: 'application/json' });
+			var url = URL.createObjectURL(blob);
+
+			var a = document.createElement('a');
+			a.href = url;
+			a.download = 'Webpage_B.json';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+
+			// 跳轉到 /index.html
+			window.location.href = './index.html';
+		}
+	</script>
+</body>
+
+</html>
